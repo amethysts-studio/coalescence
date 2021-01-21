@@ -1,0 +1,102 @@
+MORTS
+
+1 DEGENERESCENCE - suicide en anticipation à son exécution suite au vote 2 (vote contre lui)
+1bis DEGENERESCENCE - suicide en anticipation à son exécution suite au vote 2 (car a trahi Isaac)
+1ter DEGENERESCENCE - suicide à la place de tuer quelqu'un lors de son élection en tant que Bourreau au vote 4
+2 DEMENCE - se fait tuer à cause de son élection au vote 2 (vote contre lui)
+2bis DEMENCE - se fait tuer parce qu'il a voté contre lui-même au vote 2 (car a trahi Isaac)
+3 VIOLENCE - Se fait tuer par Alan suite au vote 2
+4 URGENCE - 
+5 DIFFERENCE - Piège du Bourreau avec Lise qui se retourne contre nous
+6 PESTILENCE - mort mutuelle de Kurt et Leonhard (empalé sur le stylo/empoisonné) (vote 4)
+7 IMPRUDENCE - mort tué par Erwin (vote 4)
+8 NEGLIGENCE - mort tué par Johann (vote 4)
+9 INCANDESCENCE - Mort tué par la bombe de Lise
+10
+11 CONFLUENCE - se mêle du combat Erwin-Johann ou Erwin-Leonhard du vote 5
+
+
+FINS
+
+0 PROVIDENCE - Vraie fin
+1 OMNIPOTENCE - Déchirure Erwin Lise : Sortir seul
+2 CLEMENCE - Déchirure Erwin Lise : Sortir avec Johann
+3 CONNIVENCE - Déchirure Erwin Lise : Sortir avec Isaac
+#4 IMPATIENCE - Déchirure Erwin Lise : Tuer Lise ou Erwin alors que les deux sont condamnés à s'entre-tuer
+5 CONSEQUENCE - Chimistes : se propose
+x RESURGENCE - Piège Lise
+
+
+ABSENCE 
+ACESCENCE est l'état d'un vin malade, qui prend le chemin du vinaigre (acescence acétique).
+AMBIVALENCE 
+APPARENCE 
+APPETENCE 
+ARBORESCENCE 
+ASTRINGENCE Se dit d'une substance qui resserre et assèche les tissus, et peut faciliter leur cicatrisation.
+Se dit d'un vin trop chargé en tanins et qui resserre les papilles gustatives.
+AUDIENCE
+CADENCE 
+CARENCE 
+4 CLEMENCE 
+COHERENCE 
+COINCIDENCE fin troll
+CONCRESCENCE Soudure (normale) de deux organes végétaux qui ont poussé côte à côte.
+CONCUPISCENCELittéraire. Attrait naturel vers les biens matériels, terrestres, et en particulier penchant aux plaisirs sensuels
+CONCURRENCE 
+CONFLUENCE 
+CONGRUENCE
+CONNIVENCE 
+CONSCIENCE 
+CONSEQUENCE 
+CONTINGENCE
+CONVALESCENCE 
+CONVERGENCE 
+DECADENCE 
+-1 DEGENERESCENCE 
+DELIQUESCENCE
+-2 DEMENCE 
+DIFFERENCE 
+DISSIDENCE 
+DIVERGENCE 
+ELOQUENCE
+EMERGENCE 
+ESSENCE 
+EVANESCENCE 
+EVIDENCE
+EXISTENCE 
+EXPERIENCE 
+IMMINENCE 
+-3 IMPATIENCE 
+-7 IMPRUDENCE 
+IMPUDENCE 
+-9 INCANDESCENCE 
+INCONSCIENCE 
+INNOCENCE 
+LATENCE 
+-8 NEGLIGENCE
+OBSOLESCENCE 
+OMNIPOTENCE 
+PATIENCE 
+-6 PESTILENCE 
+PRESCIENCE 
+0 PROVIDENCE
+PRUDENCE 
+QUINTESSENCE 
+RECOMMENCE 
+RECURRENCE 
+REMANENCE 
+REMINISCENCE 
+4 RESURGENCE
+REVERENCE 
+SENTENCE 
+SILENCE 
+TUMESCENCE 
+TURGESCENCE loool
+ULTRAVIOLENCE 
+-4 URGENCE
+VEHEMENCE 
+-3 VIOLENCE 
+VIRULENCE 
+
+

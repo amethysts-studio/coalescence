@@ -1,0 +1,71 @@
+Id,Nom,Code Fin,Description
+24,CONVERGENCE ,-9,5e vote : Tué par Erwin
+47,NEGLIGENCE,-8,4e vote : tué par Johann
+41,IMPRUDENCE ,-7,4e vote : tué par Erwin
+51,PESTILENCE ,-6,4e vote : tué par Leonhard
+29,DIFFERENCE ,-5,Piège Lise : Kurt contre-piégé
+69,VIOLENCE ,-3,2e vote : tué par Alan
+28,DEMENCE ,-2,2e vote : élu 
+26,DEGENERESCENCE ,-1,Suicide (diverses manières)
+19,CONNIVENCE ,1,Déchirure Erwin Lise : Sortir avec Isaac
+11,CLEMENCE ,2,Déchirure Erwin Lise : Sortir avec Johann
+49,OMNIPOTENCE ,3,Déchirure Erwin Lise : Sortir seul
+40,IMPATIENCE ,4,Déchirure Erwin Lise : Tuer Lise ou Erwin alors que les deux sont condamnés à s'entre-tuer
+21,CONSEQUENCE ,5,Chimistes : se propose
+60,RESURGENCE,5,Piège Lise : Bourreau piégé
+66,ULTRAVIOLENCE ,6,"Chimistes : ne se propose pas, Johann caché aide à tuer le Bourreau"
+30,DISSIDENCE ,7,Chimistes : lise tuée
+17,CONFLUENCE ,8,Décision : sauve 3 et tue le Bourreau
+37,EXISTENCE ,9,Décision : sauve 2 sans tuer le Bourreau
+1,ABSENCE ,,
+2,"ACESCENCE (est l'état d'un vin malade, qui prend le chemin du vinaigre (acescence acétique))",,
+3,AMBIVALENCE ,,
+4,APPARENCE ,,
+5,APPETENCE ,,
+6,ARBORESCENCE ,,
+7,"ASTRINGENCE Se dit d'une substance qui resserre et assèche les tissus, et peut faciliter leur cicatrisation. Se dit d'un vin trop chargé en tanins et qui resserre les papilles gustatives.",,
+8,AUDIENCE,,
+9,CADENCE ,,
+10,CARENCE ,,
+12,COHERENCE ,,
+13,COINCIDENCE fin troll,,
+14,CONCRESCENCE Soudure (normale) de deux organes végétaux qui ont poussé côte à côte.,,
+15,"CONCUPISCENCELittéraire. Attrait naturel vers les biens matériels, terrestres, et en particulier penchant aux plaisirs sensuels",,
+16,CONCURRENCE ,,
+18,CONGRUENCE,,
+20,CONSCIENCE ,,
+22,CONTINGENCE,,
+23,CONVALESCENCE ,,
+25,DECADENCE ,,
+27,DELIQUESCENCE,,
+31,DIVERGENCE ,,
+32,ELOQUENCE,,
+33,EMERGENCE ,,
+34,ESSENCE ,,
+35,EVANESCENCE ,,
+36,EVIDENCE,,
+38,EXPERIENCE ,,
+39,IMMINENCE ,,
+42,IMPUDENCE ,,
+43,-9 INCANDESCENCE ,,
+44,INCONSCIENCE ,,
+45,INNOCENCE ,,
+46,LATENCE ,,
+48,OBSOLESCENCE ,,
+50,PATIENCE ,,
+52,PRESCIENCE ,,
+53,0 PROVIDENCE,,
+54,PRUDENCE ,,
+55,QUINTESSENCE ,,
+56,RECOMMENCE ,,
+57,RECURRENCE ,,
+58,REMANENCE ,,
+59,REMINISCENCE ,,
+61,REVERENCE ,,
+62,SENTENCE ,,
+63,SILENCE ,,
+64,TUMESCENCE ,,
+65,TURGESCENCE loool,,
+67,-4 URGENCE,,
+68,VEHEMENCE ,,
+70,VIRULENCE ,,
