@@ -96,11 +96,6 @@ label splashscreen:
         play music "music/Main_theme.ogg" fadein 5.0
         scene new_main_screen_fond with griffesdissolve
         nvl clear
-        #show text "De me venger." at truecenter as texte:
-        ##    size 32 
-        ##$ renpy.pause(1.0)
-        #hide texte at dissolve
-        nvl clear
         show head with dissolve
     else:
         scene new_main_screen_fond with griffesdissolve

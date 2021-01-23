@@ -748,71 +748,71 @@ translate english strings:
 
     # game/src/initialisation.rpy:68
     old "Beaucoup de journaux parlent de moi. A vrai dire, avec mon compte {b}Twitter{/b}, je suis un peu une star locale.\n120 000 followers, c'est plus de 10 fois la population de ma ville !\nLe Bourreau a une collection impressionnante de tweets parlant de moi."
-    new "Beaucoup de journaux parlent de moi. A vrai dire, avec mon compte {b}Twitter{/b}, je suis un peu une star locale.\n120 000 followers, c'est plus de 10 fois la population de ma ville !\nLe Bourreau a une collection impressionnante de tweets parlant de moi."
+    new "A lot of newspapers are talking about me. In truth, with my {b}Twitter{/b} account, I'm a local celebrity.\n120,000 followers, that's more than 10 times the population of my town. !\nThe Executioner has an impressive collection of tweets about me."
 
     # game/src/initialisation.rpy:68
     old "Le {i}Bourreau{/i} collectionne un nombre incroyable de Tweets. La plupart sont imprimés et glissés dans le dossier Kurt (mais qui {i}imprime{/i} des tweets ?).\n\nUn fil de discussion est particulièrement mis en valeur. Je me souviens encore de celui-là. Il s'agit d'un thread commençant par un meme homophobe que j'avais fait, montrant ma tête. Un utilisateur, @{b}KLosAngeles{/b}, avait cru se reconnaître sur la photo, un peu floue, et croyait que je me moquais de lui. Simple quiproquo au début, et je lui ai précisé que c'était bien moi-même sur la photo.\n\nMais il se trouve que {b}KLosAngeles{/b} était gay, ce qui n'arrangeait pas les choses, parce que ma blague était offensante pour lui de toute façon...  Cela m'a valu une bonne engueulade avec un certain @{b}EsperoGaja393{/b} qui défendait ce dernier. Heureusement, ça c'est bien terminé et personne ne se sentait blessé après quelques explications en MP. Bref, un quiproquo qui a dégénéré en débat sur le droit de rire de tout ou non, même si ça peut offenser certains.\n\nPourquoi le Bourreau a gardé ce fil de discussion en particulier ?"
-    new "Le {i}Bourreau{/i} collectionne un nombre incroyable de Tweets. La plupart sont imprimés et glissés dans le dossier Kurt (mais qui {i}imprime{/i} des tweets ?).\n\nUn fil de discussion est particulièrement mis en valeur. Je me souviens encore de celui-là. Il s'agit d'un thread commençant par un meme homophobe que j'avais fait, montrant ma tête. Un utilisateur, @{b}KLosAngeles{/b}, avait cru se reconnaître sur la photo, un peu floue, et croyait que je me moquais de lui. Simple quiproquo au début, et je lui ai précisé que c'était bien moi-même sur la photo.\n\nMais il se trouve que {b}KLosAngeles{/b} était gay, ce qui n'arrangeait pas les choses, parce que ma blague était offensante pour lui de toute façon...  Cela m'a valu une bonne engueulade avec un certain @{b}EsperoGaja393{/b} qui défendait ce dernier. Heureusement, ça c'est bien terminé et personne ne se sentait blessé après quelques explications en MP. Bref, un quiproquo qui a dégénéré en débat sur le droit de rire de tout ou non, même si ça peut offenser certains.\n\nPourquoi le Bourreau a gardé ce fil de discussion en particulier ?"
+    new "The {i}Executioner{/i} collects an incredible number of Tweets. Most of them are printed and dragged into the Kurt folder (but who {i}prints{/i} tweets?).\n\nA thread is particularly highlighted. I still remember this one. It's a thread starting with a homophobic meme I had made, showing my head. A user, @{b}KLosAngeles{/b}, thought he recognized himself in the picture, a little blurred, and thought I was making fun of him. Just a misunderstanding at first, and I told him it was me in the picture. But it turns out {b}KLosAngeles{/b} was gay, which didn't help matters, because my joke was offensive to him anyway...  That got me into a good fight with a certain @{b}EsperoGaja393{/b} who defended him. Luckily, it ended well and no one felt hurt after a few MP explanations. In short, a misunderstanding that degenerated into a debate on the right to laugh at everything or not, even if it may offend some people. \n\nWhy did the Executioner keep this particular thread?"
 
     # game/src/initialisation.rpy:68
     old "La famille Liebert est une riche famille allemande, très conservatrice. Sa richesse vient d'un héritage conséquent d'un aïeul, mais les membres vivants de la famille n'ont pas de gros revenus déclarés. Des conflits internes auraient éclatés entre 2 sœurs de la famille, {b}Rosalind{/b} et {b}Stéphanie{/b}, en Juillet 2013, selon un paparazzi. Ce dernier a réalisé un reportage intitulé {i}LA FOLLE CHUTE DES LIEBERT{/i}, traçant l'histoire de la famille. Le \"reportage\" en question (si on pouvait qualifier par un tel mot ce type de journalisme de bas niveau) n'a d'ailleurs jamais été publié : seulement des traces et brouillons de celui-ci sont disponibles dans la salle d'archives.\n\nLes services secrets aussi ont enquêté sur cette famille aux activités pas toujours légales, malgré le penchant religieux conservateur de certains membres.\n\nComment le Bourreau a-t-il eu accès à tout ça ?"
-    new "La famille Liebert est une riche famille allemande, très conservatrice. Sa richesse vient d'un héritage conséquent d'un aïeul, mais les membres vivants de la famille n'ont pas de gros revenus déclarés. Des conflits internes auraient éclatés entre 2 sœurs de la famille, {b}Rosalind{/b} et {b}Stéphanie{/b}, en Juillet 2013, selon un paparazzi. Ce dernier a réalisé un reportage intitulé {i}LA FOLLE CHUTE DES LIEBERT{/i}, traçant l'histoire de la famille. Le \"reportage\" en question (si on pouvait qualifier par un tel mot ce type de journalisme de bas niveau) n'a d'ailleurs jamais été publié : seulement des traces et brouillons de celui-ci sont disponibles dans la salle d'archives.\n\nLes services secrets aussi ont enquêté sur cette famille aux activités pas toujours légales, malgré le penchant religieux conservateur de certains membres.\n\nComment le Bourreau a-t-il eu accès à tout ça ?"
+    new "The Liebert family is a rich German family, very conservative. Its wealth comes from a substantial inheritance from a grandfather, but the living members of the family do not have a large declared income. Internal conflicts are said to have broken out between two sisters of the family, {b}Rosalind{/b} and {b}Stephanie{/b}, in July 2013, according to a paparazzi. The latter made a report entitled {i}THE FALL OF THE LIEBERTS{/i}, tracing the history of the family. The \"report\" in question (if one could call this type of low-level journalism) was never published: only traces and drafts of it are available in the archive room. \n\nThe secret service also investigated this family, whose activities were not always legal, despite the conservative religious leanings of some members. \n\nHow did the executioner have access to all this?"
 
     # game/src/initialisation.rpy:146
     old "Une clé USB ordinaire"
-    new "Une clé USB ordinaire"
+    new "An ordinary USB key"
 
     # game/src/initialisation.rpy:146
     old "Des lettres sont gravées sur la clé USB :\n\n {i}CXVL{/i}\n\nLorsque la clé avait été insérée dans la tablette, un dossier nommé {i}Hibou{/i} était ressorti du lot, étant beaucoup plus lourd que les autres."
-    new "Des lettres sont gravées sur la clé USB :\n\n {i}CXVL{/i}\n\nLorsque la clé avait été insérée dans la tablette, un dossier nommé {i}Hibou{/i} était ressorti du lot, étant beaucoup plus lourd que les autres."
+    new "Letters are engraved on the USB key :\n\n {i}CXVL{/i} \n\nWhen the key was inserted in the tablet, a folder named {i}Owl{/i} stood out from the lot, being much heavier than the others."
 
     # game/src/initialisation.rpy:146
     old "Inspecter"
-    new "Inspecter"
+    new "Inspect"
 
     # game/src/initialisation.rpy:146
     old "À utiliser avec la lampe torche"
-    new "À utiliser avec la lampe torche"
+    new "To use with the flashlight"
 
     # game/src/initialisation.rpy:146
     old "Pour éclairer les coins sombres. \n\nElle marche à l'aide d'une batterie.\nLa mienne n'est pas très chargée mais elle fait l'affaire.\n\nLe compartiment batterie à l'air amovible."
-    new "Pour éclairer les coins sombres. \n\nElle marche à l'aide d'une batterie.\nLa mienne n'est pas très chargée mais elle fait l'affaire.\n\nLe compartiment batterie à l'air amovible."
+    new "To lighten dark corners. \n\nIt works with a battery.\nMine is not very charged, but it does the job.\n\nThe battery compartment is removable."
 
     # game/src/initialisation.rpy:146
     old "Dans le compartiment batterie est caché un papier, plié en deux.\nIl est griffonné : {i}N'oublie pas Ismaël{/i}"
-    new "Dans le compartiment batterie est caché un papier, plié en deux.\nIl est griffonné : {i}N'oublie pas Ismaël{/i}"
+    new "In the battery compartment is hidden a paper, folded in two. It is scribbled: {i} Do not forget Ismaël{/i}"
 
     # game/src/initialisation.rpy:146
     old "Ouvrir"
-    new "Ouvrir"
+    new "Open"
 
     # game/src/initialisation.rpy:146
     old "Un petit couteau de cuisine \nbien aiguisé"
-    new "Un petit couteau de cuisine \nbien aiguisé"
+    new "A small kitchen knife \nbrightly sharpened"
 
     # game/src/initialisation.rpy:146
     old "La lumière vacillante ne permet pas de le remarquer tout de suite, mais le couteau est finement taillé."
-    new "La lumière vacillante ne permet pas de le remarquer tout de suite, mais le couteau est finement taillé."
+    new "The flickering light doesn't allow you to notice it right away, but the knife is finely carved."
 
     # game/src/initialisation.rpy:146
     old "Fiole de Poison"
-    new "Fiole de Poison"
+    new "Poison Vial"
 
     # game/src/initialisation.rpy:146
     old "De la toxine botulique, un agent paralysant. L'effet est quasi immédiat et dure longtemps."
-    new "De la toxine botulique, un agent paralysant. L'effet est quasi immédiat et dure longtemps."
+    new "Botulinum toxin, a paralyzing agent. The effect is almost immediate and lasts a long time."
 
     # game/src/initialisation.rpy:146
     old "Lecteur MP3"
-    new "Lecteur MP3"
+    new "MP3 Player"
 
     # game/src/initialisation.rpy:146
     old "Un lecteur MP3 vert, avec des écouteurs.\n\nIl a été fréquemment utilisé : de nombreuses traces d'usure témoignent d'un usage intensif. L'écran luit encore d'un halo bleuté.\n\nIl marche peut-être encore."
-    new "Un lecteur MP3 vert, avec des écouteurs.\n\nIl a été fréquemment utilisé : de nombreuses traces d'usure témoignent d'un usage intensif. L'écran luit encore d'un halo bleuté.\n\nIl marche peut-être encore."
+    new "A green MP3 player with earphones.\n\nIt has been used frequently: many traces of wear and tear are evidence of intensive use. The screen still glows blue.\n\nIt may still be working."
 
     # game/src/initialisation.rpy:146
     old "Le MP3 indique le titre suivant:\n\n\n   {i}King xf the D34D{/i}"
-    new "Le MP3 indique le titre suivant:\n\n\n   {i}King xf the D34D{/i}"
+    new "The MP3 indicates the following title:\n\n\n   {i}King xf the D34D{/i}"
 
 # TODO: Translation updated at 2021-01-18 10:49
 
