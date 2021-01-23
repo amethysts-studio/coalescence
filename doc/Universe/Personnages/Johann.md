@@ -29,6 +29,6 @@ Il adore enquêter et réfléchir : les énigmes, c’est son truc. Il aide d’
 
 ## Description physique
 
-Emmy est petite, blonde et jolie. Élégante, elle ressemble à une première de classe. Elle a 15 ans, ce qui en fait le personnage le plus jeune du Jeu.C’est une fille vraiment jolie. Dans le sens plus «belle» que «mignonne», ses traits étant plus fins que ronds. Elle est blonde et aime porter des habits de petite fille sage. Malgré cela, elle a un visage déterminé et un peu «fermé». Elle n’est pas du genre à se laisser faire, contrairement à ce qu’elle veut laisser paraître (elle joue de sa situation). Elle ressemble plutôt à Isaac, version «fille».
+Blond, grand, droit, des lunettes. Il à l'air sûr de lui, limite arrogant.
 
 ![portrait de johann](../Creations/Portraits/Johann.png)

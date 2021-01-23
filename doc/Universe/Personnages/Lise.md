@@ -26,15 +26,3 @@ Née de père français et mère espagnole, elle passe 11 ans en Espagne puis r�
 ## Description physique
 
 Elle a la peau mate, des cheveux bruns, pas de rouge à lèvres mais elles sont naturellement foncées. Elle a les yeux plus fins que ceux d'Emmy, très noirs et l'air espiègle. Elle est chimiste comme Erwin, a une blouse comme lui, et un T-shirt avec un léger décolleté (pas exagéré). 
-
-## Images pour inspiration
-
-Couleur et coiffure des cheveux, couleur de peau
-
-![Épinglé sur Cheveux](https://i.pinimg.com/originals/fa/a3/e8/faa3e8f3b3cf5e87d3143b99beba0c15.jpg)
-
-Le côté chimiste, les sourcils fins et les lèvres pincées
-
-![https://www.pharmaceutique.ca/content/uploads/2017/08/Chimiste.jpg](https://www.pharmaceutique.ca/content/uploads/2017/08/Chimiste.jpg)
-
-Honnêtement je ne trouve pas beaucoup d'exemples de *dessin* de latina en ligne mais j'espère que la description textuelle et les images vous aideront suffisamment ! Sinon, n'hésitez pas à me demander.
