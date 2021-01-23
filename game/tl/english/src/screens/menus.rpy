@@ -142,18 +142,6 @@ translate english strings:
     old "Inventaire"
     new "Items"
 
-# TODO: Translation updated at 2019-07-30 15:34
-
-translate english strings:
-
-    # game/screens_menus.rpy:558
-    old "Portraits : Anne-Lise Loubière"
-    new "Portraits : Anne-Lise Loubière"
-
-    # game/screens_menus.rpy:559
-    old "Traduction : Juliette Chastel\n"
-    new "Translation : Juliette Chastel\n"
-
 # TODO: Translation updated at 2019-07-30 15:37
 
 translate english strings:
@@ -214,26 +202,6 @@ translate english strings:
     old "Site Web : Julien Garcia\n"
     new "Website : Julien Garcia\n"
 
-# TODO: Translation updated at 2020-01-10 18:23
-
-translate english strings:
-
-    # game/screens_menus.rpy:497
-    old "Traduction : Juliette Chastel"
-    new "Traduction : Juliette Chastel"
-
-    # game/screens_menus.rpy:498
-    old "Relecture : Houda Rida"
-    new "Reviewing : Houda Rida"
-
-# TODO: Translation updated at 2020-02-13 12:37
-
-translate english strings:
-
-    # game/screens_menus.rpy:502
-    old "Musique : Coalescence par Marius Prével\n"
-    new "Music : Coalescence by Marius Prével\n"
-
 
 # TODO: Translation updated at 2021-01-18 01:53
 
@@ -285,7 +253,7 @@ translate english strings:
 
     # game/src/screens/menus.rpy:516
     old "Relecture"
-    new "Relecture"
+    new "Proofreading"
 
     # game/src/screens/menus.rpy:518
     old "Site Web"

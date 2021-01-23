@@ -30,20 +30,6 @@ translate english strings:
     old "Colombe"
     new "Colombe"
 
-    # game/options.rpy:29
-    old "17 août 2019"
-    new "17 août 2019"
-
-# TODO: Translation updated at 2020-01-10 18:23
-
-translate english strings:
-
-    # game/options.rpy:29
-    old "09 janvier 2020"
-    new "09 janvier 2020"
-
-
-
 # TODO: Translation updated at 2021-01-18 01:53
 
 translate english strings:
