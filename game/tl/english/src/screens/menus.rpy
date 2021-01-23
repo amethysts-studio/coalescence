@@ -86,10 +86,6 @@ translate english strings:
     old "Crédits"
     new "Credits"
 
-    # game/screens_menus.rpy:550
-    old "Un grand merci à Tom 'PyTom' Rothamel pour Ren'Py.\n"
-    new "Special thanks to Tom 'PyTom' Rothamel for Ren'Py.\n"
-
     # game/screens_menus.rpy:551
     old "À tous ceux qui m'ont soutenu dans ce projet qui m'a beaucoup tenu à cœur ces dernières années."
     new "To all those who supported me in this project, which has been very important to me in recent years."
@@ -271,26 +267,6 @@ translate english strings:
     old "\nUn grand merci à Tom 'PyTom' Rothamel pour le moteur Ren'Py.\n"
     new "\nUn grand merci à Tom 'PyTom' Rothamel pour le moteur Ren'Py.\n"
 
-    # game/src/screens/menus.rpy:552
-    old "\nRejoignez la discussion : théories, secrets et résolution de problèmes sur {a=https://discord.gg/wmu2PWA}Discord{/a} !"
-    new "\nRejoignez la discussion : théories, secrets et résolution de problèmes sur {a=https://discord.gg/wmu2PWA}Discord{/a} !"
-
-    # game/src/screens/menus.rpy:554
-    old "\nLe bouton {i}Passer{/i} en bas de l'écran permet de passer les dialogues déjà lus, jusqu'au prochain choix ou phrase encore non lue."
-    new "\nLe bouton {i}Passer{/i} en bas de l'écran permet de passer les dialogues déjà lus, jusqu'au prochain choix ou phrase encore non lue."
-
-    # game/src/screens/menus.rpy:556
-    old "\nLe bouton {i}Auto{/i} permet de faire défiler automatiquement les dialogues, à votre rythme : vous pouvez en modifier la vitesse dans le menu des options."
-    new "\nLe bouton {i}Auto{/i} permet de faire défiler automatiquement les dialogues, à votre rythme : vous pouvez en modifier la vitesse dans le menu des options."
-
-    # game/src/screens/menus.rpy:558
-    old "\nPour réussir à vaincre le Bourreau, connaître la vérité est nécessaire. Mais non suffisant."
-    new "\nPour réussir à vaincre le Bourreau, connaître la vérité est nécessaire. Mais non suffisant."
-
-    # game/src/screens/menus.rpy:560
-    old "\nLes codes de triche sont à rentrer dans un menu secret. A vous de le trouver..."
-    new "\nLes codes de triche sont à rentrer dans un menu secret. A vous de le trouver..."
-
     # game/src/screens/menus.rpy:682
     old "- Index -"
     new "- Index -"
@@ -302,4 +278,28 @@ translate english strings:
     # game/src/screens/menus.rpy:867
     old "Essayer"
     new "Retry"
+
+# TODO: Translation updated at 2021-01-24 00:04
+
+translate english strings:
+
+    # game/src/screens/menus.rpy:552
+    old "Rejoignez la discussion : théories, secrets et résolution de problèmes sur {a=https://discord.gg/wmu2PWA}Discord{/a} !"
+    new "Rejoignez la discussion : théories, secrets et résolution de problèmes sur {a=https://discord.gg/wmu2PWA}Discord{/a} !"
+
+    # game/src/screens/menus.rpy:554
+    old "Le bouton {i}Passer{/i} en bas de l'écran permet de passer les dialogues déjà lus, jusqu'au prochain choix ou phrase encore non lue."
+    new "Le bouton {i}Passer{/i} en bas de l'écran permet de passer les dialogues déjà lus, jusqu'au prochain choix ou phrase encore non lue."
+
+    # game/src/screens/menus.rpy:556
+    old "Le bouton {i}Auto{/i} permet de faire défiler automatiquement les dialogues, à votre rythme : vous pouvez en modifier la vitesse dans le menu des options."
+    new "Le bouton {i}Auto{/i} permet de faire défiler automatiquement les dialogues, à votre rythme : vous pouvez en modifier la vitesse dans le menu des options."
+
+    # game/src/screens/menus.rpy:558
+    old "Pour réussir à vaincre le Bourreau, connaître la vérité est nécessaire. Mais non suffisant."
+    new "Pour réussir à vaincre le Bourreau, connaître la vérité est nécessaire. Mais non suffisant."
+
+    # game/src/screens/menus.rpy:560
+    old "Les codes de triche sont à rentrer dans un menu secret. A vous de le trouver..."
+    new "Les codes de triche sont à rentrer dans un menu secret. A vous de le trouver..."
 

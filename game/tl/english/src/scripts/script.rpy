@@ -25024,3 +25024,11 @@ translate english choix_important_a8f1ebf2:
     # choix "Êtes-vous sûr de votre choix ?"
     choix "Êtes-vous sûr de votre choix ?"
 
+# TODO: Translation updated at 2021-01-24 00:04
+
+# game/src/scripts/script.rpy:104
+translate english splashscreen_76b2fe88_4:
+
+    # nvl clear
+    nvl clear
+
