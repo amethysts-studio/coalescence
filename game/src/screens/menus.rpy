@@ -398,14 +398,6 @@ screen affiche_stats(acte=0, confiance_persos=persistent.confiance, situation = 
     style_prefix "coal"
     key "rollback" action [Hide("affiche_fins"), Show("plus_de_menus", transition=None, acte=acte, situation = situation)]
     python:
-        #timer
-        temps_de_jeu_secondes = persistent.playtime
-        temps_de_jeu_heures = temps_de_jeu_secondes // 3600
-        temps_de_jeu_minutes = (temps_de_jeu_secondes - (temps_de_jeu_heures * 3600)) // 60
-        temps_de_jeu_minutes_text = str(temps_de_jeu_minutes)
-        if len(temps_de_jeu_minutes_text) == 1:
-            temps_de_jeu_minutes_text = "0"+temps_de_jeu_minutes_text
-
         #text read
         texte_pourcentage, texte_lu, texte_total = avancement()
 
@@ -427,11 +419,11 @@ screen affiche_stats(acte=0, confiance_persos=persistent.confiance, situation = 
             mousewheel True
             scrollbars "vertical"
             vbox:
-                text ""
-                hbox:
+                spacing 30
+                vbox:
                     text _("Temps de jeu total : ")
-                    text str(temps_de_jeu_heures)+"h "+str(temps_de_jeu_minutes_text)+"m" color "#bbb"
-                    text "\n"
+                    text total_runtime.TextFormat("[hour] h [minute] min [second] s", font="DejaVuSans.ttf", color="#bbb" ) 
+                    
                 vbox:
                     text _("Texte lu (toutes parties confondues)")
                     hbox:
@@ -439,7 +431,6 @@ screen affiche_stats(acte=0, confiance_persos=persistent.confiance, situation = 
                         text "  "
                         text str(texte_pourcentage) color "#bbb"
                         text "%" color "#bbb"
-                    text ""
                 vbox:
                     text _("Succès obtenus")
                     hbox:
@@ -448,7 +439,6 @@ screen affiche_stats(acte=0, confiance_persos=persistent.confiance, situation = 
                         text str(succes_obtenus) color "#bbb"
                         text " / " color "#bbb"
                         text str(len((persistent.achievements_dict))) color "#bbb"
-                    text ""
                 vbox:
                     text _("Fins atteintes")
                     hbox:
@@ -457,7 +447,6 @@ screen affiche_stats(acte=0, confiance_persos=persistent.confiance, situation = 
                         text str(fins_obtenues) color "#bbb"
                         text " / " color "#bbb"
                         text str(len((persistent.fins))) color "#bbb"
-                    text ""
                 text _("Confiance min/max atteinte")
                 grid 3 8:
                     for perso in sorted(confiance_persos):
@@ -470,7 +459,6 @@ screen affiche_stats(acte=0, confiance_persos=persistent.confiance, situation = 
                             text ""
                             text ""
                             text ""
-                text ""
 
     button:
         at xslide(x_depart=-120, x_final=360)

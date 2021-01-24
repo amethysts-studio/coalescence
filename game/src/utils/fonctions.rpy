@@ -240,14 +240,6 @@ init python:
         return dist[len(mot1)-1,len(mot2)-1]
 
     def sauvegarder(partie_a_sauvegarder, montrer = True):
-        persistent.playtime_check = datetime.datetime.now()
-        try:
-            persistent.playtime += persistent.playtime_check - persistent.playtime_enter
-        except:
-            pass
-        finally:
-            persistent.playtime_enter = persistent.playtime_check
-
         for cle in persistent.sauvegarde_info:
             persistent.sauvegarde_info[cle][2]=False
         persistent.sauvegarde_info[partie_a_sauvegarder][2]=True
@@ -435,4 +427,3 @@ init python:
 
 label quit:
     $ persistent.test = "isok"
-    $ persistent.playtime += 100000 #(playtime_quit - playtime_enter).seconds
