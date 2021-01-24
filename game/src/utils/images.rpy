@@ -1,3 +1,4 @@
+# Portraits
 image isaac_portrait:
     "persos/perso isaac.jpg"
 image johann_portrait:
@@ -16,16 +17,26 @@ image erwin_portrait:
     "persos/perso erwin.jpg"
 image lise_portrait:
     "persos/perso lise.png"
+
+
 image moving:
     "fondacte/Moving.png"
+
+# Documents
 image MessagePorteGauche:
     "documents/message_gauche.jpg"
 image MessagePorteDroite:
     "documents/message_droite.jpg"
+
+# Maps
 image carte_complete:
     "cartes/carte_complete.png"
+image carte_complete_penchee:
+    "cartes/carte_complete_penchee.png"
 image carte_incomplete:
     "cartes/carte_incomplete.png"
+
+# Maps for acts
 image carte1explore0:
     "cartes/carte1explore0.png"
 image carte1explore1:
@@ -34,8 +45,6 @@ image carte1explore23:
     "cartes/carte1explore23.png"
 image carte1explore4:
     "cartes/carte1explore4.png"
-image carte_complete_penchee:
-    "cartes/carte_complete_penche.png"
 image quit_map:
   "cartes/bouton_quitter.png"
   yalign 1.0
@@ -55,6 +64,8 @@ image go_left:
     linear 1.5 alpha 1.0
     0.4
     repeat
+
+# Jumpscares
 image jumpscareZoomArchives:
     "horror/jumpscareZoom.jpg"
 image jumpscareNuit1: #0.8

@@ -24996,14 +24996,6 @@ translate english strings:
     old "{font=fonts/Centaur.ttf}{size=32}Acte VI : Colombe{/font}{/size}"
     new "{font=fonts/Centaur.ttf}{size=32}Acte VI : Colombe{/font}{/size}"
 
-# TODO: Translation updated at 2021-01-21 18:14
-
-# game/src/scripts/script.rpy:3726
-translate english choix_important_a8f1ebf2:
-
-    # choix "Êtes-vous sûr de votre choix ?"
-    choix "Êtes-vous sûr de votre choix ?"
-
 # TODO: Translation updated at 2021-01-24 00:04
 
 # game/src/scripts/script.rpy:104
