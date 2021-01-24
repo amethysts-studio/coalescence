@@ -5,14 +5,9 @@
 label map1_acte4:
     label map1_acte4_:
         nvl clear
-        if _preferences.language == "english":
-            show carte_completeEN:
-                xalign 0.0
-                linear 0.2 alpha 1.0
-        else:
-            show carte_completeFR:
-                xalign 0.0
-                linear 0.2 alpha 1.0
+        show carte_complete:
+            xalign 0.0
+            linear 0.2 alpha 1.0
         show go_right:
             linear 0.2 alpha 1.0
         show quit_map:
@@ -20,12 +15,8 @@ label map1_acte4:
         call screen screen_carte1(carte_revelee=True, bonus=False, acte_carte = "4")
         $ salle = _return
         if salle != "go_right":
-            if _preferences.language == "english":
-                show carte_completeEN:
-                    linear 0.2 alpha 0.05
-            else:
-                show carte_completeFR:
-                    linear 0.2 alpha 0.05
+            show carte_complete:
+                linear 0.2 alpha 0.05
             show go_right:
                 linear 0.2 alpha 0.05
             show quit_map:
@@ -216,14 +207,9 @@ label map1_acte4:
     elif salle == "go_right":
         hide go_right
         hide quit_map
-        if _preferences.language == "english":
-            show carte_completeEN:
-                easeout 0.5 xalign 0.25 alpha 0.5
-                easein 0.5 xalign 0.5 alpha 1.0
-        else:
-            show carte_completeFR:
-                easeout 0.5 xalign 0.25 alpha 0.5
-                easein 0.5 xalign 0.5 alpha 1.0
+        show carte_complete:
+            easeout 0.5 xalign 0.25 alpha 0.5
+            easein 0.5 xalign 0.5 alpha 1.0
         $ renpy.pause(1.0, hard=True)
         jump map2_acte4
     elif salle == "quit":
@@ -233,14 +219,9 @@ label map1_acte4:
 label map2_acte4:
     label map2_acte4_:
         nvl clear
-        if _preferences.language == "english":
-            show carte_completeEN:
-                xalign 0.5
-                linear 0.2 alpha 1.0
-        else:
-            show carte_completeFR:
-                xalign 0.5
-                linear 0.2 alpha 1.0
+        show carte_complete:
+            xalign 0.5
+            linear 0.2 alpha 1.0
         show go_left:
             linear 0.2 alpha 1.0
         show go_right:
@@ -250,12 +231,8 @@ label map2_acte4:
         call screen screen_carte2(bonus=False, acte_carte=4, explorable=True)
         $ salle = _return
         if salle != "go_right" and salle != "go_left":
-            if _preferences.language == "english":
-                show carte_completeEN:
-                    linear 0.2 alpha 0.05
-            else:
-                show carte_completeFR:
-                    linear 0.2 alpha 0.05
+            show carte_complete:
+                linear 0.2 alpha 0.05
             show go_left:
                 linear 0.2 alpha 0.05
             show go_right:
@@ -265,27 +242,17 @@ label map2_acte4:
     if salle == "go_left":
         hide go_left
         hide quit_map
-        if _preferences.language == "english":
-            show carte_completeEN:
-                easeout 0.5 xalign 0.25 alpha 0.5
-                easein 0.5 xalign 0.0 alpha 1.0
-        else:
-            show carte_completeFR:
-                easeout 0.5 xalign 0.25 alpha 0.5
-                easein 0.5 xalign 0.0 alpha 1.0
+        show carte_complete:
+            easeout 0.5 xalign 0.25 alpha 0.5
+            easein 0.5 xalign 0.0 alpha 1.0
         $ renpy.pause(1.0, hard=True)
         jump map1_acte4
     elif salle == "go_right":
         hide go_right
         hide quit_map
-        if _preferences.language == "english":
-            show carte_completeEN:
-                easeout 0.5 xalign 0.75 alpha 0.5
-                easein 0.5 xalign 1.0 alpha 1.0
-        else:
-            show carte_completeFR:
-                easeout 0.5 xalign 0.75 alpha 0.5
-                easein 0.5 xalign 1.0 alpha 1.0
+        show carte_complete:
+            easeout 0.5 xalign 0.75 alpha 0.5
+            easein 0.5 xalign 1.0 alpha 1.0
         $ renpy.pause(1.0, hard=True)
         jump map3_acte4
     elif salle == "grande_salle":
@@ -331,14 +298,9 @@ label map2_acte4:
 label map3_acte4:
     label map3_acte4_:
         nvl clear
-        if _preferences.language == "english":
-            show carte_completeEN:
-                xalign 1.0
-                linear 0.2 alpha 1.0
-        else:
-            show carte_completeFR:
-                xalign 1.0
-                linear 0.2 alpha 1.0
+        show carte_complete:
+            xalign 1.0
+            linear 0.2 alpha 1.0
         show go_left:
             linear 0.2 alpha 1.0
         show quit_map:
@@ -346,12 +308,8 @@ label map3_acte4:
         call screen screen_carte3(bonus=True, acte_carte = "4")
         $ salle = _return
         if salle != "go_left":
-            if _preferences.language == "english":
-                show carte_completeEN:
-                    linear 0.2 alpha 0.05
-            else:
-                show carte_completeFR:
-                    linear 0.2 alpha 0.05
+            show carte_complete:
+                linear 0.2 alpha 0.05
             show go_left:
                 linear 0.2 alpha 0.05
             show quit_map:
@@ -520,14 +478,9 @@ label map3_acte4:
     elif salle == "go_left":
         hide go_left
         hide quit_map
-        if _preferences.language == "english":
-            show carte_completeEN:
-                easeout 0.5 xalign 0.75 alpha 0.5
-                easein 0.5 xalign 0.5 alpha 1.0
-        else:
-            show carte_completeFR:
-                easeout 0.5 xalign 0.75 alpha 0.5
-                easein 0.5 xalign 0.5 alpha 1.0
+        show carte_complete:
+            easeout 0.5 xalign 0.75 alpha 0.5
+            easein 0.5 xalign 0.5 alpha 1.0
         $ renpy.pause(1.0, hard=True)
         jump map2_acte4
     elif salle == "bonus":

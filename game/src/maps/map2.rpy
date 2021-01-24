@@ -4,12 +4,8 @@
 label sec_map:
     label sec_map_:
         nvl clear
-        if _preferences.language == "english":
-            show carte_incompleteEN:
-                linear 0.2 alpha 1.0
-        else:
-            show carte_incompleteFR:
-                linear 0.2 alpha 1.0
+        show carte_incomplete:
+            linear 0.2 alpha 1.0
         if elus_vote[1] == ["emmy"]:
             call screen screen_carte1(acte_carte = "2-1")
         elif elus_vote[1] == ["alan"]:
@@ -17,12 +13,8 @@ label sec_map:
         else:
             call screen screen_carte1(acte_carte = "2-23")
         $ salle = _return
-        if _preferences.language == "english":
-            show carte_incompleteEN:
-                linear 0.2 alpha 0.05
-        else:
-            show carte_incompleteFR:
-                linear 0.2 alpha 0.05
+        show carte_incomplete:
+            linear 0.2 alpha 0.05
     if salle == "salle_vote":
         narr "La salle était grande et simple."
         narr "Comme toutes les salles, elle était mal éclairée, par une unique ampoule qui diffusait une faible lumière jaunâtre"

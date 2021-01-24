@@ -22,39 +22,25 @@ image MessagePorteGauche:
     "documents/message_gauche.jpg"
 image MessagePorteDroite:
     "documents/message_droite.jpg"
-image carte_completeFR:
-    "cartesFR/carte_completeFR.png"
-image carte_completeEN:
-    "cartesEN/carte_completeEN.png"
-image carte_incompleteFR:
-    "cartesFR/carte_incompleteFR.png"
-image carte_incompleteEN:
-    "cartesEN/carte_incompleteEN.png"
-image carte1explore0FR:
-    "cartesFR/carte1explore0FR.png"
-image carte1explore0EN:
-    "cartesEN/carte1explore0EN.png"
-image carte1explore1FR:
-    "cartesFR/carte1explore1FR.png"
-image carte1explore1EN:
-    "cartesEN/carte1explore1EN.png"
-image carte1explore23FR:
-    "cartesFR/carte1explore23FR.png"
-image carte1explore23EN:
-    "cartesEN/carte1explore23EN.png"
-image carte1explore4FR:
-    "cartesFR/carte1explore4FR.png"
-image carte1explore4EN:
-    "cartesEN/carte1explore4EN.png"
-image carte_complete_pencheeFR:
-    "cartesFR/carte_complete_pencheeFR.png"
-image carte_complete_pencheeEN:
-    "cartesEN/carte_complete_pencheeEN.png"
+image carte_complete:
+    "cartes/carte_complete.png"
+image carte_incomplete:
+    "cartes/carte_incomplete.png"
+image carte1explore0:
+    "cartes/carte1explore0.png"
+image carte1explore1:
+    "cartes/carte1explore1.png"
+image carte1explore23:
+    "cartes/carte1explore23.png"
+image carte1explore4:
+    "cartes/carte1explore4.png"
+image carte_complete_penchee:
+    "cartes/carte_complete_penche.png"
 image quit_map:
-  "cartesFR/bouton_quitter.png"
+  "cartes/bouton_quitter.png"
   yalign 1.0
 image go_right:
-    "cartesFR/fleche_droite.png"
+    "cartes/fleche_droite.png"
     xalign 1.0
     linear 1.5 alpha 0.1
     0.1
@@ -62,7 +48,7 @@ image go_right:
     0.4
     repeat
 image go_left:
-    "cartesFR/fleche_gauche.png"
+    "cartes/fleche_gauche.png"
     xalign 0.0
     linear 1.5 alpha 0.1
     0.1

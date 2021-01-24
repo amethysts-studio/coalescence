@@ -603,15 +603,9 @@ screen carte(localisation_persos={2}, revelee=False, acte=0):
         at smooth_title(time = 1.0, transp = 1.0, dist_y = 0)
         xysize (720,1280)
         if carte_complete:
-            if _preferences.language == "english":
-                image "cartesEN/carte_complete_pencheeEN.png"
-            else:
-                image "cartesFR/carte_complete_pencheeFR.png"
+            image "cartes/carte_complete_penche.png"
         else:
-            if _preferences.language == "english":
-                image "cartesEN/carte_incompleteEN.png"
-            else:
-                image "cartesFR/carte_incompleteFR.png"
+            image "cartes/carte_incomplete.png"
     button:
         at fade_away()
         ypos 1120

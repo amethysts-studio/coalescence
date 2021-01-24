@@ -5,20 +5,12 @@
 label first_map:
     label first_map_:
         nvl clear
-        if _preferences.language == "english":
-            show carte1explore0EN:
-                linear 0.2 alpha 1.0
-        else:
-            show carte1explore0FR:
-                linear 0.2 alpha 1.0
+        show carte1explore0:
+            linear 0.2 alpha 1.0
         call screen screen_carte1(quitter = False)
         $ salle = _return
-        if _preferences.language == "english":
-            show carte1explore0EN:
-                linear 0.2 alpha 0.05
-        else:
-            show carte1explore0FR:
-                linear 0.2 alpha 0.05
+        show carte1explore0:
+            linear 0.2 alpha 0.05
         n "\n\n\n\n\n{nw}"
     if salle == "salle_vote":
         narr "C'est la salle d'où l'on vient."
@@ -27,11 +19,7 @@ label first_map:
             narr "Il ne sert à rien d'y retourner maintenant, il faut trouver la clé USB qu'à caché le Bourreau."
         else:
             narr "Il est temps d'y retourner pour voir le message du Bourreau."
-            if _preferences.language == "english":
-                hide carte1explore0EN with Dissolve(1.0)
-            else:
-                hide carte1explore0FR with Dissolve(1.0)
-            hide carte1explore0FR with Dissolve(1.0)
+            hide carte1explore0 with Dissolve(1.0)
             $ quick_menu = True
             jump suite_map_0
     elif salle == "salle_archives":

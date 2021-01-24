@@ -2868,18 +2868,12 @@ label acte4:
     narr "Même si je ne l'avais pas entièrement visitée, je savais maintenant qu'elle ressemblait à peu près à ça :"
     $ renpy.notify("Carte mise à jour.")
     nvl clear
-    if _preferences.language == "english":
-        show carte_complete_pencheeEN with dissolve
-    else:
-        show carte_complete_pencheeFR with dissolve
+    show carte_complete_penchee with dissolve
     $ quick_menu = False
     $ carte_complete = True
     $ renpy.pause(2.0, hard=True)
     n ""
-    if _preferences.language == "english":
-        hide carte_complete_pencheeEN with dissolve
-    else:
-        hide carte_complete_pencheeFR with dissolve
+    hide carte_complete_penchee with dissolve
     $ quick_menu = True
     nvl clear
 label fincartetotale:
