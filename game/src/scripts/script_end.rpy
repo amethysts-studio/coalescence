@@ -101,7 +101,7 @@ label ending_solitaire:
             p "On a plus important que ça à faire, Johann."
             p "Foutons le camp d'ici d'abord."
             jump ending_solitaire_with_johann
-        "default;Ne rien dire":
+        "Ne rien dire" ("default"):
             jump ending_solitaire_say_nothing
 
 label ending_solitaire_say_nothing:
@@ -477,7 +477,7 @@ label fight_final_erwin_johann_begin:
             j "Mais à quoi tu joues ?"
             narr "Je le laissai dans la pièce et marchai vers la grande salle."
             jump fight_final_erwin_johann_active
-        "default;Ne rien dire":
+        "Ne rien dire" ("default"):
             jump fight_final_erwin_johann_passive
         #"Proposer de faire la paix":
         #    choix "Proposer de faire la paix"
@@ -657,7 +657,7 @@ label fight_final_erwin_leonhard_begin:
             l "Pourquoi faites-vous ça, Kurt ?"
             narr "Je le laissai dans la pièce, sans répondre, et marchai vers la grande salle."
             jump fight_final_erwin_leonhard_active
-        "default;Ne rien dire":
+        "Ne rien dire" ("default"):
             jump fight_final_erwin_leonhard_passive
 
 label fight_final_erwin_leonhard_passive:
@@ -825,7 +825,7 @@ label ending_chemist:
     menu:
         "Se sacrifier":
             jump ending_chemist_sacrifice
-        "default;Ne rien dire":
+        "Ne rien dire" ("default"):
             jump ending_chemist_no_sacrifice
 label ending_chemist_no_sacrifice:
     erw "Moi."
@@ -1105,7 +1105,7 @@ label ending_decision_executioner:
                 narr "Johann replaça ses lunettes, pensif."
             $ fin = 8
             jump game_over
-        "default;Hésiter, changer de cible":
+        "Hésiter, changer de cible" ("default"):
             jump ending_decision_hesitation
 
 label ending_decision_everyone:

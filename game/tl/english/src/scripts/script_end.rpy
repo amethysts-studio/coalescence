@@ -5550,11 +5550,3 @@ translate english strings:
     old "Obéir"
     new "Obéir"
 
-    # game/src/scripts/script_end.rpy:981
-    old "default;Se suicider"
-    new "default;Se suicider"
-
-    # game/src/scripts/script_end.rpy:1088
-    old "default;Hésiter, changer de cible"
-    new "default;Hésiter, changer de cible"
-

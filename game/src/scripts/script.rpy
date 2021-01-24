@@ -81,7 +81,7 @@ label splashscreen:
                     "Toi ?":
                         p_white "Toi, tu es qui ? Je te connais ?"
                         bunk_white "Oh, oui. Mais tu m'auras bientôt oublié."
-                    "default;Ne rien dire":
+                    "Ne rien dire" ("default"):
                         bunk_white "Et tu n'es pas ici pour rien."
                         bunk_white "Tu t'es juste réveillé trop tôt..."
                 bunk_white "Tu n'étais pas censé te réveiller {i}maintenant{/i}."
@@ -1202,7 +1202,7 @@ label suite_map_1:
                 $ modif_confiance([isaac], [1], "cacher")
                 isa "Tu as raison."
                 isa "Il punira ceux qui ne se repentent pas."
-            "default;Rester silencieux":
+            "Rester silencieux" ("default"):
                 pass
         narr "Isaac partit se coucher, et pleura en silence pendant un quart d'heure avant de s'endormir."
     elif sleep_with == "johann":
@@ -1416,7 +1416,7 @@ label suite_map_1:
             p "La {i}chose{/i} hurlait un nom... Elle cherchait quelqu'un."
             p "Mais ce n'étais pas un de nous six qu'elle cherchait."
             j "Étrange..."
-        "default;Ne rien dire":
+        "Ne rien dire" ("default"):
             j "Tu es sûr d'avoir bien vu ?"
             if elus_vote[1] == ["alan"]:
                 e "C'est le Démon..."
@@ -1643,7 +1643,7 @@ label acte3:
         "Coup de couteau" if inventaire["knife"]["nb"] == 1:
             narr "Je brandis mon couteau vers Johann"
             $ revelation_bourreau_couteau = True
-        "default;Rester immobile":
+        "Rester immobile" ("default"):
             narr "Préférant ne pas attirer l'attention de Johann, je ne bougeai pas d'un pouce"
             $ revelation_bourreau_couteau = False
     if revelation_bourreau_couteau:
@@ -3979,7 +3979,7 @@ label fight_leonhard:
             jump fight_leonhard_poison
         "Lui faire boire le poison (s'aider d'Erwin)." if erwin["confiance"] >= 18 and (inventaire["poison"]["nb"]  == 1) and not inventaire["poison"]["used"]:
             jump fight_leonhard_poison_erwin
-        "default;Rester immobile":
+        "Rester immobile" ("default"):
             jump fight_leonhard_rate
 
 label fight_leonhard_couteau:
@@ -4184,7 +4184,7 @@ label machination:
             "Coup de couteau" if inventaire["knife"]["nb"] == 1:
                 jump fight_johann_couteau
                 #TODO : poison
-            "default;Attendre":
+            "Attendre" ("default"):
                 jump fight_johann_rate
     else:
         j "J'ai un plan. Un putain de plan."
@@ -4357,7 +4357,7 @@ label fight_erwin:
             jump fight_erwin_poison
         "S'aider de Johann et lui faire boire le poison" if johann["confiance"] >= 18 and (inventaire["poison"]["nb"]  == 1) and not inventaire["poison"]["used"]:
             jump fight_erwin_poison_johann
-        "default;Rester immobile":
+        "Rester immobile" ("default"):
             jump fight_erwin_rate
             
 label fight_erwin_poison:
@@ -4592,7 +4592,7 @@ label acte6:
         "Parler aux chimistes":
             narr "Les chimistes devaient m'en dire plus. Je ne savais pas encore ce qu'il se passe, mais ça doit être clarifié..."
             jump parler_chimistes
-        "default;Explorer la Grande salle.":
+        "Explorer la Grande salle." ("default"):
             jump explorer_grande_salle
 
 
