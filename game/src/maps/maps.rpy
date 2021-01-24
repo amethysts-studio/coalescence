@@ -3,33 +3,19 @@
 #==================================#
 screen screen_carte1(carte_revelee=False, bonus=False, acte_carte=None, explorable=True, quitter=True):
     imagemap:
-        if _preferences.language == "english":
-            if acte_carte == "1":
-                ground "cartesEN/carte1explore0EN.png"
-            elif acte_carte == "2-1":
-                ground "cartesEN/carte1explore1EN.png"
-            elif acte_carte == "2-23":
-                ground "cartesEN/carte1explore23EN.png"
-            elif acte_carte == "2-4":
-                ground "cartesEN/carte1explore4EN.png"
-            elif acte_carte == "4":
-                ground "cartesEN/carte1exploreacte4EN.png"
-            else:
-                ground "cartesFR/transparent.png"
+        if acte_carte == "1":
+            ground carte1explore0
+        elif acte_carte == "2-1":
+            ground carte1explore2
+        elif acte_carte == "2-23":
+            ground "cartes/carte1explore2.png"
+        elif acte_carte == "2-4":
+            ground "cartes/carte1explore.png"
+        elif acte_carte == "4":
+            ground "cartes/carte1exploreacte.png"
         else:
-            if acte_carte == "1":
-                ground "cartesFR/carte1explore0FR.png"
-            elif acte_carte == "2-1":
-                ground "cartesFR/carte1explore1FR.png"
-            elif acte_carte == "2-23":
-                ground "cartesFR/carte1explore23FR.png"
-            elif acte_carte == "2-4":
-                ground "cartesFR/carte1explore4FR.png"
-            elif acte_carte == "4":
-                ground "cartesFR/carte1exploreacte4FR.png"
-            else:
-                ground "cartesFR/transparent.png"
-        hover "cartesFR/carte1_hover.png"
+            ground "cartes/transparent.png"
+        hover "cartes/carte1_hover.png"
 
         alpha False
 
@@ -49,8 +35,8 @@ screen screen_carte1(carte_revelee=False, bonus=False, acte_carte=None, explorab
 
 screen screen_carte2(bonus=False, acte_carte=None, explorable=True):
     imagemap:
-        ground "cartesFR/transparent.png"
-        hover "cartesFR/carte2_hover.png"
+        ground "cartes/transparent.png"
+        hover "cartes/carte2_hover.png"
 
         alpha False
 
@@ -65,17 +51,11 @@ screen screen_carte2(bonus=False, acte_carte=None, explorable=True):
 
 screen screen_carte3(bonus=False, acte_carte=None, explorable=True):
     imagemap:
-        if _preferences.language == "english":
-            if acte_carte == "4":
-                ground "cartesEN/carte3exploreacte4EN.png"
-            else:
-                ground "cartesFR/transparent.png"
+        if acte_carte == "4":
+            ground "cartes/carte3exploreacte.png"
         else:
-            if acte_carte == "4":
-                ground "cartesFR/carte3exploreacte4FR.png"
-            else:
-                ground "cartesFR/transparent.png"
-        hover "cartesFR/carte3_hover.png"
+            ground "cartes/transparent.png"
+        hover "cartes/carte3_hover.png"
 
         alpha False
         if explorable:
