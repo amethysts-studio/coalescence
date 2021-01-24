@@ -19,6 +19,9 @@ traceback.txt
 errors.txt
 nohup.out
 
+# dist
+dist
+
 # VSCODE Template below
 
 ## Ignore Visual Studio temporary files, build results, and
