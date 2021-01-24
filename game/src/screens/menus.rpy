@@ -479,7 +479,7 @@ screen credits(acte=0, situation = "menu_principal"):
             image "icons/icon_credits.png"
             text _("Crédits") size 42 xalign 0.5
     window:
-        ysize 616 ypos 500
+        ysize 516 ypos 500
         at xslide(x_depart=-120, x_final=360)
         viewport:
             xysize (580, 616) xpos 20
@@ -487,7 +487,7 @@ screen credits(acte=0, situation = "menu_principal"):
             mousewheel True
             scrollbars "vertical"
             vbox:
-                text ""
+                spacing 30
                 hbox:
                     text "Version "+config.version+" \""
                     text persistent.version_name
@@ -513,12 +513,41 @@ screen credits(acte=0, situation = "menu_principal"):
                     text "Marius Prével" color "#bbb"
                 text _("Un grand merci à Tom 'PyTom' Rothamel pour le moteur Ren'Py.")
                 text _("À tous ceux qui m'ont soutenu dans ce projet qui m'a beaucoup tenu à cœur ces dernières années.")
+    button:
+        at xslide(x_depart=720, x_final=360)
+        ypos 1020
+        text _("Licenses") at truecenter
+        action [Hide("credits"), Show("licenses", transition=None, acte=acte, situation = situation)]
+    button:
+        at xslide(x_depart=-120, x_final=360)
+        ypos 1120
+        text _("Retour") at truecenter
+        action [Hide("credits"), Show("plus_de_menus", transition=None, acte=acte, situation = situation)]
 
+screen licenses(acte=0, situation = "menu_principal"):
+    zorder 12
+    style_prefix "coal"
+    key "rollback" action [Hide("credits"), Show("plus_de_menus", transition=None, acte=acte, situation = situation)]
+    window:
+        at xslide(x_depart=720, x_final=360)
+        xysize (600,94) ypos 400 xalign 0.5
+        hbox:
+            image "icons/icon_license.png"
+            text "Licences" size 42 xalign 0.5
+    window:
+        ysize 616 ypos 500
+        at xslide(x_depart=-120, x_final=360)
+        viewport:
+            xysize (580, 616) xpos 20
+            draggable True
+            mousewheel True
+            scrollbars "vertical"
+            text _("Conçu avec {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
     button:
         at xslide(x_depart=720, x_final=360)
         ypos 1120
         text _("Retour") at truecenter
-        action [Hide("credits"), Show("plus_de_menus", transition=None, acte=acte, situation = situation)]
+        action [Hide("licenses"), Show("credits", transition=None, acte=acte, situation = situation)]
 
 screen help_plz(acte=0, situation = "menu_principal"):
     zorder 12
