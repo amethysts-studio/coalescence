@@ -176,6 +176,7 @@ init python:
     build.classify('.git/**', None)
     build.classify('.github/**', None)
     build.classify('doc/**', None)
+    build.classify('dist/**', None)
 
 
     ## To archive files, classify them as 'archive'.
