@@ -3,7 +3,7 @@
 #==================================#
 screen screen_carte1(carte_revelee=False, bonus=False, acte_carte=None, explorable=True, quitter=True):
     imagemap:
-        if persistent.language == "english":
+        if _preferences.language == "english":
             if acte_carte == "1":
                 ground "cartesEN/carte1explore0EN.png"
             elif acte_carte == "2-1":
@@ -65,7 +65,7 @@ screen screen_carte2(bonus=False, acte_carte=None, explorable=True):
 
 screen screen_carte3(bonus=False, acte_carte=None, explorable=True):
     imagemap:
-        if persistent.language == "english":
+        if _preferences.language == "english":
             if acte_carte == "4":
                 ground "cartesEN/carte3exploreacte4EN.png"
             else:

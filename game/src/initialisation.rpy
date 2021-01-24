@@ -47,10 +47,7 @@ label initialisation_debut_partie:
     $ fin = 0
     $ carte_complete = False
     $ book = ""
-    if persistent.language == None:
-      $ clavier_azerty = True
-    else:
-      $ clavier_azerty = False
+    $ clavier_azerty = (_preferences.language == None)
     $ liste_recherches = []
     $ in_archives = False
 

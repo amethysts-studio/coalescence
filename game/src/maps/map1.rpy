@@ -5,7 +5,7 @@
 label first_map:
     label first_map_:
         nvl clear
-        if persistent.language == "english":
+        if _preferences.language == "english":
             show carte1explore0EN:
                 linear 0.2 alpha 1.0
         else:
@@ -13,7 +13,7 @@ label first_map:
                 linear 0.2 alpha 1.0
         call screen screen_carte1(quitter = False)
         $ salle = _return
-        if persistent.language == "english":
+        if _preferences.language == "english":
             show carte1explore0EN:
                 linear 0.2 alpha 0.05
         else:
@@ -27,7 +27,7 @@ label first_map:
             narr "Il ne sert à rien d'y retourner maintenant, il faut trouver la clé USB qu'à caché le Bourreau."
         else:
             narr "Il est temps d'y retourner pour voir le message du Bourreau."
-            if persistent.language == "english":
+            if _preferences.language == "english":
                 hide carte1explore0EN with Dissolve(1.0)
             else:
                 hide carte1explore0FR with Dissolve(1.0)
