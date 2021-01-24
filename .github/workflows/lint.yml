@@ -26,3 +26,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: Lint project
         uses: ProjectAliceDev/renpy-lint-action@v1.1.1
+        with:
+          sdk-version: "7.4.1"
