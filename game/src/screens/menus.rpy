@@ -195,14 +195,16 @@ screen menu_alternatif(dico_info=persistent.sauvegarde_info,):
         at fade_away()
         button:
             xysize (298, 96)
-            action [Hide("menu_alternatif"), Hide("in_game_menu"), Jump("label_change_language")]
+            action If(_preferences.language == "english",
+                    true = Language(None),
+                    false = Language("english"))
             hbox:
                 at truecenter
-                if persistent.language == None:
+                if _preferences.language == None:
                     image "icons/fr.png" yalign 0.5
                     text "     " yalign 0.5
                     image "icons/gb.png" yalign 0.5 alpha 0.3
-                elif persistent.language == "english":
+                elif _preferences.language == "english":
                     image "icons/fr.png" yalign 0.5 alpha 0.3
                     text "     " yalign 0.5
                     image "icons/gb.png" yalign 0.5 
@@ -601,12 +603,12 @@ screen carte(localisation_persos={2}, revelee=False, acte=0):
         at smooth_title(time = 1.0, transp = 1.0, dist_y = 0)
         xysize (720,1280)
         if carte_complete:
-            if persistent.language == "english":
+            if _preferences.language == "english":
                 image "cartesEN/carte_complete_pencheeEN.png"
             else:
                 image "cartesFR/carte_complete_pencheeFR.png"
         else:
-            if persistent.language == "english":
+            if _preferences.language == "english":
                 image "cartesEN/carte_incompleteEN.png"
             else:
                 image "cartesFR/carte_incompleteFR.png"
@@ -893,16 +895,6 @@ init python:
                 else:
                     fin_cryptee += "?"
             return fin_cryptee
-
-label label_change_language:
-    if persistent.language == None:
-        $ renpy.change_language("english", force=False)
-        $ persistent.language = "english"
-    else:
-        $ renpy.change_language(None, force=False)
-        $ persistent.language = None
-    jump menu_principal
-    #$ renpy.quit(relaunch=True)
 
 label charger_partie:
     stop music fadeout 1.0

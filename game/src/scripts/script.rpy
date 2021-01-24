@@ -21,10 +21,8 @@ label splashscreen:
         menu:
             "{image=icons/fr.png} Français":
                 $ renpy.change_language(None, force=False)
-                $ persistent.language = None
             "{image=icons/gb.png} English":
                 $ renpy.change_language("english", force=False)
-                $ persistent.language = "english"
                 nvl clear
                 n "\n\n\n\n\n\nBeware, the game is nut fully translated yet. Help me on Kickstarter !"
                 nvl clear
@@ -2870,7 +2868,7 @@ label acte4:
     narr "Même si je ne l'avais pas entièrement visitée, je savais maintenant qu'elle ressemblait à peu près à ça :"
     $ renpy.notify("Carte mise à jour.")
     nvl clear
-    if persistent.language == "english":
+    if _preferences.language == "english":
         show carte_complete_pencheeEN with dissolve
     else:
         show carte_complete_pencheeFR with dissolve
@@ -2878,7 +2876,7 @@ label acte4:
     $ carte_complete = True
     $ renpy.pause(2.0, hard=True)
     n ""
-    if persistent.language == "english":
+    if _preferences.language == "english":
         hide carte_complete_pencheeEN with dissolve
     else:
         hide carte_complete_pencheeFR with dissolve

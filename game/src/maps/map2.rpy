@@ -4,7 +4,7 @@
 label sec_map:
     label sec_map_:
         nvl clear
-        if persistent.language == "english":
+        if _preferences.language == "english":
             show carte_incompleteEN:
                 linear 0.2 alpha 1.0
         else:
@@ -17,7 +17,7 @@ label sec_map:
         else:
             call screen screen_carte1(acte_carte = "2-23")
         $ salle = _return
-        if persistent.language == "english":
+        if _preferences.language == "english":
             show carte_incompleteEN:
                 linear 0.2 alpha 0.05
         else:

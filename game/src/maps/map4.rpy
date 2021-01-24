@@ -5,7 +5,7 @@
 label map1_acte4:
     label map1_acte4_:
         nvl clear
-        if persistent.language == "english":
+        if _preferences.language == "english":
             show carte_completeEN:
                 xalign 0.0
                 linear 0.2 alpha 1.0
@@ -20,7 +20,7 @@ label map1_acte4:
         call screen screen_carte1(carte_revelee=True, bonus=False, acte_carte = "4")
         $ salle = _return
         if salle != "go_right":
-            if persistent.language == "english":
+            if _preferences.language == "english":
                 show carte_completeEN:
                     linear 0.2 alpha 0.05
             else:
@@ -216,7 +216,7 @@ label map1_acte4:
     elif salle == "go_right":
         hide go_right
         hide quit_map
-        if persistent.language == "english":
+        if _preferences.language == "english":
             show carte_completeEN:
                 easeout 0.5 xalign 0.25 alpha 0.5
                 easein 0.5 xalign 0.5 alpha 1.0
@@ -233,7 +233,7 @@ label map1_acte4:
 label map2_acte4:
     label map2_acte4_:
         nvl clear
-        if persistent.language == "english":
+        if _preferences.language == "english":
             show carte_completeEN:
                 xalign 0.5
                 linear 0.2 alpha 1.0
@@ -250,7 +250,7 @@ label map2_acte4:
         call screen screen_carte2(bonus=False, acte_carte=4, explorable=True)
         $ salle = _return
         if salle != "go_right" and salle != "go_left":
-            if persistent.language == "english":
+            if _preferences.language == "english":
                 show carte_completeEN:
                     linear 0.2 alpha 0.05
             else:
@@ -265,7 +265,7 @@ label map2_acte4:
     if salle == "go_left":
         hide go_left
         hide quit_map
-        if persistent.language == "english":
+        if _preferences.language == "english":
             show carte_completeEN:
                 easeout 0.5 xalign 0.25 alpha 0.5
                 easein 0.5 xalign 0.0 alpha 1.0
@@ -278,7 +278,7 @@ label map2_acte4:
     elif salle == "go_right":
         hide go_right
         hide quit_map
-        if persistent.language == "english":
+        if _preferences.language == "english":
             show carte_completeEN:
                 easeout 0.5 xalign 0.75 alpha 0.5
                 easein 0.5 xalign 1.0 alpha 1.0
@@ -331,7 +331,7 @@ label map2_acte4:
 label map3_acte4:
     label map3_acte4_:
         nvl clear
-        if persistent.language == "english":
+        if _preferences.language == "english":
             show carte_completeEN:
                 xalign 1.0
                 linear 0.2 alpha 1.0
@@ -346,7 +346,7 @@ label map3_acte4:
         call screen screen_carte3(bonus=True, acte_carte = "4")
         $ salle = _return
         if salle != "go_left":
-            if persistent.language == "english":
+            if _preferences.language == "english":
                 show carte_completeEN:
                     linear 0.2 alpha 0.05
             else:
@@ -520,7 +520,7 @@ label map3_acte4:
     elif salle == "go_left":
         hide go_left
         hide quit_map
-        if persistent.language == "english":
+        if _preferences.language == "english":
             show carte_completeEN:
                 easeout 0.5 xalign 0.75 alpha 0.5
                 easein 0.5 xalign 0.5 alpha 1.0
