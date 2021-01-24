@@ -24944,10 +24944,6 @@ translate english strings:
     old "{font=fonts/Centaur.ttf}{size=32}{color=#000}Prologue : Rêve{/color}{/font}{/size}"
     new "{font=fonts/Centaur.ttf}{size=32}{color=#000}Prologue : Rêve{/color}{/font}{/size}"
 
-    # game/src/scripts/script.rpy:76
-    old "default;Ne rien dire"
-    new "default;Ne rien dire"
-
     # game/src/scripts/script.rpy:143
     old "{font=fonts/Centaur.ttf}{size=72}Acte I\n\nPrisonniers{/font}{/size}"
     new "{font=fonts/Centaur.ttf}{size=72}Acte I\n\nPrisonniers{/font}{/size}"
@@ -24984,10 +24980,6 @@ translate english strings:
     old "{font=fonts/Centaur.ttf}{size=32}Acte II : Le Vote{/font}{/size}"
     new "{font=fonts/Centaur.ttf}{size=32}Acte II : Le Vote{/font}{/size}"
 
-    # game/src/scripts/script.rpy:1204
-    old "default;Rester silencieux"
-    new "default;Rester silencieux"
-
     # game/src/scripts/script.rpy:1579
     old "{font=fonts/Centaur.ttf}{size=72}Acte III\n\nLe Jeu{/size}{/font}"
     new "{font=fonts/Centaur.ttf}{size=72}Acte III\n\nLe Jeu{/size}{/font}"
@@ -24996,14 +24988,6 @@ translate english strings:
     old "{font=fonts/Centaur.ttf}{size=32}Acte III : Le Jeu{/size}{/font}"
     new "{font=fonts/Centaur.ttf}{size=32}Acte III : Le Jeu{/size}{/font}"
 
-    # game/src/scripts/script.rpy:1656
-    old "default;Rester immobile"
-    new "default;Rester immobile"
-
-    # game/src/scripts/script.rpy:4208
-    old "default;Attendre"
-    new "default;Attendre"
-
     # game/src/scripts/script.rpy:4598
     old "{font=fonts/Centaur.ttf}{size=72}Acte VI\n\nColombe{/font}{/size}"
     new "{font=fonts/Centaur.ttf}{size=72}Acte VI\n\nColombe{/font}{/size}"
@@ -25011,10 +24995,6 @@ translate english strings:
     # game/src/scripts/script.rpy:4601
     old "{font=fonts/Centaur.ttf}{size=32}Acte VI : Colombe{/font}{/size}"
     new "{font=fonts/Centaur.ttf}{size=32}Acte VI : Colombe{/font}{/size}"
-
-    # game/src/scripts/script.rpy:4613
-    old "default;Explorer la Grande salle."
-    new "default;Explorer la Grande salle."
 
 # TODO: Translation updated at 2021-01-21 18:14
 

@@ -61,7 +61,7 @@ label sec_map:
                     narr "Ce dernier grimaça."
                     j "Revenons à nos moutons, veux-tu ?"
                     
-                "default;Les laisser parler seuls":
+                "Les laisser parler seuls" ("default"):
                     narr "Johann reprit à haute voix :"
                     j "Je ne peux pas me contenir. Ce jeu est trop excitant !"
                     j "Désolé, Leonhard, mais c'est plus fort que moi..."

@@ -2153,10 +2153,3 @@ translate english sec_map__ef59299e:
 
     # narr "C'était peut-être une maniaque de la propreté !"
     narr "C'était peut-être une maniaque de la propreté !"
-
-translate english strings:
-
-    # game/src/maps/map2.rpy:51
-    old "default;Les laisser parler seuls"
-    new "default;Les laisser parler seuls"
-
