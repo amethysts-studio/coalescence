@@ -632,9 +632,9 @@ screen carte(localisation_persos={2}, revelee=False, acte=0):
         at smooth_title(time = 1.0, transp = 1.0, dist_y = 0)
         xysize (720,1280)
         if carte_complete:
-            image "cartes/carte_complete_penche.png"
+            image carte_complete_penchee
         else:
-            image "cartes/carte_incomplete.png"
+            image carte_incomplete
     button:
         at fade_away()
         ypos 1120

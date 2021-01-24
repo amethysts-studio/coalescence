@@ -971,14 +971,11 @@ label suite_vote_1:
 label suite_map_1:
     $ get_achievement("decouvre_carte")
     nvl clear
-    hide carte_incompleteFR at carte_fade
-    hide carte1explore1FR at carte_fade
-    hide carte1explore23FR at carte_fade
-    hide carte1explore4FR at carte_fade
-    hide carte_incompleteEN at carte_fade
-    hide carte1explore1EN at carte_fade
-    hide carte1explore23EN at carte_fade
-    hide carte1explore4EN at carte_fade
+    hide carte_incomplete at carte_fade
+    hide carte1explore1 at carte_fade
+    hide carte1explore23 at carte_fade
+    hide carte1explore4 at carte_fade
+
     hide haut_de_page at smooth_title
     show text "{font=fonts/Centaur.ttf}{size=32}Acte II : Le Vote{/font}{/size}" as haut_de_page at smooth_title
     pause 1.5
@@ -3191,8 +3188,7 @@ label suite_vote_3:
     jump map2_acte4
     
 label finCarteActe4:
-    hide carte_completeFR with dissolve
-    hide carte_completeEN with dissolve
+    hide carte_complete with dissolve
     hide go_left with dissolve
     hide go_right with dissolve
     hide quit_map with dissolve
@@ -3680,7 +3676,7 @@ label suite_vote_4:
                     narr "Dos au mur, je n'avais plus vraiment le choix."
                     $ temporiser = False
                     jump choix_important
-            choix "Êtes-vous sûr de votre choix ?"
+            after_choice "Êtes-vous sûr de votre choix ?"
             menu:
                 "Oui":
                     pass
@@ -4760,8 +4756,7 @@ label apres_discussions:
     jump map2_acte6
 
 label finCarteActe6:
-    hide carte_completeFR with dissolve
-    hide carte_completeEN with dissolve
+    hide carte_complete with dissolve
     hide go_left with dissolve
     hide go_right with dissolve
     hide quit_map with dissolve

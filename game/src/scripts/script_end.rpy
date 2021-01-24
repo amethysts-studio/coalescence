@@ -480,7 +480,6 @@ label fight_final_erwin_johann_begin:
         "Ne rien dire" ("default"):
             jump fight_final_erwin_johann_passive
         #"Proposer de faire la paix":
-        #    choix "Proposer de faire la paix"
         #    $ alliance_finale = "Both"
         #    p "Faites la paix."
         #    narr "Johann et Erwin me dévisagèrent, perplexes."
