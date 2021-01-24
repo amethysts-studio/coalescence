@@ -476,7 +476,6 @@ label suite_premier_choix:
     nvl clear
     hide moving at defiler
     hide haut_de_page at smooth_title 
-    $ get_achievement("fin_acte1")
     $ quick_menu = False
     show screen menu_background()
     show screen menu_title_coal()
