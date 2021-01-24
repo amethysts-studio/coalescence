@@ -521,7 +521,7 @@ screen credits(acte=0, situation = "menu_principal"):
                     text "Joke" color "#bbb"
                     text _("Musique") xalign 1.0
                     text "Marius Prével" color "#bbb"
-                text _("\nUn grand merci à Tom 'PyTom' Rothamel pour le moteur Ren'Py.\n")
+                text _("Un grand merci à Tom 'PyTom' Rothamel pour le moteur Ren'Py.")
                 text _("À tous ceux qui m'ont soutenu dans ce projet qui m'a beaucoup tenu à cœur ces dernières années.")
 
     button:
