@@ -229,7 +229,7 @@ translate english strings:
 
     # game/src/screens/menus.rpy:461
     old "Confiance min/max atteinte"
-    new "min/max trust"
+    new "Min/Max trust"
 
     # game/src/screens/menus.rpy:512
     old "Portraits"
