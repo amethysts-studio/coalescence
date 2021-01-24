@@ -130,10 +130,6 @@ translate english strings:
     old "Menu principal :"
     new "Main menu :"
 
-    # game/screens_menus.rpy:549
-    old "Dessin : Joke"
-    new "Artwork : Joke"
-
     # game/screens_menus.rpy:643
     old "Inventaire"
     new "Items"
@@ -193,10 +189,6 @@ translate english strings:
     # game/screens_menus.rpy:85
     old "Passer à l'acte suivant"
     new "Play the next chapter"
-
-    # game/screens_menus.rpy:498
-    old "Site Web : Julien Garcia\n"
-    new "Website : Julien Garcia\n"
 
 
 # TODO: Translation updated at 2021-01-18 01:53
@@ -263,10 +255,6 @@ translate english strings:
     old "Musique"
     new "Music"
 
-    # game/src/screens/menus.rpy:524
-    old "\nUn grand merci à Tom 'PyTom' Rothamel pour le moteur Ren'Py.\n"
-    new "\nUn grand merci à Tom 'PyTom' Rothamel pour le moteur Ren'Py.\n"
-
     # game/src/screens/menus.rpy:682
     old "- Index -"
     new "- Index -"
@@ -285,21 +273,29 @@ translate english strings:
 
     # game/src/screens/menus.rpy:552
     old "Rejoignez la discussion : théories, secrets et résolution de problèmes sur {a=https://discord.gg/wmu2PWA}Discord{/a} !"
-    new "Rejoignez la discussion : théories, secrets et résolution de problèmes sur {a=https://discord.gg/wmu2PWA}Discord{/a} !"
+    new "Join the discussion: theories, secrets and problem solving on {a=https://discord.gg/wmu2PWA}Discord{/a}!"
 
     # game/src/screens/menus.rpy:554
     old "Le bouton {i}Passer{/i} en bas de l'écran permet de passer les dialogues déjà lus, jusqu'au prochain choix ou phrase encore non lue."
-    new "Le bouton {i}Passer{/i} en bas de l'écran permet de passer les dialogues déjà lus, jusqu'au prochain choix ou phrase encore non lue."
+    new "The {i}Skip{/i} button at the bottom of the screen allows you to skip previously read dialogs until the next unread text or choice."
 
     # game/src/screens/menus.rpy:556
     old "Le bouton {i}Auto{/i} permet de faire défiler automatiquement les dialogues, à votre rythme : vous pouvez en modifier la vitesse dans le menu des options."
-    new "Le bouton {i}Auto{/i} permet de faire défiler automatiquement les dialogues, à votre rythme : vous pouvez en modifier la vitesse dans le menu des options."
+    new "The {i}Auto{/i} button allows you to automatically scroll through the dialogs at your own pace: you can change the speed in the options menu."
 
     # game/src/screens/menus.rpy:558
     old "Pour réussir à vaincre le Bourreau, connaître la vérité est nécessaire. Mais non suffisant."
-    new "Pour réussir à vaincre le Bourreau, connaître la vérité est nécessaire. Mais non suffisant."
+    new "To succeed in defeating the Executioner, knowing the truth is necessary. But it is not enough."
 
     # game/src/screens/menus.rpy:560
     old "Les codes de triche sont à rentrer dans un menu secret. A vous de le trouver..."
-    new "Les codes de triche sont à rentrer dans un menu secret. A vous de le trouver..."
+    new "The cheat codes are to be entered in a secret menu. It's up to you to find it..."
+
+# TODO: Translation updated at 2021-01-24 00:15
+
+translate english strings:
+
+    # game/src/screens/menus.rpy:524
+    old "Un grand merci à Tom 'PyTom' Rothamel pour le moteur Ren'Py."
+    new "Many thanks to Tom 'PyTom' Rothamel for the Ren'Py engine."
 
