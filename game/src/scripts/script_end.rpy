@@ -286,13 +286,13 @@ label ending_bomb:
             narr "Lise resta silencieuse pendant un moment."
             li "Je jure de détruire toute sa famille."
             p "Je prends ça pour un oui."
-            $ modif_confiance([lise], [1], montrer_conf)
+            $ modif_confiance([lise], [1])
             narr "Je fis signe à Johann. Tout se passait bien."
         "On va le tuer":
             p "... on a réfléchit à un moyen de le tuer."
             li "Ce que je prépare va déjà tuer tout le monde..."
             li "Va te faire voir."
-            $ modif_confiance([lise], [-2], montrer_conf)
+            $ modif_confiance([lise], [-2])
             p "Non, attends, Lise."
     p "On a besoin de toi."
     p "Johann a un plan."
@@ -465,7 +465,7 @@ label fight_final_erwin_johann_begin:
             $ alliance_finale = "Johann"
             p "Je peux t'aider à le tuer."
             narr "Johann leva les yeux, surpris."
-            #$ modif_confiance([johann], [-1], montrer_conf)
+            #$ modif_confiance([johann], [-1])
             j "Mais à quoi tu joues ?"
             narr "Il était visiblement confus, mais accepta mon aide."
             jump fight_final_erwin_johann_active
@@ -473,7 +473,7 @@ label fight_final_erwin_johann_begin:
             $ alliance_finale = "Erwin"
             p "Je vais rejoindre Erwin."
             narr "Johann leva la tête, médusé."
-            $ modif_confiance([johann], [-5], montrer_conf)
+            $ modif_confiance([johann], [-5])
             j "Mais à quoi tu joues ?"
             narr "Je le laissai dans la pièce et marchai vers la grande salle."
             jump fight_final_erwin_johann_active
@@ -484,7 +484,7 @@ label fight_final_erwin_johann_begin:
         #    $ alliance_finale = "Both"
         #    p "Faites la paix."
         #    narr "Johann et Erwin me dévisagèrent, perplexes."
-        #    $ modif_confiance([johann], [-5], montrer_conf)
+        #    $ modif_confiance([johann], [-5])
         #    j "Mais à quoi tu joues ?" #TODO
         #    jump fight_final_erwin_johann_active
 
@@ -653,7 +653,7 @@ label fight_final_erwin_leonhard_begin:
             $ alliance_finale = "Erwin"
             p "Je vais rejoindre Erwin."
             narr "Leonhard leva la tête, médusé."
-            $ modif_confiance([leonhard], [-5], montrer_conf)
+            $ modif_confiance([leonhard], [-5])
             l "Pourquoi faites-vous ça, Kurt ?"
             narr "Je le laissai dans la pièce, sans répondre, et marchai vers la grande salle."
             jump fight_final_erwin_leonhard_active

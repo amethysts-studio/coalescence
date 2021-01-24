@@ -94,8 +94,7 @@ label map1_acte4:
                                     r "Tu rigoles ? J'ai pas confiance en toi..."
                                     r "Tu veux juste me soutirer des informations comme ça ?..."
                                     r "Les jeunes... Aucun respect pour leurs aînés"
-                                    $ modif_confiance([rosalind, erwin, lise, johann, leonhard], 
-                                                      [-1      ,  0   , 0   , 0     , 0       ], montrer_conf)
+                                    $ modif_confiance([rosalind], [-1])
                             "Informations sur son neveu" if rosalind["confiance"] >= 11:
                                 p "Désolé de vous demander ça mais..."
                                 p "...vous avez piqué ma curiosité tout à l'heure, en parlant de votre neveu."
@@ -104,8 +103,7 @@ label map1_acte4:
                                 r "J'ai trop souffert à cause de lui..."
                             "Lui remonter le moral" if une_entrevue_rosalind:
                                 $ une_entrevue_rosalind = False
-                                $ modif_confiance([rosalind, erwin, lise, johann, leonhard], 
-                                                  [2      ,  0   , 0   , 0     , 0       ], montrer_conf)
+                                $ modif_confiance([rosalind], [2])
                                 p "Je... Je ne suis pas d'accord avec les autres."
                                 p "Je ne crois pas que vous soyez méchante."
                                 p "Et les autres ont eu tort de vous enfermer"
@@ -175,8 +173,7 @@ label map1_acte4:
                 "Johann":
                     p "Johann. Je pense qu'il cache quelque chose"
                     l "Ah oui ? Intéressant..."
-                    $ modif_confiance([rosalind, erwin, lise, johann, leonhard], 
-                                      [0       ,  0   , 0   , 0     , 1       ], montrer_conf)
+                    $ modif_confiance([leonhard], [1])
                     l "Je ne lui fais plus autant confiance qu'avant."
                     l "Même si il dégage beaucoup de bonne volonté et d'entrain à essayer de découvrir ce qu'il se passe..."
                     l "... rien n'avance concrètement."
@@ -184,8 +181,7 @@ label map1_acte4:
                     l "Il doit jouer un double jeu..."
                 "Rosalind":
                     p "Rosalind évidemment."
-                    $ modif_confiance([rosalind, erwin, lise, johann, leonhard], 
-                                      [0       ,  0   , 0   , 0     , 1       ], montrer_conf)
+                    $ modif_confiance([leonhard], [1])
                     p "Elle a été élue comme Bourreau, alors si elle ne veut pas que sa bombe explose, elle va devoir tuer quelqu'un..."
                     l "Bien. Savais-tu que je la soupçonne ?"
                     l "Je l'ai observée se déplacer"

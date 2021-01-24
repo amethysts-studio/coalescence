@@ -512,7 +512,7 @@ label initialisation_debut_partie:
                       ]
                     }
 
-    $ montrer_conf = "implicite" # explicite, implicite, desactivé
+    #$ montrer_conf = "implicite" # explicite, implicite, desactivé
     $ liste_persos = [kurt, isaac, leonhard, johann, alan, emmy, ukichiro, rosalind, sophie, stephanie, erwin, lise, bourreau, creature, klaus, grace, hibou, rossignol, casoar, outsider]
     $ persos_joueurs = [kurt, isaac, leonhard, johann, alan, emmy, ukichiro, rosalind, sophie, stephanie, erwin, lise]
     $ persos_non_joueurs = [bourreau, creature, klaus, grace, hibou, rossignol, casoar, outsider]

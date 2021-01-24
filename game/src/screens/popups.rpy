@@ -59,7 +59,7 @@ screen scr_achievement_get(title, a_text, icon):
                     id a_text
 
 
-screen scr_conf_update(liste_persos, liste_modif, liste_total, discret):
+screen scr_conf_update(liste_persos, liste_modif):
     timer 6.0 action Hide("scr_conf_update")
     zorder 8
     vbox:
@@ -67,12 +67,9 @@ screen scr_conf_update(liste_persos, liste_modif, liste_total, discret):
         window:
             background "#000d" xsize 720 ysize 100
             text _("Confiance :") size 36 at truecenter
-        for i in range(len(liste_persos)):
-            $ balance = liste_modif[i]
-            $ perso = liste_persos[i]
-            $ phrase = _("a apprécié") if balance > 0 else _("n'a pas aimé")
-            
+        for perso, balance in zip(liste_persos, liste_modif):            
             if balance != 0:
+                $ phrase = _("a apprécié") if balance > 0 else _("n'a pas aimé")
                 frame:
                     background "#000d" xsize 720 ysize 60
                     hbox xpos 120:
