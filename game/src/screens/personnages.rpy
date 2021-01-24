@@ -111,7 +111,7 @@ screen bio_perso(perso, situation, acte=0):
                 text "???" xalign 0.5
             text perso["adjectifs"] xalign 0.5
             #if perso["nom"] not in ["Bourreau", "Kurt", "Klaus"]:
-            #    text "Relations : "+get_qualificatif(perso["confiance"], montrer_conf) xalign 0.5
+            #    text "Relations : "+get_qualificatif(perso["confiance"]) xalign 0.5
     
     window:
         at xslide(x_depart=-120, x_final=360)

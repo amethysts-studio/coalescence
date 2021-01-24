@@ -199,19 +199,15 @@ label acte1:
             $ faire_confiance_isaac_porte = True
             $ renpy.fix_rollback()
             $ get_achievement("premier_choix")
-            #$ renpy.notify("{i}Vous avez choisi de faire confiance à Isaac.{/i}")
             p "Je pense qu'on peut lui faire confiance."
-            $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                              [0   ,  1   , 0   , 0     , 0       ], montrer_conf)
+            $ modif_confiance([isaac], [1])
             j "Si tu le dis..."
             narr "Un des inconnus hésitait, mais resta silencieux et son hésitation fut coupée par Johann."
         "Vérifier que la porte est bloquée":
             $ verif_porte_acte1 = True
             $ renpy.fix_rollback()
             $ get_achievement("premier_choix")
-            
-            $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                              [0   , -1   , 0   , 0     , 0       ], montrer_conf)
+            $ modif_confiance([isaac], [-1])
             narr "Je me levai et mis la main sur la poignée."
             p "La porte est bien fermée !"
             j "Très bien !"
@@ -333,8 +329,7 @@ label suite_premier_choix:
         ala "Alors, Isaac, on a des problèmes de mémoire ? Tu disais que c'était fermé, tout à l'heure, non ?"
         if faire_confiance_isaac_porte:
             e "Et Kurt, tu disais faire confiance à Isaac..."
-            $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                              [-1  ,  0   , 0   , 0     , 0       ], montrer_conf)
+            $ modif_confiance([emmy], [-1])
         narr "Isaac haussa les épaules"
         isa "Il a peut-être ouvert la porte entre temps..."
         isa "On ne sait pas encore dans quoi on est tombés ! Ça commence à me faire peur..."
@@ -370,8 +365,7 @@ label suite_premier_choix:
         "Rester avec {color=#ffd}Emmy{/color} et {color=#5ba7ff}Isaac{/color}":
             $ get_achievement("premier_choix")
             $ acte1_rester = True
-            $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                              [1, 1, 0, 0, 0      ], montrer_conf)
+            $ modif_confiance([emmy, isaac], [1, 1])
             p "Je reste ici."
             narr "Le groupe se scinda donc en deux."
             narr "Une fois que les bruits de pas furent peine audibles, Isaac exprima son soulagement :"
@@ -412,8 +406,7 @@ label suite_premier_choix:
             $ renpy.fix_rollback()
             $ get_achievement("premier_choix")
             $ acte1_rester = False
-            $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                              [0,0,1,1,1   ], montrer_conf)
+            $ modif_confiance([alan, johann, leonhard], [1,1,1])
             p "Rester ici n'avance à rien, je pars avec vous"
             narr "Nous sortîmes de la pièce pour arriver dans un long couloir"
             j "Allez, on y va !"
@@ -773,13 +766,11 @@ label suite_vote_1:
         menu:
             "L'encourager à parler":
                 $ renpy.fix_rollback()
-                $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                  [0   , 0    ,  1  , 0     , 0       ], montrer_conf)
+                $ modif_confiance([alan], [1])
                 p "Dis nous, pourquoi as-tu fais ça ?.."
             "Lui crier dessus":
                 $ renpy.fix_rollback()
-                $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                  [0   , 0    , -1  , 0     , 0       ], montrer_conf)
+                $ modif_confiance([alan], [-1])
                 p "Espèce d'ordure, tu n'as pas de cœur ???"
         narr "Alan garda le silence"
         narr "Isaac frappa de toutes ses forces, par désespoir, sur la porte"
@@ -798,25 +789,23 @@ label suite_vote_1:
         narr "Johann regarda autour de lui"
         j "Je suis le seul à comprendre pourquoi Alan a tué Emmy ?"
         j "Je suis le seul à savoir ce qu'avait prévu Emmy ?"
+        $ countdown_time = 8
         menu:
-            "Ne pas parler":
+            "Ne pas parler" ("default"):
                 $ renpy.fix_rollback()
-                $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                  [0   , 0    , 0   , -1    , 0       ], montrer_conf)
+                $ modif_confiance([johann], [-1])
                 narr "Johann avait l'air désespéré"
                 j "Vous êtes tous stupides ou quoi ?"
             "Elle attendait la fin du compte à rebours":
                 $ renpy.fix_rollback()
-                $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                  [0   , 0    , 0   , 1    , 0       ], montrer_conf)
+                $ modif_confiance([johann], [1])
                 narr "Johann sourit"
                 j "Exact."
             "Elle avait caché une arme là-bas":
                 $ renpy.fix_rollback()
                 narr "Johann avait l'air désespéré"
                 j "Pas du tout..."
-                $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                  [0   , 0    , 0   , -1    , 0       ], montrer_conf)
+                $ modif_confiance([johann], [-1])
         j "Emmy voulait s'enfermer dans les toilettes pendant une heure, pour attendre la sentence du Bourreau"
         j "Elle était intelligente :"
         j "Cela aurait permis de voir si le Bourreau met à exécution ses menaces..."
@@ -910,17 +899,18 @@ label suite_vote_1:
         isa "Pourquoi ???"
         l "Pourquoi tant de violence, de cruauté ?..."
         j "Tu viens de tuer un humain, Alan..."
+        $ countdown_time = 8.0
         menu:
             "L'encourager à parler":
                 $ renpy.fix_rollback()
-                $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                  [0   , 0    ,  1  , 0     , 0       ], montrer_conf)
+                $ modif_confiance([alan], [1])
                 p "Dis nous, pourquoi as-tu fais ça ?.."
             "Lui crier dessus":
                 $ renpy.fix_rollback()
-                $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                  [0   , 0    , -1  , 0     , 0       ], montrer_conf)
+                $ modif_confiance([alan], [-1])
                 p "Espèce d'ordure, tu n'as pas de cœur ???"
+            "Ne rien dire" ("default"):
+                $ renpy.fix_rollback()
         narr "Alan garda le silence"
         narr "Isaac frappa de toutes ses forces, par désespoir, sur la porte"
         $ renpy.vibrate(1.0)
@@ -1074,13 +1064,13 @@ label suite_map_1:
         "Organiser des tours de garde (Johann)":
             $ renpy.fix_rollback()
             $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                              [0   , -1   , 0   , 1     , 0       ], montrer_conf)
+                              [0   , -1   , 0   , 1     , 0       ])
             p "Je suis d'accord avec Johann"
             narr "Tout le monde était de cet avis"
         "Dormir enfermés (Isaac)":
             $ renpy.fix_rollback()
             $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                              [0   , 1    , 0   , -1    , 0       ], montrer_conf)
+                              [0   , 1    , 0   , -1    , 0       ])
             p "Je suis d'accord avec Isaac"
             if elus_vote[1] == "emmy":
                 narr "Leonhard et Alan n'étaient pas de mon avis"
@@ -1111,20 +1101,17 @@ label suite_map_1:
         j "Kurt, tu choisis qui ?"
     menu:
         "Leonhard":
-            $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                              [0   , 0    , 0   , 0     , 1       ], montrer_conf)
+            $ modif_confiance([leonhard], [1])
             p "Je fais confiance à Leonhard"
             l "Je vous fais confiance à vous aussi, Kurt."
             $ sleep_with = "leonhard"
         "Isaac" if isaac["confiance"] >= 11:
-            $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                              [0   , 1    , 0   , 0     , 0       ], montrer_conf)
+            $ modif_confiance([isaac], [1])
             p "Je fais confiance à Isaac"
             isa "Cool !"
             $ sleep_with = "isaac"
         "Johann" if johann["confiance"] >= 11:
-            $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                              [0   , 0    , 0   , 1     , 0       ], montrer_conf)
+            $ modif_confiance([johann], [1])
             p "Je fais confiance à Johann"
             j "Super !"
             $ sleep_with = "johann"
@@ -1402,7 +1389,7 @@ label suite_map_1:
             narr "Isaac avait l'air retourné, mais soulagé de savoir que quelqu'un partageait son souvenir cauchemardesque"
             j "Étrange..."
             $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                          [0   , 1    , 0   , -1     , 0       ], montrer_conf)
+                          [0   , 1    , 0   , -1     , 0       ])
         "Je l'ai entendu" if not screamer_nuit1:
             p "J'ai entendu quelque chose aussi. Près de ma porte."
             narr "J'avais des frissons rien que d'y penser."
@@ -1647,8 +1634,7 @@ label acte3:
         narr "Malgré la situation tendue, je décidai de baisser mon arme."
         j "Je voulais voir {i}qui{/i} était capable de se battre contre le Bourreau."
         j "Je suis plutôt déçu d'Isaac. Par contre, toi, Kurt..."
-        $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                          [0   , 1    , 0   , 2     , 0       ], montrer_conf)
+        $ modif_confiance([isaac, johann], [1, 2])
         j "... tu as les tripes pour le vaincre."
         narr "Leonhard balbutia"
         l "Je... je savais que tu nous testais. C'est pour ça que je n'ai pas bougé."
@@ -1661,8 +1647,7 @@ label acte3:
         narr "Alan stoppa net, mais il restait prêt. "
         narr "La situation était tendue."
         j "Je voulais voir {i}qui{/i} était capable de se battre contre le Bourreau."
-        $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                          [0   , 0    , 0   , -2     , 0       ], montrer_conf)
+        $ modif_confiance([johann], [-2])
         j "Je suis déçu d'Isaac, Leonhard et Kurt. Par contre, toi, Alan..."
         j "... tu as les tripes pour le vaincre."
         narr "Leonhard balbutia"
@@ -1676,8 +1661,7 @@ label acte3:
         j "Si vous n'êtes même pas capable de lutter contre le Bourreau, qu'allez vous faire ?..."
         j "Je ne suis {i}pas{/i} le Bourreau."
         j "Je voulais juste voir si vous aviez le courage de le battre..."
-        $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                          [0   , 1    , 0   , -2     , 0       ], montrer_conf)
+        $ modif_confiance([isaac, johann], [1, -2])
         j "... et je suis déçu..."
     narr "Secoué par la mise en scène de Johann, Isaac se renfrogna"
     isa "Je n'aurai pas la force de le tuer, tu as raison..."
@@ -1738,8 +1722,7 @@ label acte3:
             p "J'ai quelque chose à dire."
             narr "Johann se tourna vers moi, intéressé"
             p "Isaac. Il a un pris couteau en salle d'armes."
-            $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                              [0   , -10    , 0   , 0     , 0       ], montrer_conf)
+            $ modif_confiance([isaac], [-10])
             narr "Isaac me foudroya du regard"
             isa "Enfoiré..."
             if inventaire["knife"]["nb"] > 0:
@@ -1774,20 +1757,20 @@ label acte3:
                 isa "Il vous trahira aussi."
             if elus_vote[1]==["alan"]:
                 $ modif_confiance([isaac, emmy, johann, leonhard], 
-                                  [-2, -2, -2, -2, -2], montrer_conf)
+                                  [-2, -2, -2, -2, -2])
             else:
                 $ modif_confiance([isaac, alan, johann, leonhard], 
-                                  [-2, -2, -2, -2, -2], montrer_conf)
+                                  [-2, -2, -2, -2, -2])
             $ vote2 = 8
         "Avouer mon crime" if claim_bystander:
             $ renpy.fix_rollback()
             p "Je..."
             if elus_vote[1]==["alan"]:
                 $ modif_confiance([isaac, emmy, johann, leonhard], 
-                                  [-1  , -1   , -1  , -1    , -1      ], montrer_conf)
+                                  [-1  , -1   , -1  , -1    , -1      ])
             else:
                 $ modif_confiance([isaac, alan, johann, leonhard], 
-                                  [-1  , -1   , -1  , -1    , -1      ], montrer_conf)
+                                  [-1  , -1   , -1  , -1    , -1      ])
             p "Je vous ai menti."
             $ claim_bystander = False
             p "Je.. Je suis toujours resté dans la légalité"
@@ -1847,7 +1830,7 @@ label acte3:
             "Avouer":
                 p "Je..."
                 $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                  [-2  , -2   , -2  , -2    , -2      ], montrer_conf)
+                                  [-2  , -2   , -2  , -2    , -2      ])
                 p "J'ai menti."
                 $ claim_bystander = False
                 p "Je.. Je suis toujours resté dans la légalité"
@@ -2031,8 +2014,7 @@ label suite_vote_2:
                     isa "Il m'a fait trop de mal quand j'étais petit..."
                 else:
                     isa "Il a {i}tué{/i} Emmy, quand même..."
-                $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                  [0   ,  2   , 0   , 0     , 0       ], montrer_conf)
+                $ modif_confiance([isaac], [2])
                 isa "Merci beaucoup"
             "Flash (lampe torche)" if inventaire["lampe"]["nb"]==1 and inventaire["battery"]["nb"]>=1 and isaac["confiance"] >= 15:
                 $ renpy.fix_rollback()
@@ -2940,12 +2922,10 @@ label talk_acte4:
                         j "J'avais trouvé ça aussi."
                         jump johann_acte_4
                     "Non" if choses_apprises_johann == 0:
-                        $ modif_confiance([rosalind, erwin, lise, johann, leonhard], 
-                                          [0       ,  0   , 0   , -2    , 0       ], montrer_conf)
+                        $ modif_confiance([johann], [-2])
                         j "Dommage... Je t'ai surestimé, Kurt."
                     "C'est tout" if choses_apprises_johann != 0:
-                        $ modif_confiance([rosalind, erwin, lise, johann, leonhard], 
-                                          [0       ,  0   , 0   , choses_apprises_johann    , 0       ], montrer_conf)
+                        $ modif_confiance([johann], [choses_apprises_johann])
                         j "Tu as fait du bon travail, Kurt, bravo !"
                 j "Personnellement, je pense que Klaus et le Bourreau ne font qu'un."
                 j "Cela ne reste qu'une théorie, mais..."
@@ -3003,13 +2983,11 @@ label talk_acte4:
             menu:
                 "S'excuser":
                     p "Je suis désolé !"
-                    $ modif_confiance([rosalind, erwin, lise, johann, leonhard],
-                                      [1       ,  0   , 0   , 0     , 0       ], montrer_conf)
+                    $ modif_confiance([rosalind], [1])
                     r "Mais non voyons, ce n'est pas de ta faute..."
                 "Poser des questions sur son neveu":
                     r "Hmph."
-                    $ modif_confiance([rosalind, erwin, lise, johann, leonhard],
-                                      [-1      ,  0   , 0   , 0     , 0       ], montrer_conf)
+                    $ modif_confiance([rosalind], [-1])
                     r "Je n'ai {i}vraiment{/i} pas envie d'en parler ici. Surtout en ce moment."
             r "Kurt, c'est bien ça ?"
             r "Tu as la même voix, et presque le même nom que mon neveu."
@@ -3041,8 +3019,7 @@ label talk_acte4:
                     narr "Je l'informai donc des évènements de l'aile gauche de la prison."
                     narr "Il hocha la tête avec intérêt."
                     erw "Merci beaucoup. Tu es loin d'être stupide. Excuse-moi."
-                    $ modif_confiance([rosalind, erwin, lise, johann, leonhard],
-                                      [0       ,  2   , 0   , 0     , 0       ], montrer_conf)
+                    $ modif_confiance([erwin], [2])
                     erw "Maintenant, à mon tour."
                     erw "Nous aussi, nous n'avons eu que deux votes à faire."
                     erw "Le chinois, ou japonais, je m'en fous, s'est suicidé."
@@ -3094,8 +3071,7 @@ label talk_acte4:
                     $ modif_bio(ukichiro, 1, notify=False)
                 "Refuser":
                     erw "Comme tu voudras, Kurt."
-                    $ modif_confiance([rosalind, erwin, lise, johann, leonhard], 
-                                      [0       ,  -2   , 0   , 0     , 0       ], montrer_conf)
+                    $ modif_confiance([erwin], [-2])
                     erw "Nous serons donc ennemis, à défaut de se pouvoir faire confiance."
                     erw "Il est essentiel de se faire confiance ici."
                     erw "Mais puisque seuls trois peuvent s'en sortir..."
@@ -3251,15 +3227,13 @@ label finCarteActe4:
                 p "Pas de problème !"
                 $ sleep_with3 = "Johann"
                 narr "Johann sourit en replaçant ses lunettes."
-                $ modif_confiance([rosalind, erwin, lise, johann, leonhard], 
-                                  [0       ,  0   , 0   , 1     , 0       ], montrer_conf)
+                $ modif_confiance([johann], [1])
                 j "Cool ! Chambre 1 ?"
                 p "Pourquoi pas !"
             "Refuser":
                 p "Non, désolé, mais je me sens plus en sécurité seul..."
                 narr "Johann fit la moue"
-                $ modif_confiance([rosalind, erwin, lise, johann, leonhard], 
-                                  [0       ,  0   , 0   , -1    , 0       ], montrer_conf)
+                $ modif_confiance([johann], [-1])
                 j "Pas grave..."
                 j "Je vais dormir seul chambre 1, moi !"
                 p "Ce sera chambre 4 pour moi."
@@ -3616,7 +3590,7 @@ label acte5:
             narr "Erwin n'avait pas l'air convaincu."
             erw "Tu cherches à gagner notre confiance ?"
             $ modif_confiance([erwin, lise, johann, leonhard],
-                              [-1   , 0   , -1    , -1      ], montrer_conf)
+                              [-1   , 0   , -1    , -1      ])
             j "Pathétique."
             l "Évidemment, il est impossible de défaire le Bourreau."
             l "Deux personnes vont encore mourir, on est sur le point de désigner le prochain tueur..."
@@ -3672,7 +3646,7 @@ label suite_vote_4:
         #Kurt : peut tuer n'importe qui sauf Lise protégée par son mari
         $ annonce_importante(kurt, _("Je suis... le Bourreau ?"))
         $ modif_confiance([erwin, lise, johann, leonhard], 
-                          [-2   , -2  , -2    , -2      ], montrer_conf)
+                          [-2   , -2  , -2    , -2      ])
         narr "Un sentiment étrange m'envahit."
         narr "Tellement de puissance..."
         narr "Mais autant d'appréhension."
@@ -3698,7 +3672,7 @@ label suite_vote_4:
                     $ kill = "myself"
                 "Temporiser" if temporiser:
                     p "Je préfère attendre un peu..."
-                    $ modif_confiance([erwin, lise, johann, leonhard], [-1, 0, 0, 1], montrer_conf)
+                    $ modif_confiance([erwin, leonhard], [-1, 1])
                     p "C'est une décision beaucoup trop importante pour être prise rapidement."
                     erw "Pff."
                     erw "C'est sur que faire ça la nuit, c'est plus pratique, hein ?"
@@ -4022,7 +3996,7 @@ label fight_leonhard_couteau:
         p "Je ne sais pas si tu es le Bourreau ou pas. Je ne sais pas si tu es un complice."
         p "Mais tu n'es certainement pas de mon côté."
         narr "Je lui plantai mon couteau dans la gorge."
-        $ modif_confiance([erwin, lise, johann], [-2   , -2  , -2 ], False)
+        $ modif_confiance([erwin, lise, johann], [-2, -2, -2], False)
     $ fin_vote_4 = "leonhard_mort"
     $ leonhard["statut"] = "Mort"
     jump suite_fight_vote4

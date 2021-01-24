@@ -53,8 +53,7 @@ label first_map:
             menu:
                 "J'y réfléchirai !":
                     p "J'y réfléchirai !"
-                    $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                      [0   , 0    , 0   , 0     , 1       ], montrer_conf)
+                    $ modif_confiance([leonhard], [1])
                     l "D'accord."
                     l "Dis moi ta réponse rapidement, les places sont comptées..."
                     narr "Il était assez direct, mais il n'avait pas tort."
@@ -62,8 +61,7 @@ label first_map:
                     p "Johann vous fait déjà confiance ? C'est rapide..."
                     p "Vous vous connaissiez déjà avant ?"
                     l "Non, nous avons juste parlé quand vous étiez en train de dormir."
-                    $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                      [0   , 0    , 0   , 0     , -1      ], montrer_conf)
+                    $ modif_confiance([leonhard], [-1])
                     l "Être suspicieux est quelque chose de compréhensible, mais si je vous propose une alliance, c'est parce que je pensais que je pouvais avoir confiance en vous..."
                 "Que savez-vous sur le Bourreau ?":
                     p "Vous avez un dossier sur le Bourreau ? Vous pouvez m'en dire plus ?"

@@ -39,14 +39,13 @@ label sec_map:
             l "Si le Bourreau se sent menacé, il va s'occuper de ton cas."
             l "Mène ton enquête en silence, comme moi !"
             narr "Il prit Johann à part et chuchota à son oreille."
-            $ countdown_time, countdown_range = 8.0, 8.0
+            $ countdown_time = 8.0
             menu:
                 "Tenter d'écouter discrètement":
                     narr "J'approchai sans bruit, en tendant l'oreille."
                     l "(Et tiens moi informé de ce que tu sais, mais sans le dire à tout le monde, d'accord ?)"
                     narr "Johann me surpris"
-                    $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                      [0   , 0    , 0   , -1    , -1      ], montrer_conf)
+                    $ modif_confiance([johann, leonhard], [-1, -1])
                     j "Vraiment, Kurt ?"
                     l "On ne peut pas te faire confiance ?..."
                     j "C'est bon, laisse tomber, Leonhard."
@@ -71,23 +70,22 @@ label sec_map:
                     j "Au moins, tu es honnête, pas comme Leonhard"
                     narr "Il lui lança un regard de travers"
                     j "{i}N'est-ce-pas{/i}"
-                    $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                    [0   , 0    ,  0  , -1    , 0       ], montrer_conf)
+                    $ modif_confiance([johann],[-1])
                 "Oui : Les chevaliers d'Emeraude":
                     $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                    [0   , 0    ,  0  , 1    , 0       ], montrer_conf)
+                                    [0   , 0    ,  0  , 1    , 0       ])
                     p "Oui, j'ai adoré {i}Les chevaliers d'Emeraude{/i} !"
                     narr "Johann avait l'air surpris, et son visage s'illumina"
                     j "Ah, oui, tu as raison ! Mais je pensais plus à Kira dans {i}Deathnote{/i} en fait..."
                 "Oui : Deathnote":
                     $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                    [0   , 0    ,  0  , 2     , 0       ], montrer_conf)
+                                    [0   , 0    ,  0  , 2     , 0       ])
                     p "Oui, j'ai adoré {i}Deathnote{/i} !"
                     narr "Le visage de Johann s'illumina"
                     j "Génial ! Au moins, je suis enfermé avec des personnes cultivées !"
                 "Oui : King's Game":
                     $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                    [0   , 0    ,  0  , -2    , 0       ], montrer_conf)
+                                    [0   , 0    ,  0  , -2    , 0       ])
                     p "Oui, j'ai adoré {i}King's game{/i} !"
                     narr "Le visage de Johann se referma"
                     j "Ben, non... Tu inventes ? J'aime pas trop ça..."
@@ -207,7 +205,7 @@ label sec_map:
                                     "Cannabis (résine) ":
                                         ala "T'es sérieux ? C'est plein de merde, ça..."
                                     "Cannabis (herbe)":
-                                        $ modif_confiance([emmy, isaac, alan, johann, leonhard], [0   , 0    ,  1  , 0    , 0       ], montrer_conf)
+                                        $ modif_confiance([alan], [1])
                                         ala "Ouaaais mon pote !"
                                         ala "Check ça !"
                                         narr "Il ouvrit la porte et me tendit son poing"
@@ -215,7 +213,7 @@ label sec_map:
                                         narr "Je lui rendit son check, et il s'enferma de nouveau dans sa chambre."
                                     "Cocaïne":
                                         ala "T'es sérieux ? C'est un vrai truc de {i}junkie{/i}..."
-                                        $ modif_confiance([emmy, isaac, alan, johann, leonhard], [0   , 0    ,  -1  , 0    , 0       ], montrer_conf)
+                                        $ modif_confiance([alan], [-1])
                             "Non":
                                 ala "D'ac, faut que je t'explique."
                                 ala "La drogue, c'est pas comme dans les films."

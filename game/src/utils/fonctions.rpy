@@ -5,7 +5,6 @@ init python:
     updissolve = ImageDissolve(im.Tile("Transitions/uptile.png"), 2.0, 64)
     griffesdissolve = ImageDissolve(im.Tile("Transitions/griffes.png"), 1.0, 32)
     tpdissolve = ImageDissolve(im.Tile("Transitions/teleport.png"), 2.0, 64)
-    countdown_range = 0
 
 #init 2 python:
 #    def save_playtime(d):
@@ -173,29 +172,19 @@ init python:
         if notify:
             renpy.notify(_("Dossier {i}")+perso["nom"]+_("{/i} mis à jour"))
 
-    def modif_confiance(liste_persos, liste_balance, mode_affichage = "implicite"):
-        for i in range(len(liste_persos)):
-            if liste_persos[i]["statut"][:6] == "Vivant":
-                liste_persos[i]["confiance"] += liste_balance[i]
-                nom = liste_persos[i]["nom"]
-                persistent.confiance[nom][0] = min(liste_persos[i]["confiance"], persistent.confiance[nom][0])
-                persistent.confiance[nom][1] = max(liste_persos[i]["confiance"], persistent.confiance[nom][1])
-                #liste_persos[i]["confiance_max"] = max(liste_persos[i]["confiance"], liste_persos[i]["confiance_max"])
-                #liste_persos[i]["confiance_min"] = min(liste_persos[i]["confiance"], liste_persos[i]["confiance_min"])
+    def modif_confiance(liste_persos, liste_balance, display=True):
+        for perso, balance in zip(liste_persos, liste_balance):
+            if perso["statut"][:6] == "Vivant":
+                perso["confiance"] += balance
+                nom = perso["nom"]
+                persistent.confiance[nom][0] = max(0, min(perso["confiance"], persistent.confiance[nom][0]))
+                persistent.confiance[nom][1] = min(20, max(perso["confiance"], persistent.confiance[nom][1]))
+                if not achievement.has("meilleurs_amis"):
+                    if perso["confiance"] > 17:
+                        get_achievement("meilleurs_amis")
             
-        liste_total = [liste_persos[i]["confiance"] for i in range(len(liste_persos))]
-        if mode_affichage == "explicite" and not renpy.is_skipping():
-            renpy.show_screen(_screen_name='scr_conf_update',
-                                liste_persos = liste_persos, liste_modif = liste_balance,
-                                liste_total = liste_total, discret=False)
-        elif mode_affichage == "implicite" and not renpy.is_skipping():
-            renpy.show_screen(_screen_name='scr_conf_update',
-                                liste_persos = liste_persos, liste_modif = liste_balance,
-                                liste_total = liste_total, discret=True)
-        if not achievement.has("meilleurs_amis"):
-            for i in range(len(liste_persos)):
-                if liste_persos[i]["confiance"] > 17:
-                    get_achievement("meilleurs_amis")
+        if display and not renpy.is_skipping():
+            renpy.show_screen(_screen_name='scr_conf_update', liste_persos = liste_persos, liste_modif = liste_balance)
 
     def get_qualificatif(i, string):
         if i < 0:
