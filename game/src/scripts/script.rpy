@@ -9,9 +9,6 @@ label splashscreen:
     scene black
     if not persistent.sauvegarde_info:
         $ persistent.sauvegarde_info = {"continuer": [0, " ", True, 0]}
-
-    if not persistent.playtime:
-        $ persistent.playtime = 1
     
     if not persistent.set_volumes:
         $ persistent.set_volumes = True
