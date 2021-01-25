@@ -29,19 +29,17 @@ jobs:
           wget http://www.renpy.org/dl/7.4.1/renpy-7.4.1-sdk.tar.bz2
           tar xf renpy-7.4.1-sdk.tar.bz2
           rm renpy-7.4.1-sdk.tar.bz2
-          mkdir dist
-          mv renpy-7.4.1-sdk dist/renpy
-          pwd && ls
-          ls dist
+          mv renpy-7.4.1-sdk ../renpy
       - name: Build distributions
         # ./renpy.sh launcher android_build ../.. assembleRelease --dest ..
         run: |
           pwd && ls
-          cd dist/renpy
           echo "renpy folder"
-          ls
-          ./renpy.sh launcher distribute ../..
-          pwd && ls
-          cd ../..
-          echo "main"
-          pwd && ls
+          cd ../renpy
+          ./renpy.sh launcher distribute ../coalescence --destination ../coalescence/dist
+      - name: Upload game artifact
+        id: uploadArtifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: Coalescence PC
+          path: dist/Coalescence-0.99.9-pc.zip
