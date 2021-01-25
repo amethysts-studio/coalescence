@@ -23,10 +23,25 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Install Ren'Py
+        run: |
+          pwd && ls
+          wget http://www.renpy.org/dl/7.4.1/renpy-7.4.1-sdk.tar.bz2
+          tar xf renpy-7.4.1-sdk.tar.bz2
+          rm renpy-7.4.1-sdk.tar.bz2
+          mkdir dist
+          mv renpy-7.4.1-sdk dist/renpy
+          pwd && ls
+          ls dist
       - name: Build distributions
-        uses: ProjectAliceDev/renpy-build-action@v1.1.2
-        with:
-          sdk-version: "7.4.1"
-        env:
-          SDL_AUDIODRIVER: dummy
-          SDL_VIDEODRIVER: dummy
+        # ./renpy.sh launcher android_build ../.. assembleRelease --dest ..
+        run: |
+          pwd && ls
+          cd dist/renpy
+          echo "renpy folder"
+          ls
+          ./renpy.sh launcher distribute ../..
+          pwd && ls
+          cd ../..
+          echo "main"
+          pwd && ls
