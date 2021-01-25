@@ -1,1 +1,18 @@
-{"layout": null, "orientation": "portrait", "package": "com.coal", "include_pil": false, "expansion": false, "name": "Coalescence", "update_always": true, "source": false, "icon_name": "Coalescence", "version": "0.99.7", "update_icons": true, "permissions": ["VIBRATE", "INTERNET"], "numeric_version": "26", "include_sqlite": false, "store": "none", "google_play_key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtFXfzxNIcs0Q7lRq3WXqKhtgd+AHZtB8u79gRlGYN+pkLely3X1AnbAhNYgWjgJh4J347RC9SsEsZeLEYYkbP5RO6MQCvQmzdwAo2rHDmHb+G0kKhp6ND3JPNDY+TBr2bxLEUz22jEd/MhN7S+IdYBWLjPpPRUax5xZFO/lKPGNBw/c/klXJA9XJJlnMclRTzqTkMBWV/MoN0dyRgku9d55xxVsowzNvVztUdJsmJMb2CiUK9AiWn2+Om8Zh5HBp8C1YwzLhl2vMofq/cD2QFGvLUpHoPuufxEeDhomcPRHQnfkBoalzmsd9u5bw6j5L34Q+DwplaoHpLDQ41H1aWQIDAQAB"}
+{
+  "layout": null,
+  "orientation": "portrait",
+  "package": "com.coal",
+  "include_pil": false,
+  "expansion": false,
+  "name": "Coalescence",
+  "update_always": true,
+  "source": false,
+  "icon_name": "Coalescence",
+  "version": "0.99.7",
+  "update_icons": true,
+  "permissions": ["VIBRATE"],
+  "numeric_version": "26",
+  "include_sqlite": false,
+  "store": "none",
+  "google_play_key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtFXfzxNIcs0Q7lRq3WXqKhtgd+AHZtB8u79gRlGYN+pkLely3X1AnbAhNYgWjgJh4J347RC9SsEsZeLEYYkbP5RO6MQCvQmzdwAo2rHDmHb+G0kKhp6ND3JPNDY+TBr2bxLEUz22jEd/MhN7S+IdYBWLjPpPRUax5xZFO/lKPGNBw/c/klXJA9XJJlnMclRTzqTkMBWV/MoN0dyRgku9d55xxVsowzNvVztUdJsmJMb2CiUK9AiWn2+Om8Zh5HBp8C1YwzLhl2vMofq/cD2QFGvLUpHoPuufxEeDhomcPRHQnfkBoalzmsd9u5bw6j5L34Q+DwplaoHpLDQ41H1aWQIDAQAB"
+}
