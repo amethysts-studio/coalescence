@@ -1,21 +1,21 @@
 # Isaac
 
-| Caractéristiques   | Isaac                           |
-| ------------------ | ------------------------------- |
-| Nom                | -                               |
-| Référence          | Schrödinger                     |
-| Age                | 18 (1991)                       |
-| Taille             | 1.78                            |
-| Crime annoncé      | Aucun (innocent ?)              |
-| Raison réelle      | -                               |
-| Métier             | Étudiant en informatique        |
-| Caractère          | Espiègle                        |
-| Arme               | Couteau                         |
-| Bombe              | TODO                            |
+|   Caractéristiques | Isaac                           |
+| -----------------: | ------------------------------- |
+|                Nom | -                               |
+|          Référence | Newton                          |
+|                Age | 18 (1998)                       |
+|             Taille | 1.78                            |
+|      Crime annoncé | Aucun (innocent ?)              |
+|      Raison réelle | -                               |
+|             Métier | Étudiant en informatique        |
+|          Caractère | Espiègle                        |
+|               Arme | Couteau                         |
+|              Bombe | Bras gauche                     |
 | Atout comme alliée | Peut se sacrifier à notre place |
-| Liens annoncés     | Emmy (collège)                  |
+|     Liens annoncés | Emmy (collège)                  |
 
-## Telle qu’il est vu par le joueur
+## Tel qu’il est vu par le joueur
 
 Il est frêle, aussi bien physiquement que moralement. Il a peur du Bourreau plus que quiconque. On le sent sur la défensive à l’approche d’Alan, il est sous-entendu que ce dernier le battait au collège.
 

@@ -1,19 +1,19 @@
 # Emmy
 
-| Caractéristiques   | Emmy                                         |
-| ------------------ | -------------------------------------------- |
-| Nom                | -                                            |
-| Référence          | Noether                                      |
-| Age                | 15 (2001)                                    |
-| Taille             | 1.61                                         |
-| Crime annoncé      | Aucun (innocente ?)                          |
-| Raison réelle      | Fait partie de G.M. et ressemble à Isaac     |
-| Métier             | Étudiante                                    |
-| Caractère          | Fragile                                      |
-| Arme               | Petite lame (dague)                          |
-| Bombe              | TODO                                         |
+|   Caractéristiques | Emmy                                         |
+| -----------------: | -------------------------------------------- |
+|                Nom | -                                            |
+|          Référence | Noether                                      |
+|                Age | 15 (2001)                                    |
+|             Taille | 1.61                                         |
+|      Crime annoncé | Aucun (innocente ?)                          |
+|      Raison réelle | Fait partie de G.M. et ressemble à Isaac     |
+|             Métier | Étudiante                                    |
+|          Caractère | Fragile                                      |
+|               Arme | Petite lame (dague)                          |
+|              Bombe | Avant-bras droit (non mortel)                |
 | Atout comme alliée | Connait des informations sur certains persos |
-| Liens annoncés     | Isaac (collège)                              |
+|     Liens annoncés | Isaac (collège)                              |
 
 ## Telle qu’elle est vue par le joueur
 
