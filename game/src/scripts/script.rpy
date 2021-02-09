@@ -238,7 +238,7 @@ label suite_premier_choix:
     narr "Un vieil homme en costume ajouta :"
     $annonce_importante(leonhard, _("D'autant plus que nous allons rester ici longtemps, je le crains."), True)
     narr "Il parlait bien mieux qu'Alan, mais avec un léger accent allemand."
-    lunk "Je suis le Haut Juge Newer, mais vous pouvez m'appeller par mon prénom, Leonhard."
+    lunk "Je suis le Haut Juge Newer, mais vous pouvez m'appeler par mon prénom, Leonhard."
     $ persistent.confiance["Leonhard"][2] = True
     $ leonhard["statut"] = "Vivant"
     $ modif_bio(leonhard, 0, notify=False)
