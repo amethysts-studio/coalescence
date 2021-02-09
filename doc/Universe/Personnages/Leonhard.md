@@ -1,21 +1,21 @@
 # Leonhard
 
-| Caractéristiques   | Leonhard                |
-| ------------------ | ----------------------- |
-| Nom                | -                       |
-| Référence          | Euler                   |
-| Age                | 53 (1963)               |
-| Taille             | 1.75                    |
-| Crime annoncé      | Corruption              |
-| Raison réelle      | Enquête sur le Bourreau |
-| Métier             | Agent du FBI            |
-| Caractère          | Froid                   |
-| Arme               | Stylo plume             |
-| Bombe              | TODO                    |
+|   Caractéristiques | Leonhard                |
+| -----------------: | :---------------------- |
+|                Nom | Newer                   |
+|          Référence | Euler                   |
+|                Age | 53 (1963)               |
+|             Taille | 1.75                    |
+|      Crime annoncé | Corruption              |
+|      Raison réelle | Enquête sur le Bourreau |
+|             Métier | Agent du FBI            |
+|          Caractère | Froid                   |
+|               Arme | Stylo plume             |
+|              Bombe | TODO                    |
 | Atout comme alliée | Connaissance / Indices  |
-| Liens annoncés     | -                       |
+|     Liens annoncés | -                       |
 
-## Telle qu’il est vu par le joueur
+## Tel qu’il est vu par le joueur
 
 Il est froid, stoïque et a l’air au-dessus de tout. C’est comme s'il était en décalage, détaché de la situation dans laquelle le joueur est. Il n’est pas inquiété outre mesure par la gravité des évènements.
 
