@@ -114,6 +114,7 @@ transform defiler(alpha_mini = 0.3, alpha_maxi = 1.0):
         linear 27.0 ypos -1280
         block:
             linear 30.0 ypos 0 alpha alpha_mini
+            pause .2
             ypos -2560
             linear 30.0 ypos -1280 alpha alpha_maxi
             repeat
