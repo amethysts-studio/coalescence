@@ -233,9 +233,6 @@ define gui.slot_button_text_idle_color = gui.idle_small_color
 define config.thumbnail_width = 144
 define config.thumbnail_height = 256
 
-## The number of columns and rows in the grid of save slots.
-define gui.file_slot_cols = 3
-define gui.file_slot_rows = 2
 
 
 ## Positioning and Spacing #####################################################
@@ -437,10 +434,6 @@ init python:
 
         gui.history_height = 40
         gui.history_text_width = 740
-
-        ## File button layout.
-        gui.file_slot_cols = 3
-        gui.file_slot_rows = 2
 
         ## NVL-mode.
         gui.nvl_height = None
