@@ -2,7 +2,7 @@ screen menu_background():
     zorder 10
     button:
         xysize (720, 1280) at fade_away(0.5)
-        image "fondacte/fondfinacte.png"
+        image "Ecran titre/new_main_screen_fond.png"
         action NullAction()
 screen menu_title_coal(time = 0.5, initi=False, red=False):
     zorder 11
