@@ -5,6 +5,8 @@ name: Build RenPy project distributions
 on:
   push:
     branches: [ci]
+  pull_request:
+    branches: [master, ci]
 
 
   # Allows you to run this workflow manually from the Actions tab
