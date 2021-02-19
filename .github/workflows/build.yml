@@ -29,6 +29,9 @@ jobs:
       - name: Build distributions
         run: |
           pwd && ls
+          cd ..
+          echo "kinda home"
+          ls
           echo "renpy folder"
           cd ../renpy
           ./renpy.sh launcher distribute ../coalescence --destination ../coalescence/dist
