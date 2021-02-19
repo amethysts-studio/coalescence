@@ -93,19 +93,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: distributions
-      - name: Check
-        run: |
-          echo "kinda home"
-          pwd
-          ls
-          echo " going into dist"
-          mv report.txt Coalescence-* dist
-          cd /home/runner/work/coalescence/coalescence/dist
-          ls
 
       - name: Release
         uses: fnkr/github-action-ghr@v1
         if: startsWith(github.ref, 'refs/tags/')
         env:
-          GHR_PATH: dist/
+          GHR_PATH: ./
           GITHUB_TOKEN: ${{ secrets.COALESCENCE_RELEASE_KEY }}
