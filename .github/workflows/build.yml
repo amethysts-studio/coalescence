@@ -49,7 +49,7 @@ jobs:
           rm renpy-7.4.2-sdk.tar.bz2
       - name: Lint game
         run: |
-          cd /home/runner/work/coalescence/
+          cd /home/runner/work/coalescence/renpy
           ./renpy.sh ../coalescence lint > report.txt
       - name: Upload report
         uses: actions/upload-artifact@v2
@@ -73,12 +73,7 @@ jobs:
           rm renpy-7.4.2-sdk.tar.bz2
       - name: Build distributions
         run: |
-          cd /home/runner/work/coalescence/
-          echo "kinda home"
-          ls
-          echo " going into renpy folder"
-          cd renpy
-          ls
+          cd /home/runner/work/coalescence/renpy
           ./renpy.sh launcher distribute ../coalescence --destination ../coalescence/dist
       - name: Upload distributions
         uses: actions/upload-artifact@v2
