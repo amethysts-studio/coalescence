@@ -26,20 +26,23 @@ jobs:
       - name: Install Ren'Py
         run: |
           pwd && ls
-          wget http://www.renpy.org/dl/7.4.1/renpy-7.4.1-sdk.tar.bz2
+          wget --no-verbose http://www.renpy.org/dl/7.4.1/renpy-7.4.1-sdk.tar.bz2
           tar xf renpy-7.4.1-sdk.tar.bz2
           rm renpy-7.4.1-sdk.tar.bz2
           mv renpy-7.4.1-sdk ../renpy
       - name: Install RAPT
         run: |
           cd ../renpy
-          wget https://www.renpy.org/dl/7.4.2/renpy-7.4.2-rapt.zip
+          wget --no-verbose https://www.renpy.org/dl/7.4.2/renpy-7.4.2-rapt.zip
           unzip renpy-7.4.2-rapt.zip
           echo "===== Renpy folder ====="
           pwd
           ls
       - name: Build distributions
         run: |
+          echo "Here we are"
+          pwd
+          ls
           ./renpy.sh launcher distribute ../coalescence --destination ../coalescence/dist
       - name: Build Android dist
         run: |
