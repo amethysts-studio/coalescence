@@ -51,6 +51,10 @@ jobs:
           echo "Here we are"
           pwd
           ls
+          cd ../renpy
+          echo "Here we are now"
+          pwd
+          ls
           ./renpy.sh launcher android_build ../.. assembleRelease --dest ..
       - name: Upload game artifact
         id: uploadArtifact
