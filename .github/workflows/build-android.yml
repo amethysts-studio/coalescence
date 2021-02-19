@@ -1,12 +1,10 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Build RenPy Android distributions
+name: Build Android distributions
 
 on:
   push:
     branches: [ci]
-  pull_request:
-    branches: [master, ci]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -34,7 +32,7 @@ jobs:
         run: |
           cd ../renpy
           wget --no-verbose https://www.renpy.org/dl/7.4.2/renpy-7.4.2-rapt.zip
-          unzip renpy-7.4.2-rapt.zip
+          unzip -qq renpy-7.4.2-rapt.zip
           echo "===== Renpy folder ====="
           pwd
           ls
@@ -43,9 +41,16 @@ jobs:
           echo "Here we are"
           pwd
           ls
+          cd ../renpy
+          echo "Here we are now"
+          pwd
+          ls
           ./renpy.sh launcher distribute ../coalescence --destination ../coalescence/dist
       - name: Build Android dist
         run: |
+          echo "Here we are"
+          pwd
+          ls
           ./renpy.sh launcher android_build ../.. assembleRelease --dest ..
       - name: Upload game artifact
         id: uploadArtifact

@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Build RenPy project distributions
+name: Build Desktop distributions
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
       - name: Install Ren'Py
         run: |
           pwd && ls
-          wget http://www.renpy.org/dl/7.4.1/renpy-7.4.1-sdk.tar.bz2
+          wget --no-verbose http://www.renpy.org/dl/7.4.1/renpy-7.4.1-sdk.tar.bz2
           tar xf renpy-7.4.1-sdk.tar.bz2
           rm renpy-7.4.1-sdk.tar.bz2
           mv renpy-7.4.1-sdk ../renpy
