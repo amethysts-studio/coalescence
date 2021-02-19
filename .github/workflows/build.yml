@@ -22,6 +22,21 @@ jobs:
           tar xf renpy-7.4.1-sdk.tar.bz2
           rm renpy-7.4.1-sdk.tar.bz2
           mv renpy-7.4.1-sdk ../renpy
+  lint:
+  needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint game
+        run: |
+          pwd && ls
+          cd ..
+          echo "kinda home"
+          ls
+          echo " going into renpy folder"
+          cd renpy
+          ls
+          ./renpy.sh ../coalescence lint > ../coalescence/dist/report.txt
+
   build:
     needs: setup
     runs-on: ubuntu-latest
@@ -33,7 +48,7 @@ jobs:
           echo "kinda home"
           ls
           echo "renpy folder"
-          cd ../renpy
+          cd renpy
           ./renpy.sh launcher distribute ../coalescence --destination ../coalescence/dist
   release:
     needs: build
