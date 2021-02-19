@@ -4,7 +4,6 @@ on:
   push:
     tags:
       - "*"
-    branches: [ci]
 
   workflow_dispatch:
 
@@ -13,21 +12,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Cache Renpy Folder
+        uses: actions/cache@v2
+        id: cache-renpy
+        env:
+          cache-name: cache-renpy
+        with:
+          path: /home/runner/work/coalescence/renpy
+          key: ${{ runner.os }}-cache-renpy
+          restore-keys: |
+            ${{ runner.os }}-cache-renpy
+
       - name: Install Ren'Py
+        if: steps.cache-renpy.outputs.cache-hit != 'true'
         run: |
-          pwd && ls
           wget --no-verbose http://www.renpy.org/dl/7.4.1/renpy-7.4.1-sdk.tar.bz2
           tar xf renpy-7.4.1-sdk.tar.bz2
           rm renpy-7.4.1-sdk.tar.bz2
-          mv renpy-7.4.1-sdk ../renpy
+          mv renpy-7.4.1-sdk /home/runner/work/coalescence/renpy
+
   lint:
     needs: setup
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Lint game
         run: |
-          pwd && ls
-          cd ..
+          cd /home/runner/work/coalescence/
           echo "kinda home"
           ls
           echo " going into renpy folder"
@@ -39,14 +50,15 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Build distributions
         run: |
-          pwd && ls
-          cd ..
+          cd /home/runner/work/coalescence/
           echo "kinda home"
           ls
-          echo "renpy folder"
+          echo " going into renpy folder"
           cd renpy
+          ls
           ./renpy.sh launcher distribute ../coalescence --destination ../coalescence/dist
   release:
     needs: build
