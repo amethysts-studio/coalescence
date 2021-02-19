@@ -99,8 +99,8 @@ jobs:
           pwd
           ls
           echo " going into dist"
-          mv report.txt dist
-          /home/runner/work/coalescence/coalescence/dist
+          mv report.txt Coalescence-* dist
+          cd /home/runner/work/coalescence/coalescence/dist
           ls
 
       - name: Release
