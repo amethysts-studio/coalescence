@@ -26,16 +26,29 @@ jobs:
       - name: Install Ren'Py
         if: steps.cache-renpy.outputs.cache-hit != 'true'
         run: |
-          wget --no-verbose http://www.renpy.org/dl/7.4.1/renpy-7.4.1-sdk.tar.bz2
-          tar xf renpy-7.4.1-sdk.tar.bz2
-          rm renpy-7.4.1-sdk.tar.bz2
-          mv renpy-7.4.1-sdk /home/runner/work/coalescence/renpy
+          wget --no-verbose http://www.renpy.org/dl/7.4.2/renpy-7.4.2-sdk.tar.bz2
+          mv renpy-7.4.2-sdk.tar.bz2 /home/runner/work/coalescence
+
+      - name: Upload Renpy Folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: renpy
+          path: /home/runner/work/coalescence/renpy-7.4.2-sdk.tar.bz2
 
   lint:
     needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Download Renpy artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: renpy
+      - name: Extract renpy files
+        run: |
+          tar xf renpy-7.4.2-sdk.tar.bz2
+          mv renpy-7.4.2-sdk /home/runner/work/coalescence/renpy
+          rm renpy-7.4.2-sdk.tar.bz2
       - name: Lint game
         run: |
           cd /home/runner/work/coalescence/
@@ -51,6 +64,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Download Renpy artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: renpy
+      - name: Extract renpy files
+        run: |
+          tar xf renpy-7.4.2-sdk.tar.bz2
+          mv renpy-7.4.2-sdk /home/runner/work/coalescence/renpy
+          rm renpy-7.4.2-sdk.tar.bz2
+
       - name: Build distributions
         run: |
           cd /home/runner/work/coalescence/
