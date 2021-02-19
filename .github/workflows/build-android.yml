@@ -52,6 +52,7 @@ jobs:
           pwd
           ls
           cd ../renpy
+          export SDL_VIDEODRIVER="dummy"
           echo "Here we are now"
           pwd
           ls
