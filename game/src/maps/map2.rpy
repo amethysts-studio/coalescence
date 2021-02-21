@@ -2,7 +2,7 @@
 #====== Acte II : Exploration =====#
 #==================================#
 label sec_map:
-    label sec_map_:
+    label sec_map_: # renpy-graphviz: IGNORE
         nvl clear
         show carte_incomplete:
             linear 0.2 alpha 1.0
@@ -32,14 +32,13 @@ label sec_map:
             j "Pour tout te dire..."
             j "Je pense que le Bourreau est un de nous six."
             if len(elus_vote[1]) > 1:
-                j "Enfin de nous 5, (désolé Emmy)."
+                j "Enfin de nous cinq, (désolé Emmy)."
             narr "Leonhard, nullement surpris, réprimanda Johann."
             l "Johann, arrête de faire ton intéressant."
             l "Montrer son intelligence n'est pas forcément une bonne idée ici, et tu le sais !"
             l "Si le Bourreau se sent menacé, il va s'occuper de ton cas."
             l "Mène ton enquête en silence, comme moi !"
             narr "Il prit Johann à part et chuchota à son oreille."
-            $ countdown_time = 8.0
             menu:
                 "Tenter d'écouter discrètement":
                     narr "J'approchai sans bruit, en tendant l'oreille."
@@ -52,7 +51,7 @@ label sec_map:
                     narr "Ce dernier grimaça."
                     j "Revenons à nos moutons, veux-tu ?"
                     
-                "Les laisser parler seuls" ("default"):
+                "Les laisser parler seuls" ("default", 8.0):
                     narr "Johann reprit à haute voix :"
                     j "Je ne peux pas me contenir. Ce jeu est trop excitant !"
                     j "Désolé, Leonhard, mais c'est plus fort que moi..."
@@ -62,33 +61,6 @@ label sec_map:
             narr "Johann dégageait vraiment une aura impressionnante."
             narr "Il était prétentieux, mais cela n'était pas juste de la vantardise..."
             narr "...il était {i}vraiment{/i} un génie"
-            j "Toi, Kurt, tu connais Kira ?"
-            menu:
-                "Non":
-                    p "Non..."
-                    j "Ah.. Dommage..."
-                    j "Au moins, tu es honnête, pas comme Leonhard"
-                    narr "Il lui lança un regard de travers"
-                    j "{i}N'est-ce-pas{/i}"
-                    $ modif_confiance([johann],[-1])
-                "Oui : Les chevaliers d'Emeraude":
-                    $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                    [0   , 0    ,  0  , 1    , 0       ])
-                    p "Oui, j'ai adoré {i}Les chevaliers d'Emeraude{/i} !"
-                    narr "Johann avait l'air surpris, et son visage s'illumina"
-                    j "Ah, oui, tu as raison ! Mais je pensais plus à Kira dans {i}Deathnote{/i} en fait..."
-                "Oui : Deathnote":
-                    $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                    [0   , 0    ,  0  , 2     , 0       ])
-                    p "Oui, j'ai adoré {i}Deathnote{/i} !"
-                    narr "Le visage de Johann s'illumina"
-                    j "Génial ! Au moins, je suis enfermé avec des personnes cultivées !"
-                "Oui : King's Game":
-                    $ modif_confiance([emmy, isaac, alan, johann, leonhard], 
-                                    [0   , 0    ,  0  , -2    , 0       ])
-                    p "Oui, j'ai adoré {i}King's game{/i} !"
-                    narr "Le visage de Johann se referma"
-                    j "Ben, non... Tu inventes ? J'aime pas trop ça..."
             $ sauvegarder("continuer", montrer = False)
             jump sec_map
     elif salle == "salle_archives":
@@ -316,8 +288,9 @@ label sec_map:
             narr "En regardant de près, on pouvait voir que ça n'était pas une simple bombe."
             narr "Il y avait plein de capteurs étranges dessus... Bizarre."
         elif elus_vote[1] == ["emmy"]:
-            narr "Alan était enfermé dans une douche"
+            narr "Alan était enfermé dans une douche, mais l'eau ne coulait pas."
             narr "Qu'est-ce qu'il était en train de faire ?"
+
         else:
             narr "Emmy était en train de prendre une douche."
             narr "Comment peut elle être aussi sereine ? Ça semblait inapproprié de faire ça maintenant..."
@@ -326,4 +299,4 @@ label sec_map:
         jump sec_map
     else:
         $ quick_menu = True
-        jump suite_map_1
+        return

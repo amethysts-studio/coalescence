@@ -18,9 +18,9 @@ define config.name = _("Coalescence")
 
 ## The version of the game.
 
-define config.version = "0.99.9"
+define config.version = "1.0.2"
 define persistent.version_name = _("Colombe")
-define persistent.version_date = _("31 mars 2020")
+define persistent.version_date = _("15 mars 2021")
 
 ## Text that is placed on the game's about screen. To insert a blank line
 ## between paragraphs, write \n\n.
@@ -132,7 +132,7 @@ default preferences.afm_time = 5
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "Judge-1487028019"
+define config.save_directory = "coalescence"
 
 
 ## Icon ########################################################################
@@ -177,6 +177,7 @@ init python:
     build.classify('.github/**', None)
     build.classify('doc/**', None)
     build.classify('dist/**', None)
+    build.classify('renpy-graphviz.*', None)
 
 
     ## To archive files, classify them as 'archive'.

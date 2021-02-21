@@ -78,7 +78,6 @@ label ending_solitaire:
     narr "J'étais dans la salle d'archives."
     narr "Lui, dans le tunnel secret, 2 mètres en dessous."
     j "DIS-MOI !"
-    $ countdown_time = 12.0
     menu:
         "\"Je ne sais honnêtement pas pourquoi je suis là\"":
             p "Honnêtement, Johann, je ne sais pas pourquoi je suis là."
@@ -101,7 +100,7 @@ label ending_solitaire:
             p "On a plus important que ça à faire, Johann."
             p "Foutons le camp d'ici d'abord."
             jump ending_solitaire_with_johann
-        "Ne rien dire" ("default"):
+        "Ne rien dire" ("default", 12.0):
             jump ending_solitaire_say_nothing
 
 label ending_solitaire_say_nothing:
@@ -116,8 +115,8 @@ label ending_solitaire_with_johann:
     narr "Nous étions libres."
     j "Il est temps de partir, Kurt !"
     narr "Il replaça ses lunettes dans un sourire et disparut dans la lumière."
-    $ fin = 2
-    jump game_over
+    call game_over(2) # renpy-graphviz: GAMEOVER
+# renpy-graphviz: BREAK
 label ending_solitaire_with_executioner:
     narr "Une silhouette capuchée m'attendait au milieu de la salle."
     b "Tu as réussi !"
@@ -139,14 +138,13 @@ label ending_solitaire_with_executioner:
     narr "Il faisait beau, et les oiseaux chantaient."
     isa "Tu entends, ce chant, Kurt ?"
     isa "C'est une colombe..."
-    $ fin = 1
-    jump game_over
+    call game_over(1) # renpy-graphviz: GAMEOVER SKIPLINK
+# renpy-graphviz: BREAK
 label ending_solitaire_alone:
     narr "J'étais enfin libre."
     narr "J'avançai, sans trop y croire, vers la lumière."
     narr "Il ne restait plus que moi seul, au final..."
-    $ fin = 3
-    jump game_over
+    call game_over(3) # renpy-graphviz: GAMEOVER
 
 #   if fin_vote_4 != "leonhard_mort":
 #       l "Vous avez vu dans la Grande Salle ?"
@@ -197,7 +195,7 @@ label ending_solitaire_alone:
 
 
 # ======== FINS ==========================================================================================================
-
+# renpy-graphviz: BREAK
 label ending_bomb:
     narr "Erwin était mort."
     narr "Lise, traumatisée."
@@ -392,8 +390,7 @@ label ending_bomb:
         narr "Le Bourreau... pourquoi fallait-il que ce soit lui ?"
         $ annonce_importante(johann, "Isaac...")
         $ persistent.know_isaac = True
-        $ fin = 2
-        jump game_over
+        call game_over(2) # renpy-graphviz: GAMEOVER
     else:
         unk "J'ai entendu ton accord avec Lise."
         narr "Je frissonnai malgré la chaleur."
@@ -423,8 +420,7 @@ label ending_bomb:
                 unk "Adieu !"
                 narr "Isaac riait aux éclats..."
                 $ persistent.know_isaac = True
-                $ fin = -5
-                jump game_over
+                call game_over(-5) # renpy-graphviz: GAMEOVER
             "Fuir":
                 narr "Il n'était pas question que j'obéisse au Bourreau"
                 narr "Pas question que je tombe dans mon propre piège"
@@ -447,10 +443,10 @@ label ending_bomb:
                 unk "Adieu !"
                 narr "Une lumière blanche m'entoura soudain, puis..."
                 narr "...{i}plus rien{/i}."
-                $ fin = -5
-                jump game_over
+                call game_over(-5) # renpy-graphviz: GAMEOVER
 
 # ======== ERWIN vs JOHANN ====================================================================================================
+# renpy-graphviz: BREAK
 label fight_final_erwin_johann_begin:
     narr "Erwin riait aux éclats."
     erw "Alors, Johann, prêt à te battre ?"
@@ -459,7 +455,6 @@ label fight_final_erwin_johann_begin:
     narr "J'avais condamné Johann."
     erw "Bouge-toi, Kurt. Il ne doit rester qu'un entre moi et lui. Ne te mets pas sur mon chemin"
     $ alliance_finale = "Nobody"
-    $ countdown_time = 15.0
     menu:
         "Rejoindre Johann (contre Erwin)":
             $ alliance_finale = "Johann"
@@ -477,7 +472,7 @@ label fight_final_erwin_johann_begin:
             j "Mais à quoi tu joues ?"
             narr "Je le laissai dans la pièce et marchai vers la grande salle."
             jump fight_final_erwin_johann_active
-        "Ne rien dire" ("default"):
+        "Ne rien dire" ("default", 15.0):
             jump fight_final_erwin_johann_passive
         #"Proposer de faire la paix":
         #    $ alliance_finale = "Both"
@@ -528,8 +523,7 @@ label fight_final_erwin_johann_active:
         jump final_erwin_kills_johann
     else:
         narr "This is a bug or a wip" #TODO demands peace ?
-        $ fin = 3
-        jump game_over
+        call game_over(3) # renpy-graphviz: GAMEOVER
 
 label final_johann_kills_erwin:
     narr "Johann s'approcha agressivement d'Erwin"
@@ -639,7 +633,6 @@ label fight_final_erwin_leonhard_begin:
     narr "J'avais condamné Leonhard."
     erw "Bouge-toi, Kurt. Il ne doit rester qu'un entre moi et lui. Ne te mets pas sur mon chemin"
     $ alliance_finale = "Nobody"
-    $ countdown_time = 15.0
     menu:
         "Rejoindre Leonhard (contre Erwin)":
             $ alliance_finale = "Leonhard"
@@ -656,7 +649,7 @@ label fight_final_erwin_leonhard_begin:
             l "Pourquoi faites-vous ça, Kurt ?"
             narr "Je le laissai dans la pièce, sans répondre, et marchai vers la grande salle."
             jump fight_final_erwin_leonhard_active
-        "Ne rien dire" ("default"):
+        "Ne rien dire" ("default", 15.0):
             jump fight_final_erwin_leonhard_passive
 
 label fight_final_erwin_leonhard_passive:
@@ -698,9 +691,9 @@ label fight_final_erwin_leonhard_active:
         jump final_erwin_kills_leonhard
     else:
         narr "This is a bug or a wip" #TODO demands peace ?
-        $ fin = 3
-        jump game_over
+        call game_over(3) # renpy-graphviz: GAMEOVER
 
+# renpy-graphviz: BREAK
 label final_leonhard_kills_erwin:
     narr "Leonhard commença à parler à Erwin, confiant."
     l "Erwin, je vais te tuer."
@@ -787,10 +780,10 @@ label fight_final_erwin_kurt_begin:
     #if erwin["statut"] == "Mort":
     #    jump ending_decision
     #else:
-    $ fin = -9
-    jump game_over
+    call game_over(-9) # renpy-graphviz: GAMEOVER
 
 # ======== Ending Chemists (K/Er/Li) ==================================================================================
+# renpy-graphviz: BREAK
 label ending_chemist:
     narr "Moi."
     narr "Et les chimistes."
@@ -820,11 +813,10 @@ label ending_chemist:
     b "Je fixe les règles que je veux."
     narr "Il pointa le pistolet vers Erwin."
     b "Décidez."
-    $ countdown_time = 8.0
     menu:
         "Se sacrifier":
             jump ending_chemist_sacrifice
-        "Ne rien dire" ("default"):
+        "Ne rien dire" ("default", 8.0):
             jump ending_chemist_no_sacrifice
 label ending_chemist_no_sacrifice:
     erw "Moi."
@@ -898,8 +890,7 @@ label ending_chemist_no_sacrifice:
         $ annonce_importante(johann, _("Isaac."))
         n ""
         $ persistent.know_isaac = True
-        $ fin = 6
-        jump game_over
+        call game_over(6) # renpy-graphviz: GAMEOVER
     else:
         narr "Le Bourreau hésita un instant fatal."
         narr "Erwin se leva."
@@ -925,8 +916,8 @@ label ending_chemist_no_sacrifice:
         erw "Toi, sors. Avant que je ne me défoule sur toi."
         narr "Il n'avait pas besoin de me le dire deux fois. J'étais déjà au seuil de la porte, baignant dans une lumière blanche, le sourire au coin des lèvres."
         narr "Libre."
-        $ fin = 7
-        jump game_over
+        call game_over(7) # renpy-graphviz: GAMEOVER
+# renpy-graphviz: BREAK
 label ending_chemist_sacrifice:
     b "Tu veux te sacrifier ?"
     narr "Il rit doucement, presque fraternellement."
@@ -944,10 +935,10 @@ label ending_chemist_sacrifice:
     narr "Le Bourreau disparut sans que nous ayons eu le temps de le remarquer, aveuglés par la lumière blanche qui venait de la porte de sortie."
     narr "J'avançai vers cette lumière éblouissante, sans trop y croire."
     narr "C'était vraiment... la fin ?"
-    $ fin = 5
-    jump game_over
+    call game_over(5) # renpy-graphviz: GAMEOVER
 
 # ======== Ending xxx (K/Li/LouJ) ==================================================================================
+# renpy-graphviz: GAMEOVER
 label ending_decision:
     narr "Lise tremblait."
     narr "Elle revoyait Erwin tomber devant ses yeux."
@@ -970,7 +961,6 @@ label ending_decision:
 label ending_decision_hesitation:
     nvl clear
     b "Tire sur qui tu veux."
-    $ countdown_time = 30
     menu:
         "Tuer Leonhard" if leonhard["statut"] == "Vivant":
             jump ending_decision_leonhard
@@ -989,13 +979,13 @@ label ending_decision_hesitation:
         "Tuer tout le monde":
             $ tuer_bourreau = True
             jump ending_decision_everyone
-        "Se suicider" ("default"):
+        "Se suicider" ("default", 30.0):
             jump ending_decision_suicide
         
 
 label ending_decision_suicide:
     $ flingue_owned = True
-    jump suicide
+    jump suicide # renpy-graphviz: SKIPLINK GAMEOVER
 label ending_decision_leonhard:
     narr "Tirer sur qui je veux ?"
     narr "Leonhard ou Lise ?"
@@ -1025,8 +1015,7 @@ label ending_decision_talk_lise:
     narr "Lise s'agenouilla près de lui."
     narr "Je continuai d'avancer, sans me retourner."
     narr "Enfin, je partais de ce lieu infernal..."
-    $ fin = 9
-    jump game_over
+    call game_over(9) # renpy-graphviz: GAMEOVER
 label ending_decision_lise:
     narr "Tirer sur qui je veux ?"
     narr "Je mis en joue Lise."
@@ -1062,15 +1051,13 @@ label ending_decision_lise:
     narr "Les rayons de lumière venaient carresser le corps sans vie d'Erwin."
     narr "Je continuai d'avancer, sans me retourner."
     narr "Enfin, je partais de ce lieu infernal..."
-    $ fin = 9
-    jump game_over
+    call game_over(9) # renpy-graphviz: GAMEOVER
 label ending_decision_executioner:
     narr "Mais pourquoi me donne-t-il un flingue ?"
     narr "Je pointai le pistolet vers le Bourreau."
     narr "Il souriait patiemment."
     b "Tire. Peu importe sur qui."
     narr "Pourquoi était-il aussi confiant ?"
-    $ countdown_time = 10.0
     menu:
         "Tirer sur le Bourreau":
             narr "Le tir était parti droit dans sa tête."
@@ -1102,9 +1089,8 @@ label ending_decision_executioner:
             elif johann["statut"] == "Vivant":
                 j "Isaac."
                 narr "Johann replaça ses lunettes, pensif."
-            $ fin = 8
-            jump game_over
-        "Hésiter, changer de cible" ("default"):
+            call game_over(8) # renpy-graphviz: GAMEOVER
+        "Hésiter, changer de cible" ("default", 10.0):
             jump ending_decision_hesitation
 
 label ending_decision_everyone:
@@ -1158,7 +1144,6 @@ label ending_decision_everyone:
     narr "Je comprends plus rien."
     narr "Le Bourreau..."
     narr "C'était Isaac ?"
-    $ countdown_time = 30.0
     menu:
         "Sortir":
             narr "Je marchai vers la porte comme un zombie."
@@ -1170,14 +1155,13 @@ label ending_decision_everyone:
             narr "Mais plus je m'approchais de la sortie, plus j'oubliais."
             narr "Il devait y avoir une explication, mais je m'en fichais."
             narr "La lumière de l'extérieur était tellement douce..."
-            $ fin = 1
-            jump game_over
-        "Se suicider" ("default"):
+            call game_over(1) # renpy-graphviz: GAMEOVER
+        "Se suicider" ("default", 30.0):
             jump ending_decision_everyone_suicide
 
 label ending_decision_everyone_suicide:
     $ flingue_owned = True
-    jump suicide
+    jump suicide # renpy-graphviz: SKIPLINK GAMEOVER
 
 
 # ======== Death xxx (Suicide) ==================================================================================
@@ -1238,12 +1222,5 @@ label suicide:
     narr "Une lumière blanche ?"
     narr "..."
     narr "La fin."
-    $ fin = -1
-    jump game_over   
-    
-label fin_jeu:
-    
-    #crédits, écran de fin etc...
-    
-    jump end
+    call game_over(-1) # renpy-graphviz: GAMEOVER 
     

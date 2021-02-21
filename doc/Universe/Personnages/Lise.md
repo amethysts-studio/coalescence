@@ -23,6 +23,4 @@ Elle et son mari, c’est le jour et la nuit. Petite, jolie, joyeuse, elle est p
 
 Née de père français et mère espagnole, elle passe 11 ans en Espagne puis réside en Allemagne depuis 1995. Elle est la fondatrice et présidente d’une association homophobe allemande, Gesunder Menschenverstand. Elle travaille comme chimiste dans le même laboratoire qu’Erwin, où elle a fait sa connaissance.
 
-## Description physique
-
-Elle a la peau mate, des cheveux bruns, pas de rouge à lèvres mais elles sont naturellement foncées. Elle a les yeux plus fins que ceux d'Emmy, très noirs et l'air espiègle. Elle est chimiste comme Erwin, a une blouse comme lui, et un T-shirt avec un léger décolleté (pas exagéré). 
+![](../Creations/Portraits/lise.jpg)

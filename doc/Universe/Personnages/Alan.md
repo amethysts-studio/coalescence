@@ -29,6 +29,6 @@ Enfant, il était pourri/gâté par des parents riches et plus préoccupés par 
 
 Assez grand, des muscles cachés sous une légère couche de graisse résultante de son addiction aux barres chocolatées et aux sodas. Aussi massif que Erwin mais beaucoup moins 'taillé en V'. Il a un marcel un peu trop grand pour lui. Il a les cheveux rasés de près et un rictus de défi permanent.
 
-## Images pour inspiration
+![](../Creations/Portraits/alan.jpg)
 
-Tapez "La Haine Vinz" sur Google images. Je vois vraiment Alan comme Vinz avec les détails cités ci-dessus.
+

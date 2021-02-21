@@ -36,19 +36,16 @@ init python:
 
 
 label initialisation_debut_partie:
-    $ countdown_time = 20
     $ persistent.loadable = True # False en cas de chargement non possible (comme pour une fin de partie par ex)
     hide moving
     $ persistent.partie_actu = "continuer" #une fois le choix fait, on restocke de maniere persistante
     $ situation = "en_jeu" # en_jeu / fin_acte / menu_principal / en_vote / dans_carte / archives / succes
     $ acte = 1
-    $ acte_romain = "I"
     $ amour = 10
-    $ fin = 0
+    $ ne_rien_dire = 0
     $ is_carte_complete = False
     $ book = ""
     $ clavier_azerty = (_preferences.language == None)
-    $ liste_recherches = []
     $ in_archives = False
 
     $ elus_vote = [[], [], [], [], [], []]
@@ -142,8 +139,8 @@ label initialisation_debut_partie:
 
 
     $ inventaire =     {"usb_key":          {"title": _("Clé USB"),
-                                             "text" : _("Une clé USB ordinaire"),
-                                             "text_inspect": _("Des lettres sont gravées sur la clé USB :\n\n {i}CXVL{/i}\n\nLorsque la clé avait été insérée dans la tablette, un dossier nommé {i}Hibou{/i} était ressorti du lot, étant beaucoup plus lourd que les autres."),
+                                             "text" : _("Une clé USB ordinaire.\n\nLorsque la clé avait été insérée dans la tablette, un dossier nommé {i}Hibou{/i} était ressorti du lot, étant beaucoup plus lourd que les autres. Mais c'était illisible, le dossier avait l'air corrompu..."),
+                                             "text_inspect": _("Des lettres sont gravées sur la clé USB :\n\n {i}CXVL{/i}"),
                                              "icon" : "images/icons/usb_key.png",
                                              "nb"   : 0, 
                                              "max"  : 1,
@@ -201,7 +198,9 @@ label initialisation_debut_partie:
                       "color"    : "#ff0000",
                       "age"      : 19,
                       "image"    : "unknown_portrait",
+                      "eyes"     : {"left": (-100, -100), "right": (-100, -100)},
                       "statut"   : "Vivant", 
+                      "location" : {"side": "left", "coords": (-50, -50)}, # location
                       "confiance": 10,
                       "arme"     : True,
                       "adjectifs": _("Peu sociable - Nerd"),
@@ -215,6 +214,7 @@ label initialisation_debut_partie:
                       "color"    : "#5ba7ff",
                       "age"      : 18  ,
                       "image"    : "isaac_portrait",
+                      "eyes"     : {"left": (405, 370), "right": (301, 391)},
                       "statut"   : "Inconnu", 
                       "confiance": 8,
                       "arme"     : True,
@@ -234,6 +234,7 @@ label initialisation_debut_partie:
                       "color"    : "#008c3b",
                       "age"      : 53 ,
                       "image"    : "leonhard_portrait",
+                      "eyes"     : {"left": (409, 387), "right": (321, 384)},
                       "statut"   : "Inconnu",
                       "confiance": 8,
                       "arme"     : True,
@@ -251,6 +252,7 @@ label initialisation_debut_partie:
                       "color"    : "#ff7700",
                       "age"      : 24,
                       "image"    : "johann_portrait",
+                      "eyes"     : {"left": (418, 388), "right": (307, 391)},
                       "statut"   : "Inconnu", 
                       "confiance": 8,
                       "arme"     : True,
@@ -269,6 +271,7 @@ label initialisation_debut_partie:
                       "color"    : "#9400ce",
                       "age"      : 19,
                       "image"    : "alan_portrait",
+                      "eyes"     : {"left": (388, 324), "right": (286, 335)},
                       "statut"   : "Inconnu", 
                       "confiance": 8,
                       "arme"     : True,
@@ -281,9 +284,10 @@ label initialisation_debut_partie:
                     }
     $ emmy =        { "nom"      : "Emmy",
                       "char"     : e,
-                      "color"    : "#ffd",
+                      "color"    : "#ffba6d",
                       "age"      : 15  ,
                       "image"    : "emmy_portrait",
+                      "eyes"     : {"left": (370, 412), "right": (279, 439)},
                       "statut"   : "Inconnue", 
                       "confiance": 8,
                       "arme"     : True,
@@ -301,6 +305,7 @@ label initialisation_debut_partie:
                       "color"    : "#a0a0a0",
                       "age"      : 32 ,
                       "image"    : "unknown_portrait",
+                      "eyes"     : {"left": (-100, -100), "right": (-100, -100)},
                       "statut"   : "Inconnu",
                       "confiance": 10,
                       "arme"     : True,
@@ -316,6 +321,7 @@ label initialisation_debut_partie:
                       "color"    : "#ff75de",
                       "age"      : 63 ,
                       "image"    : "rosalind_portrait",
+                      "eyes"     : {"left": (421, 494), "right": (331, 491)},
                       "statut"   : "Inconnue",
                       "confiance": 8,
                       "arme"     : True,
@@ -332,6 +338,7 @@ label initialisation_debut_partie:
                       "color"    : "#a0a0a0",
                       "age"      : 42,
                       "image"    : "unknown_portrait",
+                      "eyes"     : {"left": (-100, -100), "right": (-100, -100)},
                       "statut"   : "Inconnue",
                       "confiance": 10,
                       "arme"     : True,
@@ -347,6 +354,7 @@ label initialisation_debut_partie:
                       "color"    : "#a0a0a0",
                       "age"      : 15 ,
                       "image"    : "unknown_portrait",
+                      "eyes"     : {"left": (-100, -100), "right": (-100, -100)},
                       "statut"   : "Inconnue",
                       "confiance": 10,
                       "arme"     : True,
@@ -363,6 +371,7 @@ label initialisation_debut_partie:
                       "color"    : "#efd100",
                       "age"      : 35 ,
                       "image"    : "erwin_portrait",
+                      "eyes"     : {"left": (421, 332), "right": (322, 332)},
                       "statut"   : "Inconnu",
                       "confiance": 8,
                       "arme"     : True,
@@ -378,6 +387,7 @@ label initialisation_debut_partie:
                       "color"    : "#4848ea",
                       "age"      : 32 ,
                       "image"    : "lise_portrait",
+                      "eyes"     : {"left": (407, 402), "right": (312, 411)},
                       "statut"   : "Inconnue",
                       "confiance": 8,
                       "arme"     : True,
@@ -394,6 +404,7 @@ label initialisation_debut_partie:
                       "color"    : "#a0a0a0",
                       "age"      : 0 ,
                       "image"    : "unknown_portrait",
+                      "eyes"     : {"left": (-100, -100), "right": (-100, -100)},
                       "statut"   : "Inconnu",
                       "confiance": 10,
                       "arme"     : True,
@@ -409,6 +420,7 @@ label initialisation_debut_partie:
                       "color"    : "#a0a0a0",
                       "age"      : 0 ,
                       "image"    : "unknown_portrait",
+                      "eyes"     : {"left": (-100, -100), "right": (-100, -100)},
                       "statut"   : "Inconnu",
                       "confiance": 10,
                       "arme"     : True,
@@ -425,6 +437,7 @@ label initialisation_debut_partie:
                       "color"    : "#a0a0a0",
                       "age"      : 0 ,
                       "image"    : "unknown_portrait",
+                      "eyes"     : {"left": (-100, -100), "right": (-100, -100)},
                       "statut"   : "Inconnu",
                       "confiance": 10,
                       "arme"     : True,
@@ -440,6 +453,7 @@ label initialisation_debut_partie:
                       "color"    : "#a0a0a0",
                       "age"      : 0 ,
                       "image"    : "unknown_portrait",
+                      "eyes"     : {"left": (-100, -100), "right": (-100, -100)},
                       "statut"   : "Inconnu",
                       "confiance": 10,
                       "arme"     : True,
@@ -456,6 +470,7 @@ label initialisation_debut_partie:
                       "color"    : "#a0a0a0",
                       "age"      : 0 ,
                       "image"    : "unknown_portrait",
+                      "eyes"     : {"left": (-100, -100), "right": (-100, -100)},
                       "statut"   : "Inconnu",
                       "confiance": 10,
                       "arme"     : True,
@@ -471,6 +486,7 @@ label initialisation_debut_partie:
                       "color"    : "#a0a0a0",
                       "age"      : 0 ,
                       "image"    : "unknown_portrait",
+                      "eyes"     : {"left": (-100, -100), "right": (-100, -100)},
                       "statut"   : "Inconnu",
                       "confiance": 10,
                       "arme"     : True,
@@ -486,6 +502,7 @@ label initialisation_debut_partie:
                       "color"    : "#a0a0a0",
                       "age"      : 0 ,
                       "image"    : "unknown_portrait",
+                      "eyes"     : {"left": (-100, -100), "right": (-100, -100)},
                       "statut"   : "Inconnu",
                       "confiance": 10,
                       "arme"     : True,
@@ -501,6 +518,7 @@ label initialisation_debut_partie:
                       "color"    : "#a0a0a0",
                       "age"      : 0 ,
                       "image"    : "unknown_portrait",
+                      "eyes"     : {"left": (-100, -100), "right": (-100, -100)},
                       "statut"   : "Inconnu",
                       "confiance": 10,
                       "arme"     : True,
@@ -751,13 +769,6 @@ init python:
                                     "icon": "images/icons/achievement_diamand.png",
                                     "obtenu" : False
                                     },                     
-    #        "piles_rest":       {"type": 1, # Progress achievent
-    #                             "title": "Piles",
-    #                             "text": "utilisées",
-    #                             "icon": "images/icons/achievement1.png",
-    #                             "cur_prog": 0, # current progress 
-    #                             "max_prog": 4# maximal progress
-    #                             }
             }
                                         
 

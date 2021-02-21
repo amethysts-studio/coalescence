@@ -40,6 +40,7 @@ label menu_principal:
           "Lise" : [10, 10, False]          
         }
         $ persistent.partie_actu = "continuer" #acte (partie_désactivée = 0) / texte info / dernier_actif
+        $ persistent.liste_recherches = []
         
         $ renpy.save("continuer")
 
@@ -48,10 +49,11 @@ label menu_principal:
     $ renpy.call_screen("menu_alternatif")
     
 
-
+# renpy-graphviz: BREAK
 #===== VOTE =====#
-label vote:
+label vote(acte_vote=0):
     $ quick_menu = False
+    $ sauvegarder("continuer")
     nvl clear
     $ situation = "en_vote"
     hide haut_de_page at smooth_title
@@ -60,7 +62,6 @@ label vote:
     show screen menu_title_coal()
     call screen liste_personnages(liste_persos=liste_persos, situation = "en_vote")
     
-label resultatsvote:
     $ vote_contre = perso["nom"].lower()
     if vote_contre == "kurt" :
         $ get_achievement("suicidaire")
@@ -114,11 +115,11 @@ label resultatsvote:
 
     elif acte == 6:
         if fin_vote_4 == "leonhard_mort":
-                $ votes = {"johann":0, "kurt":0, "erwin":2, "lise":1}
-                if vote_contre == "lise":
-                    $ vote5 = 3
-                else:
-                    $ vote5 = 4
+            $ votes = {"johann":0, "kurt":0, "erwin":2, "lise":1}
+            if vote_contre == "lise":
+                $ vote5 = 3
+            else:
+                $ vote5 = 4
         elif fin_vote_4 == "johann_mort_cachée" or fin_vote_4 == "johann_vivant" or fin_vote_4 == "johann_mort":
             $ votes = {"leonhard":1, "kurt":0, "erwin":2, "lise":0}
             if vote_contre == "erwin":
@@ -151,26 +152,18 @@ label resultatsvote:
     nvl clear
     $ situation == "en_jeu"
     $ quick_menu = True
-    if acte == 2:
-        jump suite_vote_1
-    elif acte == 3:
-        jump suite_vote_2
-    elif acte == 4:
-        jump suite_vote_3
-    elif acte == 5:
-        jump suite_vote_4
-    elif acte == 6:
-        jump suite_vote_5
+    return
         
-        
+
 #===== GAME OVER =====#
-label game_over:
+# renpy-graphviz: BREAK
+label game_over(ending_number=0):
     $ nouvelle_simulation()
     $ persistent.glitched = True
-    $ persistent.fins[str(fin)][1] = True
+    $ persistent.fins[str(ending_number)][1] = True
     nvl clear
     $ quick_menu = False
-    if fin < 0:
+    if ending_number < 0:
         scene black with dissolve
         
         show game_over_bug with None
@@ -178,20 +171,17 @@ label game_over:
     scene fin with fade
     $ renpy.pause(1.5)
     $ aux = False
-    if fin < 0:
-        $ fin = -fin
-        $ aux = True
+    if ending_number < 0:
         $ mot = _("Mort")
     else:
         $ mot = _("Fin")
-    show text "{size=40}"+mot+" n°[fin]:{/size}" as mot_fin:
+    $ show_ending_number = abs(ending_number)
+    show text "{size=40}"+mot+" n°[show_ending_number]:{/size}" as mot_fin:
         ypos 680
         alpha 0.0
         linear 1.5 alpha 1.0
-    if aux:
-        $ fin = -fin
     $ renpy.pause(1.5)
-    $ name = persistent.fins[str(fin)][0]
+    $ name = persistent.fins[str(ending_number)][0]
     show text "{font=fonts/VanHelsing.ttf}{size=85}"+name+"{/size}{/font}":
         ypos 800
         alpha 0.0
@@ -201,16 +191,20 @@ label game_over:
     scene black with dissolve
     $ persistent.loadable = False
     $ sauvegarder("continuer")
-    if fin > 0:
+    if ending_number > 0:
         $ get_achievement("fin_acte6")
     else:
         $ get_achievement("premiere_mort")
-    jump end
+
+    $ MainMenu(confirm=False)()
+    return # final `return` : sends to main menu
     
     
 
 #===== ARCHIVES =====#
-label explore_archives:
+# renpy-graphviz: BREAK
+label explore_archives(acte_archives=0):
+
     nvl clear
     $ quick_menu = False
     if not in_archives:
@@ -224,8 +218,6 @@ label explore_archives:
     $ book = uniformise(book)
     $ book = recherche_flex(book, archives_liste)
     if book_original == "stop":
-        $ quick_menu = True
-        hide archivuitton with dissolve
         jump exit_archives
     elif book == "gm":
         $ book = "gesundermenschenverstand"
@@ -243,11 +235,11 @@ label explore_archives:
     elif book == "coalescence":
         $ get_achievement("bibliothequaire")
     if book == "none":
-        $ liste_recherches = [book_original]+liste_recherches
+        $ persistent.liste_recherches = [book_original]+persistent.liste_recherches
     else:
-        $ liste_recherches = [book]+liste_recherches
-    $ liste_recherches = list(set(liste_recherches)) # supprimer doublons ...
-    $ liste_recherches.sort(key=lambda x:(not x.islower(), x)) #...et trier dans un ordre logique. Tri en place !
+        $ persistent.liste_recherches = [book]+persistent.liste_recherches
+    $ persistent.liste_recherches = list(set(persistent.liste_recherches)) # supprimer doublons ...
+    $ persistent.liste_recherches.sort(key=lambda x:(not x.islower(), x)) #...et trier dans un ordre logique. Tri en place !
 
     $ sauvegarder("continuer", montrer=False)
 
@@ -255,27 +247,18 @@ label explore_archives:
     $ choice_button = _return
     if choice_button == "chercher":
         jump explore_archives
-    else:
-        $ quick_menu = True
-        hide archivuitton with dissolve
-        jump exit_archives
 
 label exit_archives:
+    hide archivuitton with dissolve
     $ sauvegarder("continuer")
     nvl clear
+    $ quick_menu = True
     $ in_archives = False
-    if situation == "en_jeu":
-        if acte == 3:
-            jump suite_explore_archives
-        elif acte == 4:
-            jump map1_acte4
-        elif acte == 6:
-            jump map1_acte6
+    return
 
-label bonus:
-    pass
+
 #===== CODE =====#
-label unlock_code:
+label unlock_code: 
     nvl clear
     $ quick_menu = False
     $ text_entry = ""

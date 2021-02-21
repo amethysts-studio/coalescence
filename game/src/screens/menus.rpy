@@ -1,7 +1,7 @@
 screen menu_background():
     zorder 10
     button:
-        xysize (720, 1280) at fade_away(0.5)
+        xysize (720, 1280) at smooth(0.5)
         image "Ecran titre/new_main_screen_fond.png"
         action NullAction()
 screen menu_title_coal(time = 0.5, initi=False, red=False):
@@ -34,7 +34,7 @@ screen in_game_menu(acte=0, dico_info=persistent.sauvegarde_info):
     zorder 12
     key "rollback" action [Hide("in_game_menu"), Hide("menu_background"), Hide("menu_title_coal"), SetVariable('quick_menu', True)]
     window:
-        at fade_away()
+        at smooth()
         ypos 400
         background "#0000"
         text _("- partie en cours -") italic True color "#2b2" xalign 0.5
@@ -50,7 +50,7 @@ screen in_game_menu(acte=0, dico_info=persistent.sauvegarde_info):
         button:
             at xslide(x_depart=-120, x_final=360)
             ypos 500
-            action [Hide("in_game_menu"), Hide("menu_background"), Hide("menu_title_coal"), SetVariable('quick_menu', True), Jump("acte"+str(acte+1))]
+            action [Hide("in_game_menu"), Hide("menu_background"), Hide("menu_title_coal"), SetVariable('quick_menu', True), Return()]
             hbox:
                 image "icons/icon_play.png"
                 text _("Passer à l'acte suivant") xpos 50
@@ -162,7 +162,7 @@ screen menu_alternatif(dico_info=persistent.sauvegarde_info,):
     style_prefix "coal"
     zorder 12
     button:
-        at fade_away()
+        at smooth()
         ypos 500
         if continue_acte != 0 and (persistent.loadable) != False:
             action Show("confirm_newgame")
@@ -173,7 +173,7 @@ screen menu_alternatif(dico_info=persistent.sauvegarde_info,):
             text _("Nouveau Jeu") xpos 50 yalign 0.5 
     if continue_acte != 0 and (persistent.loadable) != False:
         button:
-            at fade_away()
+            at smooth()
             ypos 600 ysize 120
             action [Hide("menu_alternatif"), Jump("charger_partie")]
             hbox:
@@ -192,7 +192,7 @@ screen menu_alternatif(dico_info=persistent.sauvegarde_info,):
 
     hbox:
         pos (60,800)
-        at fade_away()
+        at smooth()
         button:
             xysize (298, 96)
             action If(_preferences.language == "english",
@@ -423,11 +423,14 @@ screen affiche_stats(acte=0, confiance_persos=persistent.confiance, situation = 
             vbox:
                 spacing 30
                 vbox:
-                    text _("Temps de jeu total : ")
-                    text total_runtime.TextFormat("[hour] h [minute] min [second] s", font="DejaVuSans.ttf", color="#bbb" ) 
+                    text _("Temps de jeu actuel :")
+                    text current_runtime.strf("[hour] h [minute] min [second] s") color "#bbb"
+                vbox:
+                    text _("Temps de jeu total :")
+                    text total_runtime.strf("[hour] h [minute] min [second] s") color "#bbb"
                     
                 vbox:
-                    text _("Texte lu (toutes parties confondues)")
+                    text _("Texte lu :")
                     hbox:
                         bar value StaticValue(texte_lu, texte_total) ysize 12 xsize 400 yalign 0.5
                         text "  "
@@ -640,7 +643,7 @@ screen carte(localisation_persos={2}, revelee=False, acte=0):
         else:
             add "carte_incomplete"
     button:
-        at fade_away()
+        at smooth()
         ypos 1120
         text _("Retour") at truecenter
         action [Hide("carte"), Show("menu_title_coal"), Show("in_game_menu", acte=acte)]
@@ -715,7 +718,7 @@ screen archives_search():
             scrollbars "vertical"
             vbox:
                 spacing 20
-                for recherche in liste_recherches:
+                for recherche in persistent.liste_recherches:
                     if uniformise(recherche) in archives_dic:
                         button:
                             xsize 300 ysize 50
@@ -923,12 +926,8 @@ init python:
                     fin_cryptee += "?"
             return fin_cryptee
 
-label charger_partie:
+label charger_partie: # renpy-graphviz: IGNORE
     stop music fadeout 1.0
     scene black with inkdissolve
     $ renpy.pause(0.5)
     $ renpy.load(partie_actuelle)
-
-label supprimer_partie:
-    $ renpy.unlink_save(partie_choisie)
-    $ renpy.call("prepare_play")

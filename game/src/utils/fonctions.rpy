@@ -6,12 +6,6 @@ init python:
     griffesdissolve = ImageDissolve(im.Tile("Transitions/griffes.png"), 1.0, 32)
     tpdissolve = ImageDissolve(im.Tile("Transitions/teleport.png"), 2.0, 64)
 
-#init 2 python:
-#    def save_playtime(d):
-#        renpy.store.playtime += renpy.get_game_runtime()
-#        renpy.clear_game_runtime()
-#        d["playtime"] = renpy.store.playtime
-#    config.save_json_callbacks = [save_playtime]
 
     if config.developer:
         preferences.skip_unseen = True
@@ -164,7 +158,7 @@ init python:
             if liste_events[i]["id"] == evt:
                 liste_events[i]["actif"] = set_value
                 if notify:
-                    renpy.notify(_("Journal mis à jour"))
+                    renpy.notify(_("↓ Journal mis à jour"))
                 break
                     
     def modif_bio(perso, bio_id, notify=True, set_value=True):

@@ -33,7 +33,7 @@ screen message_important(name, important_sentence, color = "#a0a0a0", unknown=Fa
 
 screen scr_achievement_get(title, a_text, icon):
     zorder 18
-    timer 6.0 action Hide("scr_achievement_get")
+    timer 4.0 action Hide("scr_achievement_get")
 
     button:
         action Hide("scr_achievement_get")

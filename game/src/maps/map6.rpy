@@ -2,14 +2,12 @@
 #====== Acte VI : Exploration =====#
 #==================================#
 label map1_acte6:
-    label map1_acte6_:
+    label map1_acte6_: # renpy-graphviz: IGNORE
         nvl clear
         show carte_complete:
             xalign 0.0
             linear 0.2 alpha 1.0
         show go_right:
-            linear 0.2 alpha 1.0
-        show quit_map:
             linear 0.2 alpha 1.0
         call screen screen_carte1(carte_revelee=True, bonus=False, acte_carte = "6")
         $ salle = _return
@@ -17,8 +15,6 @@ label map1_acte6:
             show carte_complete:
                 linear 0.2 alpha 0.05
             show go_right:
-                linear 0.2 alpha 0.05
-            show quit_map:
                 linear 0.2 alpha 0.05
     if salle == "salle_vote":
         narr "La salle de vote était vide."
@@ -71,7 +67,7 @@ label map1_acte6:
         narr "Les lettres capitales formaient le mot {b}Index{/b}."
         narr "Il semblait ne pas avoir bougé depuis la dernière fois, comme s'il attendait sereinement que l'on perce les secrets de ce lieu oppressant."
         nvl clear
-        jump explore_archives
+        call explore_archives(6)
     elif salle == "salle_chambres":
         label chambres_gauche_acte4:
             nvl clear
@@ -127,18 +123,17 @@ label map1_acte6:
         narr "Les toilettes étaient toujours aussi sales"
     elif salle == "go_right":
         hide go_right
-        hide quit_map
         show carte_complete:
             easeout 0.5 xalign 0.25 alpha 0.5
             easein 0.5 xalign 0.5 alpha 1.0
         $ renpy.pause(1.0, hard=True)
         jump map2_acte6
     elif salle == "quit":
-        jump finCarteActe6
+        return
     jump map1_acte6
     
-label map2_acte6:
-    label map2_acte6_:
+label map2_acte6: # renpy-graphviz: TITLE
+    label map2_acte6_: # renpy-graphviz: IGNORE
         nvl clear
         show carte_complete:
             xalign 0.5
@@ -146,8 +141,6 @@ label map2_acte6:
         show go_left:
             linear 0.2 alpha 1.0
         show go_right:
-            linear 0.2 alpha 1.0
-        show quit_map:
             linear 0.2 alpha 1.0
         call screen screen_carte2(bonus=False, acte_carte=6, explorable=True)
         $ salle = _return
@@ -158,11 +151,8 @@ label map2_acte6:
                 linear 0.2 alpha 0.05
             show go_right:
                 linear 0.2 alpha 0.05
-            show quit_map:
-                linear 0.2 alpha 0.05
     if salle == "go_left":
         hide go_left
-        hide quit_map
         show carte_complete:
             easeout 0.5 xalign 0.25 alpha 0.5
             easein 0.5 xalign 0.0 alpha 1.0
@@ -170,7 +160,6 @@ label map2_acte6:
         jump map1_acte6
     elif salle == "go_right":
         hide go_right
-        hide quit_map
         show carte_complete:
             easeout 0.5 xalign 0.75 alpha 0.5
             easein 0.5 xalign 1.0 alpha 1.0
@@ -210,21 +199,17 @@ label map2_acte6:
             else:
                 jump map2_acte6
             $ sauvegarder("continuer", montrer = False)
-    elif salle == "bonus":
-        jump bonus
     elif salle == "quit":
-        jump finCarteActe6
+        return
     jump map2_acte6
     
 label map3_acte6:
-    label map3_acte6_:
+    label map3_acte6_: # renpy-graphviz: IGNORE
         nvl clear
         show carte_complete:
             xalign 1.0
             linear 0.2 alpha 1.0
         show go_left:
-            linear 0.2 alpha 1.0
-        show quit_map:
             linear 0.2 alpha 1.0
         call screen screen_carte3(bonus=True, acte_carte = "6")
         $ salle = _return
@@ -232,8 +217,6 @@ label map3_acte6:
             show carte_complete:
                 linear 0.2 alpha 0.05
             show go_left:
-                linear 0.2 alpha 0.05
-            show quit_map:
                 linear 0.2 alpha 0.05
     if salle == "salle_vote":
         narr "La salle de vote est similaire à la nôtre"
@@ -344,14 +327,11 @@ label map3_acte6:
         $ sauvegarder("continuer")
     elif salle == "go_left":
         hide go_left
-        hide quit_map
         show carte_complete:
             easeout 0.5 xalign 0.75 alpha 0.5
             easein 0.5 xalign 0.5 alpha 1.0
         $ renpy.pause(1.0, hard=True)
         jump map2_acte6
-    elif salle == "bonus":
-        jump bonus
     elif salle == "quit":
-        jump finCarteActe6
+        return
     jump map3_acte6

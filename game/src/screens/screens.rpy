@@ -431,8 +431,6 @@ style main_menu_frame:
     xsize 180
     yfill True
 
-    background "gui/overlay/main_menu.png"
-
 style main_menu_vbox:
     xalign 1.0
     xoffset -20
@@ -630,11 +628,11 @@ screen nvl(dialogue, items=None):
     for i in items:
         if "default" in i.args: 
             timer 0.01 action SetVariable("quick_menu", False)
-            timer countdown_time action [i.action, SetVariable("quick_menu", True)]
+            timer i.args[1] action [i.action, SetVariable("quick_menu", True)]
             fixed:
                 xysize(720, 140) yalign 1.0
                 bar:
-                    value AnimatedValue(old_value=1.0, value=0.0, range=1.0, delay=countdown_time)
+                    value AnimatedValue(old_value=1.0, value=0.0, range=1.0, delay=i.args[1])
                     style "coal_countdown_bar"
                 button:
                     style "coal_choice_button_default" 

@@ -3,14 +3,12 @@
 #==================================#
 
 label map1_acte4:
-    label map1_acte4_:
+    label map1_acte4_: # renpy-graphviz: IGNORE
         nvl clear
         show carte_complete:
             xalign 0.0
             linear 0.2 alpha 1.0
         show go_right:
-            linear 0.2 alpha 1.0
-        show quit_map:
             linear 0.2 alpha 1.0
         call screen screen_carte1(carte_revelee=True, bonus=False, acte_carte = "4")
         $ salle = _return
@@ -18,8 +16,6 @@ label map1_acte4:
             show carte_complete:
                 linear 0.2 alpha 0.05
             show go_right:
-                linear 0.2 alpha 0.05
-            show quit_map:
                 linear 0.2 alpha 0.05
     if salle == "salle_vote":
         narr "Johann était seul dans la salle de vote."
@@ -60,7 +56,7 @@ label map1_acte4:
         narr "Les lettres capitales formaient le mot {b}Index{/b}."
         narr "Il semblait ne pas avoir bougé depuis la dernière fois, comme s'il attendait sereinement que l'on perce les secrets de ce lieu oppressant."
         nvl clear
-        jump explore_archives
+        call explore_archives(4)
     elif salle == "salle_chambres":
         narr "Il y a 3 chambres numérotées 1, 2 et 3."
         narr "Les numéros sont écrits en grand et en rouge sur la porte."
@@ -202,18 +198,17 @@ label map1_acte4:
             narr "Leonhard notait quelque chose sur un carnet."
     elif salle == "go_right":
         hide go_right
-        hide quit_map
         show carte_complete:
             easeout 0.5 xalign 0.25 alpha 0.5
             easein 0.5 xalign 0.5 alpha 1.0
         $ renpy.pause(1.0, hard=True)
         jump map2_acte4
     elif salle == "quit":
-        jump finCarteActe4
+        return
     jump map1_acte4
     
-label map2_acte4:
-    label map2_acte4_:
+label map2_acte4: # renpy-graphviz: TITLE
+    label map2_acte4_: # renpy-graphviz: IGNORE
         nvl clear
         show carte_complete:
             xalign 0.5
@@ -221,8 +216,6 @@ label map2_acte4:
         show go_left:
             linear 0.2 alpha 1.0
         show go_right:
-            linear 0.2 alpha 1.0
-        show quit_map:
             linear 0.2 alpha 1.0
         call screen screen_carte2(bonus=False, acte_carte=4, explorable=True)
         $ salle = _return
@@ -233,11 +226,8 @@ label map2_acte4:
                 linear 0.2 alpha 0.05
             show go_right:
                 linear 0.2 alpha 0.05
-            show quit_map:
-                linear 0.2 alpha 0.05
     if salle == "go_left":
         hide go_left
-        hide quit_map
         show carte_complete:
             easeout 0.5 xalign 0.25 alpha 0.5
             easein 0.5 xalign 0.0 alpha 1.0
@@ -245,7 +235,6 @@ label map2_acte4:
         jump map1_acte4
     elif salle == "go_right":
         hide go_right
-        hide quit_map
         show carte_complete:
             easeout 0.5 xalign 0.75 alpha 0.5
             easein 0.5 xalign 1.0 alpha 1.0
@@ -284,22 +273,18 @@ label map2_acte4:
                 jump porte_gauche_droite
             else:
                 jump map2_acte4
-            $ sauvegarder("continuer", montrer = False)
-    elif salle == "bonus":
-        jump bonus
+            $ sauvegarder("continuer", montrer = False)        
     elif salle == "quit":
-        jump finCarteActe4
+        return
     jump map2_acte4
     
 label map3_acte4:
-    label map3_acte4_:
+    label map3_acte4_: # renpy-graphviz: IGNORE
         nvl clear
         show carte_complete:
             xalign 1.0
             linear 0.2 alpha 1.0
         show go_left:
-            linear 0.2 alpha 1.0
-        show quit_map:
             linear 0.2 alpha 1.0
         call screen screen_carte3(bonus=True, acte_carte = "4")
         $ salle = _return
@@ -307,8 +292,6 @@ label map3_acte4:
             show carte_complete:
                 linear 0.2 alpha 0.05
             show go_left:
-                linear 0.2 alpha 0.05
-            show quit_map:
                 linear 0.2 alpha 0.05
     if salle == "salle_vote":
         narr "La salle de vote est similaire à la nôtre"
@@ -354,13 +337,14 @@ label map3_acte4:
             erw "C'est comme ça que le Bourreau sait si on est vivants, et où on est."
             erw "Donc, puisqu'il est parmi nous, il sait que Lise est vivante et qu'on a enlevé sa bombe !"
             li "Je pense qu'il va essayer de m'en remettre une... de force."
-            erw "C'est pour ça qu'il ne faut pas les enlever. Du moins, il ne faut pas les enlever bêtement."
-            erw "Il faut duper les capteurs."
+            erw "C'est pour ça qu'il ne faut pas les enlever."
+            erw "Du moins, il ne faut pas les enlever {i}bêtement{/i}."
             narr "Il me fit un clin d'oeil..."
-            narr "Puis Lise et lui partirent dans un coin, lire des livres de chimie."
+            narr "Lise et lui partirent dans un coin, lire des livres de chimie."
         if not inventaire["poison"]["connu"]:
             $ inventaire["poison"]["connu"] = True
-            narr "Sur les étagères il y avait un tube à essai fermé avec un bouchon en liège sur lequel il y avait écrit \"{i}Toxine botulique accélérée{/i}\""
+            narr "Sur les étagères il y avait un tube à essai fermé avec un bouchon en liège"
+            narr "Il y avait écrit \"{i}Toxine botulique accélérée{/i}\""
             narr "A en juger le logo rouge, ça m'avait tout l'air d'être du poison..."
         else:
             narr "Et une armoire remplie de poisons en tout genres."
@@ -473,15 +457,12 @@ label map3_acte4:
         $ sauvegarder("continuer")
     elif salle == "go_left":
         hide go_left
-        hide quit_map
         show carte_complete:
             easeout 0.5 xalign 0.75 alpha 0.5
             easein 0.5 xalign 0.5 alpha 1.0
         $ renpy.pause(1.0, hard=True)
         jump map2_acte4
-    elif salle == "bonus":
-        jump bonus
     elif salle == "quit":
-        jump finCarteActe4
+        return
     jump map3_acte4
 

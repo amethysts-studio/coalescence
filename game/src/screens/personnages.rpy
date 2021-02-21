@@ -33,7 +33,7 @@ screen liste_personnages(liste_persos=liste_persos, acte=0, situation = "en_vote
                         xysize (580, 100) ymargin 2
                         text i["nom"] color i["color"] xpos 40
                         button:
-                            xysize(160, 60) xpos 450 yalign 0.5
+                            xysize(160, 70) xpos 450 yalign 0.5
                             idle_background "#5555"
                             if situation == "en_vote" and (i in persos_joueurs) and (i["statut"][:6]=="Vivant"):
                                 text _("Choisir") at truecenter
@@ -78,13 +78,14 @@ screen bio_perso(perso, situation, acte=0):
     zorder 12
     style_prefix "coalbio"
 
-    image perso["image"] alpha 0.5 at smooth(1.0)
+    add perso["image"] alpha 0.5 at smooth(1.0)
 
     if perso["statut"][:4] == "Mort":
-        image "fondacte/frame_purple.png" alpha 0.6
         fixed:
             at smooth(1.0)
-            image "fondacte/frame_dead.png" alpha 0.6
+            add "right_eye" pos perso['eyes']['right'] anchor (50, 50)
+            add "left_eye"  pos perso['eyes']['left']  anchor (50, 50)
+            add "fondacte/frame_dead.png" alpha 0.6
     window:
         at smooth_title(time = 1.0, transp = 1.0, dist_y = 60)
         xysize (600, 94) xalign 0.5 ypos 60
@@ -96,7 +97,6 @@ screen bio_perso(perso, situation, acte=0):
     window:
         at xslide(x_depart=720, x_final=360)
         xysize (600, 94) xalign 0.5 ypos 620
-        #image perso["image"] xoffset 33 yalign 0.5
         vbox:
             at truecenter
             if perso in persos_joueurs:
@@ -189,7 +189,7 @@ screen confirm_vote(perso):
         button:
             xysize (264, 100)
             text _("Confirmer") at truecenter
-            action [Hide('bio_perso'), Hide('confirm_vote'), Hide('menu_background'), Jump("resultatsvote")]
+            action [Hide('bio_perso'), Hide('confirm_vote'), Hide('menu_background'), Return()]
         button:
             xysize (264, 100) xoffset 12
             text _("Annuler") at truecenter
@@ -232,22 +232,23 @@ screen vote_results(liste_elus):
     style_prefix "coal"
     window:
         background "#0000"
-        image "horror/skullheadMouth.jpg"
+        image "horror/skullheadMouth.jpg" xalign 0.5
         at scary_zoom
     window:
         at smooth(time=0.05)
         xysize (600, 96)
         xalign 0.5 ypos 400
-        text _("Élus :") at truecenter
+        text _("Élus") at truecenter
     window:
         at transition_resultat(time=2.5)
         background "#0000"
-        ysize 716 ypos 500
+        ysize 716 ypos 600
         vbox:
             spacing 20
             for i in liste_elus:
                 window:
-                    text i.capitalize() color (str_to_perso(liste_persos, i)["color"]) size 36 xpos 50
+                    background "#0000"
+                    text i.capitalize() color (str_to_perso(liste_persos, i)["color"]) size 36 at truecenter
                         
     hbox:
         pos (60,1120) at smooth(0.5)

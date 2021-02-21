@@ -3,13 +3,13 @@
 #==================================#
 
 label first_map:
-    label first_map_:
+    label first_map_: # renpy-graphviz: IGNORE
         nvl clear
-        show carte1explore0:
+        show carte_incomplete:
             linear 0.2 alpha 1.0
-        call screen screen_carte1(quitter = False)
+        call screen screen_carte1(acte_carte = "1", quitter = False)
         $ salle = _return
-        show carte1explore0:
+        show carte_incomplete:
             linear 0.2 alpha 0.05
         n "\n\n\n\n\n{nw}"
     if salle == "salle_vote":
@@ -19,9 +19,9 @@ label first_map:
             narr "Il ne sert à rien d'y retourner maintenant, il faut trouver la clé USB qu'à caché le Bourreau."
         else:
             narr "Il est temps d'y retourner pour voir le message du Bourreau."
-            hide carte1explore0 with Dissolve(1.0)
+            hide carte_incomplete with Dissolve(1.0)
             $ quick_menu = True
-            jump suite_map_0
+            return
     elif salle == "salle_archives":
         narr "Il est écrit sur la porte : \"Archives\""
         narr "Cette salle est fermée à clé..."
@@ -57,7 +57,7 @@ label first_map:
                     l "D'accord."
                     l "Dis moi ta réponse rapidement, les places sont comptées..."
                     narr "Il était assez direct, mais il n'avait pas tort."
-                "Johann vous fait déjà confiance ?":
+                "Johann vous fait {i}déjà{/i} confiance ?":
                     p "Johann vous fait déjà confiance ? C'est rapide..."
                     p "Vous vous connaissiez déjà avant ?"
                     l "Non, nous avons juste parlé quand vous étiez en train de dormir."
@@ -66,6 +66,10 @@ label first_map:
                 "Que savez-vous sur le Bourreau ?":
                     p "Vous avez un dossier sur le Bourreau ? Vous pouvez m'en dire plus ?"
                     l "Oh, non. Je ne sais pas ce que nous allons devenir, et j'aimerai me garder un peu d'avance, vous comprenez."
+                "Ne rien dire" ("default", 12.0):
+                    p "..."
+                    l "Je prends ca pour un {i}non{/i}..."
+                    $ modif_confiance([leonhard], [-1])
             narr "Nous fûmes interrompus par Alan et Johann"
             ala "C'est vide. Tous les tiroirs sont vides, j'ai rien trouvé..."
             j "Allons chercher plus loin."

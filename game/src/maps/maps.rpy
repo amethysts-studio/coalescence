@@ -2,19 +2,16 @@
 #============== Maps ==============#
 #==================================#
 screen screen_carte1(carte_revelee=False, bonus=False, acte_carte=None, explorable=True, quitter=True):
+    
+    style_prefix "coal"
+    
+    use repartition_persos_map_1(acte_carte)
+    use kurt_position_on_map("left")
+
     imagemap:
-        if acte_carte == "1":
-            ground carte1explore0
-        elif acte_carte == "2-1":
-            ground carte1explore2
-        elif acte_carte == "2-23":
-            ground "cartes/carte1explore2.png"
-        elif acte_carte == "2-4":
-            ground "cartes/carte1explore.png"
-        elif acte_carte == "4":
-            ground "cartes/carte1exploreacte.png"
-        else:
-            ground "cartes/transparent.png"
+        at smooth(0.5)
+        
+        ground "cartes/transparent.png"
         hover "cartes/carte1_hover.png"
 
         alpha False
@@ -28,12 +25,18 @@ screen screen_carte1(carte_revelee=False, bonus=False, acte_carte=None, explorab
             hotspot (399, 744, 228, 262) action Return("salle_sanitaires")
         if carte_revelee:
             hotspot (633, 124, 87, 888) action Return("go_right")
-        if quitter:
-            hotspot (177, 1030, 354, 150) action Return("quit")
-        if bonus:
-            hotspot (158, 1190, 22, 28) action Return("bonus")
+
+    if quitter:
+        button:
+            at smooth()
+            ypos 1070
+            text _("Arrêter l'exploration") at truecenter
+            action Return("quit")
 
 screen screen_carte2(bonus=False, acte_carte=None, explorable=True):
+
+    use kurt_position_on_map("center")
+
     imagemap:
         ground "cartes/transparent.png"
         hover "cartes/carte2_hover.png"
@@ -45,16 +48,22 @@ screen screen_carte2(bonus=False, acte_carte=None, explorable=True):
             hotspot (136, 123, 447, 886) action Return("grande_salle")
         hotspot (585, 119, 140, 891) action Return("go_right")
 
-        hotspot (177, 1030, 354, 150) action Return("quit")
-        if bonus:
-            hotspot (158, 1190, 22, 28) action Return("bonus")
+    button:
+        at smooth()
+        ypos 1120
+        text _("Quitter") at truecenter
+        action Return("quit")
 
 screen screen_carte3(bonus=False, acte_carte=None, explorable=True):
+
+    use repartition_persos_map_3(acte_carte)
+    use kurt_position_on_map("right")
+
+
     imagemap:
-        if acte_carte == "4":
-            ground "cartes/carte3exploreacte.png"
-        else:
-            ground "cartes/transparent.png"
+        at smooth(1.0)
+        
+        ground "cartes/transparent.png"
         hover "cartes/carte3_hover.png"
 
         alpha False
@@ -67,6 +76,9 @@ screen screen_carte3(bonus=False, acte_carte=None, explorable=True):
             hotspot (90, 747, 230, 268) action Return("salle_sanitaires")
 
         hotspot (0, 124, 87, 888) action Return("go_left")
-        hotspot (177, 1030, 354, 150) action Return("quit")
-        if bonus:
-            hotspot (158, 1190, 22, 28) action Return("bonus")
+
+    button:
+        at smooth()
+        ypos 1120
+        text _("Quitter") at truecenter
+        action Return("quit")

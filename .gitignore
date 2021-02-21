@@ -1,6 +1,8 @@
 # Personal ignored files
 python-packages/
 env/
+renpy-graphviz*
+renpy.sh
 
 # No compiled rpy (just code files)
 *.rpyc 

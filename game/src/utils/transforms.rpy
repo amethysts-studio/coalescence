@@ -27,13 +27,6 @@ transform special_confirm_newgame():
         linear 0.5 ypos 100 
         linear 0.2 ypos -100 alpha 0.0
 
-transform fade_away(time = 1.0):
-    on show:
-        alpha 0.0
-        linear time alpha 1.0
-    on hide:
-        linear time alpha 0.0
-
 transform transition_resultat(time=0.5):
     on show:
         alpha 0.0

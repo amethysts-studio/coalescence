@@ -11,6 +11,10 @@ image rosalind_portrait = "persos/rosalind.jpg"
 image erwin_portrait = "persos/erwin.jpg"
 image lise_portrait = "persos/lise.jpg"
 
+# Eyes
+image left_eye = "persos/eye_left.png"
+image right_eye = "persos/eye_right.png"
+
 # Animation
 image moving = "fondacte/Moving.png"
 
@@ -24,13 +28,6 @@ image carte_complete_penchee = "cartes/carte_complete_penchee.png"
 image carte_incomplete = "cartes/carte_incomplete.png"
 
 # Maps for acts
-image carte1explore0 = "cartes/carte1explore0.png"
-image carte1explore1 = "cartes/carte1explore1.png"
-image carte1explore23 = "cartes/carte1explore23.png"
-image carte1explore4 = "cartes/carte1explore4.png"
-image quit_map:
-  "cartes/bouton_quitter.png"
-  yalign 1.0
 image go_right:
     "cartes/fleche_droite.png"
     xalign 1.0

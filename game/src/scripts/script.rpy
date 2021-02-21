@@ -67,7 +67,6 @@ label splashscreen:
                 nar "L'inconnu(e) se tourne vers moi."
                 bunk_white "Je sais."
                 bunk_white "C'est moi qui t'ai fait venir ici."
-                $ countdown_time = 8.0
                 menu:
                     "Ici ?":
                         p_white "Ici ? C'est où, ici ? Qu'est-ce que je fais là ?"
@@ -76,7 +75,7 @@ label splashscreen:
                     "Toi ?":
                         p_white "Toi, tu es qui ? Je te connais ?"
                         bunk_white "Oh, oui. Mais tu m'auras bientôt oublié."
-                    "Ne rien dire" ("default"):
+                    "Ne rien dire" ("default", 8.0):
                         bunk_white "Et tu n'es pas ici pour rien."
                         bunk_white "Tu t'es juste réveillé trop tôt..."
                 bunk_white "Tu n'étais pas censé te réveiller {i}maintenant{/i}."
@@ -101,7 +100,6 @@ label splashscreen:
     return
     
 label start:
-    $ playtime_enter = datetime.datetime.now()
     $ quick_menu = False
     scene new_main_screen_fond
     show head with None
@@ -110,7 +108,6 @@ label start:
     #     ypos 204 #114
     show screen menu_title_coal(time = 1.0, initi=True)
     show moving at defiler
-    #show glittering at briller
     hide head with inkdissolve
     nvl clear
     jump menu_principal
@@ -118,7 +115,7 @@ label start:
 #================================================#
 #================     Acte I     ================#
 #================================================#
-label acte1:
+label acte1: # renpy-graphviz: TITLE
     $ persistent.sauvegarde_info[partie_actuelle][0] = 1
     $ acte = 1
     nvl clear
@@ -167,7 +164,7 @@ label acte1:
     nvl clear
     #================================ Scene 1 : présentation des personnages === choix : 2 ======================================================================
     narr "Le court instant de silence pesant fut rapidement cassé par l'intervention d'un jeune homme à l'air blasé."
-    $annonce_importante(johann, _("On nage en plein délire là."), True)
+    $ annonce_importante(johann, _("On nage en plein délire là."), True)
     narr "Tout le monde se tourna vers lui."
     narr "Il était jeune, devait avoir environ 20 ans. Il portait des lunettes et avait tout l'air d'un intellectuel."
     junk "Excusez-moi, je ne me suis même pas présenté"
@@ -178,7 +175,7 @@ label acte1:
     $ modif_bio(johann, 0, notify=False)
     j "Je suppose que personne ne sait ce qu'il se passe. Je suppose également que cette pièce est ferm..."
     narr "Il fut interrompu par un adolescent, plutôt beau mais incroyablement frêle. Il avait l'air farouche, effrayé par les paroles du Bourreau"
-    $annonce_importante(isaac, _("Oui, c.. c'est fermé, j.. j'ai vérifié quand vous étiez évanouis tout à l'heure"), True)
+    $ annonce_importante(isaac, _("Oui, c.. c'est fermé, j.. j'ai vérifié quand vous étiez évanouis tout à l'heure"), True)
     narr "Il baissa la tête"
     isaunk "P.. Pardon de vous avoir interrompu."
     narr " Johann n'aimait visiblement pas être interrompu."
@@ -193,7 +190,6 @@ label acte1:
     narr "Était-il sincère ?{nw}"
     $ verif_porte_acte1 = False
     $ faire_confiance_isaac_porte = False
-    $ countdown_time = 18.0
     menu:
         "Faire confiance à Isaac":
             $ faire_confiance_isaac_porte = True
@@ -211,8 +207,7 @@ label acte1:
             narr "Je me levai et mis la main sur la poignée."
             p "La porte est bien fermée !"
             j "Très bien !"
-        "Ne rien dire" ("default"):
-            $ verif_porte_acte1 = False
+        "Ne rien dire" ("default", 18.0):
             $ renpy.fix_rollback()
             narr "Johann hésitait, mais personne ne prenait la parole."
             j "Bon, je vais te faire confiance."
@@ -220,14 +215,14 @@ label acte1:
             narr "L'inconnu se leva et mit la main sur la poignée."
             alaunk "La porte est bien fermée !"
             j "Très bien !"
-label suite_premier_choix:
+label suite_premier_choix: # renpy-graphviz: IGNORE
     j "Je résume. On est tous enfermés ici par quelqu'un qui a l'air de vouloir jouer les justiciers."
     $ modif_resume(101)
     j "Il nous a traînés ici et a mis les moyens, à en juger l'équipement."
     j "On a tous une sorte de tablette devant soi, avec des informations personnelles."
     j "En plus d'être équipé, il a un objectif : il nous a pas choisis au hasard."
     j "Donc soit c'est une gigantesque caméra cachée, soit..."
-    $annonce_importante(alan, _("...on est dans la merde."), True)
+    $ annonce_importante(alan, _("...on est dans la merde."), True)
     narr "Un jeune homme au visage anguleux se racla la gorge."
     alaunk "Yo, c'est Alan."
     $ alan["statut"] = "Vivant"
@@ -236,7 +231,7 @@ label suite_premier_choix:
     narr "Il avait l'air d'un petit caïd, le genre de gars à problèmes que tout le monde détestait et dont ses camarades avait peur à l'école."
     ala "D'ailleurs, ça serait cool de savoir qui est qui, hein ?"
     narr "Un vieil homme en costume ajouta :"
-    $annonce_importante(leonhard, _("D'autant plus que nous allons rester ici longtemps, je le crains."), True)
+    $ annonce_importante(leonhard, _("D'autant plus que nous allons rester ici longtemps, je le crains."), True)
     narr "Il parlait bien mieux qu'Alan, mais avec un léger accent allemand."
     lunk "Je suis le Haut Juge Newer, mais vous pouvez m'appeller par mon prénom, Leonhard."
     $ persistent.confiance["Leonhard"][2] = True
@@ -250,7 +245,7 @@ label suite_premier_choix:
     l "Nous ne connaissons de lui que sa passion pour les jeux macabres..."
     $ annonce_importante(leonhard, _("...et quelque chose me dit que nous allons être témoins de sa prochaine folie..."))
     narr "La petite assemblée était comme glacée par la révélation du Juge."
-    $annonce_importante(emmy,_("Non... C'est pas possible ?!"), True)
+    $ annonce_importante(emmy,_("Non... C'est pas possible ?!"), True)
     narr "Une fillette, la seule fille du groupe, semblait au bord de la crise d'angoisse."
     eunk "Je.. je m'appelle Emmy."
     $ persistent.confiance["Emmy"][2] = True
@@ -260,6 +255,7 @@ label suite_premier_choix:
     e "Je n'ai jamais péché, moi ! Qu'est-ce qui m'arrive ???"
     narr "Elle s'effondra en sanglots et Isaac vint la consoler"
     isa "Emmy... Tu étais dans mon lycée, c'est bien ça ?"
+    narr "Emmy hocha la tête, surprise."
     isa "Je crois t'avoir déjà vu quelque part..."
     narr "L'intello à lunettes s'approcha."
     j "Le même lycée ? Ce n'est certainement pas une coïncidence..."
@@ -276,7 +272,7 @@ label suite_premier_choix:
     j "Et toi, tu ne t'es pas présenté ?"
     p "Ah, désolé ! Je m'appelle Kurt..."
     ala "(Mimant une réunion des alcooliques anonymes) Bonjoooour Kuuuurt !"
-    narr "La blague n'avait pas l'air de passer et un silence gênant s'installa plusieurs longues secondes, donc je me décidai à continuer ma présentation."
+    narr "La blague n'avait pas l'air de passer et un silence gênant s'installa plusieurs longues secondes"
     p "...Mes parents étaient fan de Nirvana, comme vous vous en doutez."
     p "J'ai 17 ans, et peu d'amis : en fait, je passe la plupart de mon temps à jouer..."
     p "...ou à poster des blagues sur mon compte twitter"
@@ -326,10 +322,12 @@ label suite_premier_choix:
     l "{i}\"Il\"{/i} est passé nous ouvrir la porte pendant que nous regardions sa vidéo"
     j "Quel enfoiré !"
     if not verif_porte_acte1:
-        ala "Alors, Isaac, on a des problèmes de mémoire ? Tu disais que c'était fermé, tout à l'heure, non ?"
+        j "Alors, Isaac, on a des problèmes de mémoire ? Tu disais que c'était fermé, tout à l'heure, non ?"
         if faire_confiance_isaac_porte:
             e "Et Kurt, tu disais faire confiance à Isaac..."
             $ modif_confiance([emmy], [-1])
+        else:
+            e "Et Alan, tu es allé verifier..."
         narr "Isaac haussa les épaules"
         isa "Il a peut-être ouvert la porte entre temps..."
         isa "On ne sait pas encore dans quoi on est tombés ! Ça commence à me faire peur..."
@@ -362,7 +360,7 @@ label suite_premier_choix:
     narr "Arrivé au niveau de la porte, Johann se tourna vers moi."
     j "Tu fais quoi, toi ?"
     menu:
-        "Rester avec {color=#ffd}Emmy{/color} et {color=#5ba7ff}Isaac{/color}":
+        "Rester avec {color=#ffba6d}Emmy{/color} et {color=#5ba7ff}Isaac{/color}":
             $ get_achievement("premier_choix")
             $ acte1_rester = True
             $ modif_confiance([emmy, isaac], [1, 1])
@@ -383,17 +381,14 @@ label suite_premier_choix:
             e "Il y a sûrement quelque chose à trouver dedans..."
             narr "Je me penchai vers ma tablette. Son contenu était parfaitement banal, mais 2 choses sortaient de l'ordinaire."
             narr "Il y avait un dossier \"Sujets\", et un plan."
-            show cursor_menu with dissolve
             $ plan_available = True
-            $ renpy.notify("La carte est maintenant accessibles depuis le menu.")
+            $ renpy.notify(_("La carte est maintenant accessibles depuis le menu"))
             e "Super ! Une carte !"
-            hide cursor_menu with dissolve
             isa "Et bien voilà, pas besoin d'explorer, et on est sûrement plus renseignés qu'{i}eux{/i} maintenant !"
-            $ renpy.notify("Ce dossier est accessibles depuis le menu.")
+            $ renpy.notify(_("Ce dossier est accessibles depuis le menu ↓"))
             e "Par contre, regardez dans le dossier \"Sujets\"..."
             p "Quoi ??? On est tous fichés !"
             isa "Ca craint..."
-            isa "Et pourquoi il y a écrit {i}Crime{/i} ?"
             narr "Emmy était pensive. Elle y comprenait quelque chose, elle ?"
             p "J'en sais rien..."
             isa "Moi non plus..."
@@ -417,8 +412,9 @@ label suite_premier_choix:
             hide haut_de_page at smooth_title
             pause 0.5
             show text "{font=fonts/Centaur.ttf}{size=40}Carte{/font}{/size}" as haut_de_page at smooth_title(dist_y =60)
-            jump first_map
-            label suite_map_0:
+            $ kurt["location"]["coords"] = (350, 730)
+            call first_map
+            label suite_map_0: # renpy-graphviz: IGNORE
                 nvl clear
                 hide haut_de_page at smooth_title
                 $ get_achievement("decouvre_carte")
@@ -473,12 +469,12 @@ label suite_premier_choix:
     show screen menu_background()
     show screen menu_title_coal()
     call screen in_game_menu(acte=acte)
+
 #================================================#
 #================     Acte II     ===============#
 #================================================#
-label acte2:
+label acte2: # renpy-graphviz: TITLE
     $ acte = 2
-    $ acte_romain = "II"
     $ persistent.sauvegarde_info[partie_actuelle][0] = 2
     n "C'est le dev qui vous parle !"
     n "Est-ce que vous avez aimé le premier acte ?"
@@ -553,6 +549,11 @@ label acte2:
             p "Xénophobes, quelque fois, antisémites et homophobes aussi..."
             p "Mais cela reste de l'humour noir, pour faire rire : je ne pense pas ce que j'écris"
             p "Je me suis déjà fait censurer, ça ne m'étonnerait pas que le Bourreau veuille me faire taire, mais de là à me tuer..."
+        "Ne rien dire" ("default", 18.0):
+            $ ne_rien_dire += 1
+            narr "Je n'étais pas prêt à révéler quoi que ce soit. Je n'étais même pas sûr de mon crime..."
+            j "Bah alors, Kurt, tu as perdu ta langue ?"
+            p "Je préfère ne rien dire..."
     $ modif_bio(kurt, 1)
     narr "Alan prit la parole"
     ala "Moi, j'ai déjà tabassé un petit de 10 ans par plaisir."
@@ -630,12 +631,9 @@ label acte2:
     $ annonce_importante(johann, _("...mais ceux qui cachent leurs actes sont les pires criminels."))
     $ modif_resume(204)
     l "Bien. Nous allons pouvoir passer au vote..."
-    $ quick_menu = False
-    $ sauvegarder("continuer")
-    nvl clear
-    hide haut_de_page at smooth_title
-    jump vote
-label suite_vote_1:
+    call vote(1) 
+
+label suite_vote_1: # renpy-graphviz: IGNORE
     $ quick_menu = True
     $ is_voting = False
     $ situation = "en_jeu"
@@ -771,6 +769,8 @@ label suite_vote_1:
                 $ renpy.fix_rollback()
                 $ modif_confiance([alan], [-1])
                 p "Espèce d'ordure, tu n'as pas de cœur ???"
+            "Ne rien dire" ("default", 18.0):
+                $ ne_rien_dire +=1
         narr "Alan garda le silence"
         narr "Isaac frappa de toutes ses forces, par désespoir, sur la porte"
         $ renpy.vibrate(1.0)
@@ -783,16 +783,17 @@ label suite_vote_1:
         j "Non, il était dans une impasse."
         l "Alan, tu n'avais pas besoin de la tuer..."
         ala "Vous comprenez pas. Elle allait me tuer si je la butais pas !!!"
+        ala "C'était elle ou moi !"
         narr "Johann prit la parole, confiant."
         j "Si, je te comprends. Et je sais même comment elle allait te tuer !"
         narr "Johann regarda autour de lui"
         j "Je suis le seul à comprendre pourquoi Alan a tué Emmy ?"
         j "Je suis le seul à savoir ce qu'avait prévu Emmy ?"
-        $ countdown_time = 8
         menu:
-            "Ne pas parler" ("default"):
+            "Ne pas parler" ("default", 8.0):
                 $ renpy.fix_rollback()
                 $ modif_confiance([johann], [-1])
+                $ ne_rien_dire +=1
                 narr "Johann avait l'air désespéré"
                 j "Vous êtes tous stupides ou quoi ?"
             "Elle attendait la fin du compte à rebours":
@@ -898,7 +899,6 @@ label suite_vote_1:
         isa "Pourquoi ???"
         l "Pourquoi tant de violence, de cruauté ?..."
         j "Tu viens de tuer un humain, Alan..."
-        $ countdown_time = 8.0
         menu:
             "L'encourager à parler":
                 $ renpy.fix_rollback()
@@ -908,8 +908,9 @@ label suite_vote_1:
                 $ renpy.fix_rollback()
                 $ modif_confiance([alan], [-1])
                 p "Espèce d'ordure, tu n'as pas de cœur ???"
-            "Ne rien dire" ("default"):
+            "Ne rien dire" ("default", 8.0):
                 $ renpy.fix_rollback()
+                $ ne_rien_dire += 1
         narr "Alan garda le silence"
         narr "Isaac frappa de toutes ses forces, par désespoir, sur la porte"
         $ renpy.vibrate(1.0)
@@ -965,16 +966,12 @@ label suite_vote_1:
     show text "{font=fonts/Centaur.ttf}{size=32}Exploration{/font}{/size}" as haut_de_page at smooth_title
     nvl clear
     pause 1.5
-    jump sec_map
+    call sec_map
         
-label suite_map_1:
+label suite_map_1: # renpy-graphviz: IGNORE
     $ get_achievement("decouvre_carte")
     nvl clear
     hide carte_incomplete at carte_fade
-    hide carte1explore1 at carte_fade
-    hide carte1explore23 at carte_fade
-    hide carte1explore4 at carte_fade
-
     hide haut_de_page at smooth_title
     show text "{font=fonts/Centaur.ttf}{size=32}Acte II : Le Vote{/font}{/size}" as haut_de_page at smooth_title
     pause 1.5
@@ -1022,6 +1019,7 @@ label suite_map_1:
         $ renpy.pause(0.1)
         hide screamer
         hide black
+        $ renpy.block_rollback()
         narr "Mais l'ambiance était retombée."
         narr "Tout le monde se replongea silencieusement dans son repas."
     narr "Lorsque tout le monde eût fini de manger, Johann brisa le silence"
@@ -1037,7 +1035,7 @@ label suite_map_1:
         j "Je rappelle que le Bourreau doit faire son travail ce soir..."
     else:
         narr "Johann se tourna vers Isaac"
-        j "Il est possible que quelqu'un veuille se venger d'Alan"
+        j "Il est possible que quelqu'un veuille venger Emmy"
     j "Il faut essayer de passer une nuit sans sang."
     j "Vous êtes d'accord ?"
     isa "Non."
@@ -1046,6 +1044,8 @@ label suite_map_1:
     isa "L'idée des tours de garde que tu propose va nous épuiser : mieux vaut passer une bonne nuit afin de garder la forme..."
     isa "... pour être opérationnels au bon moment !"
     j "Tu sais qu'il est inutile de fermer les portes à clé ? Le Bourreau possède sûrement toutes les clés..."
+    j "On l'a vu à l'arrivée, n'est-ce pas Isaac ?"
+    narr "Isaac leva les yeux au ciel."
     isa "Il suffirait de les bloquer avec une chaise, ou un lit, par exemple..."
     isa "...et puis faire le garde pourrait nous coûter la vie : il pourrait nous attaquer seul, dans le couloir, sans aucun problème !"
     narr "Les lunettes de Johann brillèrent :"
@@ -1075,6 +1075,22 @@ label suite_map_1:
             else:
                 narr "Leonhard n'était pas de mon avis"
                 isa "Égalité... Bon, je veux bien te donner raison cette fois, Johann."
+                isa "Mais s'il se passe {i}quoi que ce soit{/i}, on fait ce que j'avais dit."
+                j "Ça me va."
+        "Ne pas se prononcer" ("default", 18.0):
+            $ renpy.fix_rollback()
+            $ ne_rien_dire += 1
+            narr "Tout le mode était de l'avis de Johann."
+            j "bah alors, Kurt, tu ne parles pas ?"
+
+            #TODO si c'est pas le cas: faire le cas ou les portes sont seulement bloquées -- complexe
+            # if elus_vote[1] == "emmy":
+            #     narr "Leonhard et Alan n'étaient pas de mon avis"
+            # elif elus_vote[1] == "alan":
+            #     narr "Emmy vota pour Isaac, et Leonhard pour Johann"
+            # else:
+            #     narr "Exepté Emmy."
+
     narr "Les tours de garde suivant furent organisés:"
     if len(elus_vote[1]) >= 2:
         narr "Moi, Leonhard, Johann puis Isaac."
@@ -1101,12 +1117,12 @@ label suite_map_1:
             p "Je fais confiance à Leonhard"
             l "Je vous fais confiance à vous aussi, Kurt."
             $ sleep_with = "leonhard"
-        "Isaac" if isaac["confiance"] >= 11:
+        "Isaac" if isaac["confiance"] >= 10:
             $ modif_confiance([isaac], [1])
             p "Je fais confiance à Isaac"
             isa "Cool !"
             $ sleep_with = "isaac"
-        "Johann" if johann["confiance"] >= 11:
+        "Johann" if johann["confiance"] >= 10:
             $ modif_confiance([johann], [1])
             p "Je fais confiance à Johann"
             j "Super !"
@@ -1164,7 +1180,6 @@ label suite_map_1:
             isa "C'est trop pour moi..."
         else:
             narr "Il secoua la tête."
-        $ countdown_time = 8.0
         menu:
             "Le rassurer":
                 p "Le Bourreau ne devrait pas exister."
@@ -1179,7 +1194,7 @@ label suite_map_1:
                 $ modif_confiance([isaac], [1], "cacher")
                 isa "Tu as raison."
                 isa "Il punira ceux qui ne se repentent pas."
-            "Rester silencieux" ("default"):
+            "Rester silencieux" ("default", 8.0):
                 pass
         narr "Isaac partit se coucher, et pleura en silence pendant un quart d'heure avant de s'endormir."
     elif sleep_with == "johann":
@@ -1212,7 +1227,7 @@ label suite_map_1:
     narr "Étrange..."
     play sound "sounds/footsteps.ogg" loop
     narr "Soudain, un bruit."
-    stop music fadeout 10.0
+    stop music fadeout 5.0
     narr "Des bruits de pas."
     narr "Mécaniques."
     narr "{i}Quelqu'un{/i} marchait dans le couloir."
@@ -1375,7 +1390,6 @@ label suite_map_1:
     $ modif_resume(215)
     j "C'est impossible."
     narr "Johann n'avait pas l'air de croire Isaac. Il était perturbé."
-    $ countdown_time = 8.0
     menu:
         "Je l'ai vu aussi" if screamer_nuit1:
             p "Moi aussi, je l'ai vu, par le trou de ma serrure !"
@@ -1393,7 +1407,7 @@ label suite_map_1:
             p "La {i}chose{/i} hurlait un nom... Elle cherchait quelqu'un."
             p "Mais ce n'étais pas un de nous six qu'elle cherchait."
             j "Étrange..."
-        "Ne rien dire" ("default"):
+        "Ne rien dire" ("default", 8.0):
             j "Tu es sûr d'avoir bien vu ?"
             if elus_vote[1] == ["alan"]:
                 e "C'est le Démon..."
@@ -1508,14 +1522,13 @@ label suite_map_1:
     show screen menu_background()
     show screen menu_title_coal()
     call screen in_game_menu(acte=acte)
-    
+
     
 #================================================#
 #===============     Acte III     ===============#
 #================================================#
-label acte3:
+label acte3: # renpy-graphviz: TITLE
     $ acte = 3
-    $ acte_romain = "III"
     $ persistent.sauvegarde_info[partie_actuelle][0] = 3
     nvl clear
     scene black with fade #at inkdissolve
@@ -1523,8 +1536,6 @@ label acte3:
     n "Est-ce que vous avez aimé les 2 premiers actes ?"
     n "Ca serait vraiment cool que vous m'envoyiez vos réactions !"
     n "...et que vous laissez un petit 5 étoiles sur le play store ;) "
-    n "Je code nuit et jour depuis maintenant 2 ans et demi..."
-    n "...je veux faire le maximum pour qu'il ait un maximum de succès à sa sortie officielle !"
     n "La grande énigme commencera à l'acte IV du jeu, pour l'instant vous ne pouvez pas vraiment envisager ce qui est en train de se passer."
     n "Vous ne pouvez pas voir le but principal..."
     n "...mais une grande partie des indices se trouve ici, dans les actes I, II et III, ne laissez rien passer à côté ! ;)"
@@ -1552,14 +1563,15 @@ label acte3:
     else:
         narr "Alan était aussi sorti."
     narr "Nous entrâmes donc dans la pièce inconnue"
-    narr "Les murs de cette dernière était recouverts de bibliothèques, comme attendu d'une salle d'archives"
+    narr "Les murs de cette dernière était recouverts de bibliothèques."
     narr "De plus, une bibliothèque était disposée en plein milieu de la pièce, empêchant de distinguer ce qu'il y avait derrière"
     narr "Des minutes de procès et des codes pénaux de différents pays recouvraient les 4 murs"
     narr "Un vieil ordinateur diffusait une lumière froide sur ces livres poussiéreux."
     narr "Sur la bibliothèque centrale étaient disposés des livres bien plus singuliers"
     narr "On y retrouvait nombreux livres de la littérature française, anglaise et américaine."
     narr "Un livre ressortait du lot :"
-    narr "Il était intitulé {i}HowtoPunish{/i}, et trônait fièrement, seul, sur l'étagère du haut de cette bibliothèque"
+    narr "Il était intitulé {i}HowtoPunish{/i}."
+    narr "Il trônait fièrement, seul, sur l'étagère du haut de cette bibliothèque."
     narr "Je le pris, puis tournai la tête vers Johann"
     narr "Il me répondit par un mouvement de tête, signifiant : 'Vas-y' "
     narr "J'ouvris donc cet inquiétant livre."
@@ -1604,7 +1616,7 @@ label acte3:
     play music "music/Theme_acte_6.ogg" fadeout 0.5 fadein 0.5
     $ renpy.vibrate(1.0)
     j "{b}PARCE QUE JE SUIS LE BOURREAU !!!{/b}" with sshake
-    narr "Tout les regards étaient tournés vers Johann."
+    narr "Tous les regards étaient tournés vers Johann."
     j "{b}ET QU'EST-CE QUE TU VAS FAIRE ???{/b}"
     narr "Immédiatement, Isaac courut se cacher."
     if elus_vote[1] == ["alan"]:
@@ -1612,7 +1624,6 @@ label acte3:
     else:
         narr "Alan craqua ses phalanges, prêt à se battre."
     narr "Leonhard ne bougea pas d'un pouce."
-    $ countdown_time = 15.0
     menu:
         "Se cacher avec Isaac":
             narr "Face à cette révélation, je préférai me cacher aux côtés d'Isaac"
@@ -1620,7 +1631,7 @@ label acte3:
         "Coup de couteau" if inventaire["knife"]["nb"] == 1:
             narr "Je brandis mon couteau vers Johann"
             $ revelation_bourreau_couteau = True
-        "Rester immobile" ("default"):
+        "Rester immobile" ("default", 15.0):
             narr "Préférant ne pas attirer l'attention de Johann, je ne bougeai pas d'un pouce"
             $ revelation_bourreau_couteau = False
     if revelation_bourreau_couteau:
@@ -1736,6 +1747,7 @@ label acte3:
                     ala "Y a pas plus con que toi, mec."
                     ala "T'es mort, gros !"
                 $ vote2 = 8
+                $ modif_confiance([isaac, emmy, alan, johann, leonhard], [-2, -2, -2, -2, -2])
             else:
                 narr "Leonhard leva un sourcil"
                 l "C'est vrai, ça, Isaac ?"
@@ -1751,22 +1763,12 @@ label acte3:
                 isa "Je ne peux vraiment plus faire confiance à personne."
                 isa "Faites attention à Kurt."
                 isa "Il vous trahira aussi."
-            if elus_vote[1]==["alan"]:
-                $ modif_confiance([isaac, emmy, johann, leonhard], 
-                                  [-2, -2, -2, -2, -2])
-            else:
-                $ modif_confiance([isaac, alan, johann, leonhard], 
-                                  [-2, -2, -2, -2, -2])
+            $ modif_confiance([isaac, emmy, alan, johann, leonhard], [-5, -1, -1, -1, -1])
             $ vote2 = 8
         "Avouer mon crime" if claim_bystander:
             $ renpy.fix_rollback()
             p "Je..."
-            if elus_vote[1]==["alan"]:
-                $ modif_confiance([isaac, emmy, johann, leonhard], 
-                                  [-1  , -1   , -1  , -1    , -1      ])
-            else:
-                $ modif_confiance([isaac, alan, johann, leonhard], 
-                                  [-1  , -1   , -1  , -1    , -1      ])
+            $ modif_confiance([isaac, emmy, alan, johann, leonhard], [-1, -1, -1, -1, -1])
             p "Je vous ai menti."
             $ claim_bystander = False
             p "Je.. Je suis toujours resté dans la légalité"
@@ -1777,7 +1779,7 @@ label acte3:
             p "Je me suis déjà fait censurer..."
             p "...ça ne m'étonnerait pas que le Bourreau veuille me faire taire une bonne fois pour toutes..."
             j "Et bien enfin, il t'en aura fallu du temps, pour avouer..."
-        "Ne rien dire":
+        "Ne rien dire" ("default", 18.0):
             narr "Je préférais ne rien dire."
     narr "Johann replaça ses lunettes."
     if elus_vote[1] == ["alan"] and persistent.glitched:
@@ -1853,9 +1855,9 @@ label acte3:
                 narr "J'avais merdé."
                 $ vote2 = 8
     l "Très bien. Passons au vote."
-    jump vote
+    call vote(2)
 
-label suite_vote_2:
+label suite_vote_2: # renpy-graphviz: IGNORE
     play music "music/Theme_acte_3.ogg" fadein 3.0
     scene fondacte3 with fade
     show moving at defiler
@@ -1946,8 +1948,7 @@ label suite_vote_2:
                 narr "..."
                 narr "40 ?"
                 narr "Je perdis connaissance."
-                $ fin = -3
-                jump game_over
+                call game_over(-3) # renpy-graphviz: GAMEOVER
             "Se défendre":
                 $ renpy.fix_rollback()
                 narr "Alan fonça sur moi."
@@ -1970,8 +1971,7 @@ label suite_vote_2:
                 narr "..."
                 narr "40 ?"
                 narr "Je perdis connaissance."
-                $ fin = -3
-                jump game_over
+                call game_over(-3) # renpy-graphviz: GAMEOVER
             "Attaquer (couteau)" if inventaire["knife"]["nb"]==1:
                 $ renpy.fix_rollback()
                 narr "Alan fonça sur moi."
@@ -2002,6 +2002,8 @@ label suite_vote_2:
                 j "Enfin bref. Mettons-le sur un lit, en attendant."
                 $ sauvegarder("continuer")
                 nvl clear
+                $ alan["statut"] = "Mort"
+                $ get_achievement("meurtrier")
                 isa "Hey, Kurt ! T'as géré !"
                 isa "T'as tué ce {i}connard{/i} d'Alan, trop fort !"
                 $ modif_resume(320)
@@ -2051,6 +2053,7 @@ label suite_vote_2:
                 p "Tu viens de tuer un être humain, Isaac"
                 isa "Pff, Alan, un humain ?"
                 $ modif_resume(321)
+                $ alan["statut"] = "Mort"
                 narr "Il hocha la tête."
         isa "..."
         isa "Tu... tu crois que le Bourreau fait exprès, de nous monter les uns contre les autres ?"
@@ -2224,7 +2227,7 @@ label suite_vote_2:
     narr "L'écran était très épuré. Y étaient affichés seulement des lettres capitales formant le mot {b}Index{/b}, ainsi qu'une barre de recherche."
     narr "Il y a un outil de recherche recensant les livres et leurs thèmes... Intéressant !"
     nvl clear
-    jump explore_archives
+    call explore_archives(3)
     
 label suite_explore_archives:
     $ modif_resume(328)
@@ -2330,7 +2333,7 @@ label suite_explore_archives:
         narr "Ou me battre contre lui, donner tout ce que je peux pour protéger ma vie ?"
         menu:
             "Se suicider":
-                jump suicide
+                jump suicide # renpy-graphviz: SKIPLINK GAMEOVER
             "Attendre et se battre":
                 $ renpy.fix_rollback()
                 $ ajoute_instabilite(-1)
@@ -2420,8 +2423,7 @@ label suite_explore_archives:
                 narr "De la lumière blanche."
                 narr "..."
                 narr "La fin."
-                $ fin = -2
-                jump game_over
+                call game_over(-2) # renpy-graphviz: GAMEOVER
             else:
                 isa "Kurt..."
                 narr "Il pencha la tête, en transe."
@@ -2540,8 +2542,7 @@ label suite_explore_archives:
                 narr "..."
                 narr "Une lumière blanche..."
                 narr "C'était la fin."
-                $ fin = -2
-                jump game_over
+                call game_over(-2) # renpy-graphviz: GAMEOVER
     $ sauvegarder("continuer", montrer=False)
     nvl clear
     $ isaac["statut"] = "Mort"
@@ -2557,7 +2558,7 @@ label suite_explore_archives:
     if assomme:
         j "T'as une bosse énorme."
         l "La créature qui a assommé Isaac hier..."
-        l "Elle a recommencé avec toi ?"
+        l "Elle a recommencé avec vous ?"
         narr "Johann replaça ses lunettes, pensif."
         j "Mais pourquoi fait-elle {i}ça{/i} ?"
         l "Je ne sais pas. Mais bref."
@@ -2650,13 +2651,12 @@ label suite_explore_archives:
     show screen menu_title_coal()
     call screen in_game_menu(acte=acte)
     
-    
+
 #================================================#
 #================     Acte IV     ===============#
 #================================================#
-label acte4:
+label acte4: # renpy-graphviz: TITLE
     $ acte = 4
-    $ acte_romain = "IV"
     $ persistent.sauvegarde_info[partie_actuelle][0] = 4
     nvl clear
     play music "music/Theme_acte_4.ogg" fadein 3.0
@@ -2853,7 +2853,7 @@ label acte4:
     hide carte_complete_penchee with dissolve
     $ quick_menu = True
     nvl clear
-label fincartetotale:
+label fincartetotale: # renpy-graphviz: IGNORE
     nvl clear
     narr "Il restait environ une demi-heure avant le début du vote."
     narr "J'avais juste le temps de parler à deux personnes."
@@ -3112,6 +3112,8 @@ label talk_acte4:
                     p "Oh, {i}félicitations{/i} !{#en français dans le texte}"
                     narr "Lise rougit"
                     li "Merci !"
+        "Rester seul" ("default", 18.0):
+            $ nb_parle = 2
     $ sauvegarder("continuer")
     nvl clear
     if nb_parle == 1:
@@ -3124,9 +3126,9 @@ label talk_acte4:
     narr "Tandis que Leonhard, Johann et moi étions allés voter à la salle de vote de l'aile gauche, sur nos tablettes respectives, Erwin, Lise et Rosalind votèrent depuis leur salle de vote."
     $ sauvegarder("continuer")
     nvl clear
-    jump vote
+    call vote(3)
     
-label suite_vote_3:
+label suite_vote_3: # renpy-graphviz: IGNORE
     play music "music/Theme_acte_4.ogg" fadein 3.0
     $ quick_menu = True
     $ is_voting = False
@@ -3184,13 +3186,12 @@ label suite_vote_3:
     $ first_time_see_arcade = True
     $ piles_supplementaires = False
     $ chambre_acte4_seen_once = False
-    jump map2_acte4
+    call map2_acte4 # renpy-graphviz: SKIPLINK
     
-label finCarteActe4:
+label finCarteActe4: # renpy-graphviz: IGNORE
     hide carte_complete with dissolve
     hide go_left with dissolve
     hide go_right with dissolve
-    hide quit_map with dissolve
     narr "19h."
     narr "Nous étions tous réunis en cercle dans la grande salle centrale."
     narr "D'un coté, Johann et Leonhard. De l'autre, Erwin et Lise."
@@ -3278,7 +3279,7 @@ label nuit_rosalind:
                     $ nie = False
             r "Je dois te parler."
             r "Tu... as eu un comportement inacceptable."
-            label fight_rosalind:
+            label fight_rosalind: # renpy-graphviz: IGNORE
                 r "Je dois..."
                 r "{b}TE PUNIR{/b}" with sshake
                 narr "Rosalind colla sa main contre moi."
@@ -3376,7 +3377,7 @@ label nuit_rosalind:
                     narr "Au bord de la mort."
                     r "Merci."
                     jump fight_rosalind
-        "Ne rien faire":
+        "Ne rien faire" ("default", 18.0):
             r "Klaus ?"
             r "Tu es là ?"
             r "Je sais que tu es là."
@@ -3487,12 +3488,13 @@ label nuit_rosalind:
     show screen menu_background()
     show screen menu_title_coal()
     call screen in_game_menu(acte=acte)
+
+    jump acte5
 #================================================#
 #================     Acte V     ================#
 #================================================#
-label acte5:
+label acte5: # renpy-graphviz: TITLE
     $ acte = 5
-    $ acte_romain = "V"
     $ persistent.sauvegarde_info[partie_actuelle][0] = 5
     nvl clear
     stop music
@@ -3567,7 +3569,7 @@ label acte5:
     l "Nous allons procéder au quatrième vote."
     l "Avez-vous quelque chose à annoncer ?"
     menu:
-        "Ne rien dire":
+        "Ne rien dire" ("default", 18.0):
             narr "Je préférais ne rien dire."
             l "Kurt, non ?"
         "Je sais qui est le Bourreau":
@@ -3607,9 +3609,9 @@ label acte5:
     l "Que le vote commence !"
     $ sauvegarder("continuer")
     nvl clear
-    jump vote
+    call vote(4)
     # =============== VOTE 4 =================================================================================
-label suite_vote_4:
+label suite_vote_4: # renpy-graphviz: IGNORE
     $ quick_menu = True
     $ is_voting = False
     $ situation = "en_jeu"
@@ -3686,7 +3688,7 @@ label suite_vote_4:
                 narr "Aucun ne méritait de mourir."
                 narr "Isaac. Je vais faire comme Isaac."
                 narr "Je vais me suicider."
-                jump suicide
+                jump suicide # renpy-graphviz: SKIPLINK GAMEOVER
             elif kill == "Johann":
                 p "Johann."
                 p "Je vais tuer Johann."
@@ -3925,7 +3927,6 @@ label fight_leonhard:
     nvl clear
     narr "Que devais-je faire ?"
     $ passif = True
-    $ countdown_time = 15.0
     menu:
         "L'attaquer aux poings":
             $ passif = False
@@ -3936,7 +3937,7 @@ label fight_leonhard:
             jump fight_leonhard_poison
         "Lui faire boire le poison (s'aider d'Erwin)." if erwin["confiance"] >= 18 and (inventaire["poison"]["nb"]  == 1) and not inventaire["poison"]["used"]:
             jump fight_leonhard_poison_erwin
-        "Rester immobile" ("default"):
+        "Rester immobile" ("default", 15.0):
             jump fight_leonhard_rate
 
 label fight_leonhard_couteau:
@@ -3994,6 +3995,7 @@ label fight_leonhard_couteau:
         $ modif_confiance([erwin, lise, johann], [-2, -2, -2], False)
     $ fin_vote_4 = "leonhard_mort"
     $ leonhard["statut"] = "Mort"
+    $ get_achievement("meurtrier")
     jump suite_fight_vote4
 
 label fight_leonhard_poison:
@@ -4020,8 +4022,7 @@ label fight_leonhard_poison:
         narr "Un jet de sang pourpre sortait de mon corps."
         narr "Une lumière blanche..."
         $ sauvegarder("continuer")
-        $ fin = -6
-        jump game_over
+        call game_over(-6) # renpy-graphviz: GAMEOVER
     else:
         narr "Son poing serré fusa vers mon visage."
         narr "Je le bloquai, mais il avait plus de force que moi."
@@ -4038,6 +4039,7 @@ label fight_leonhard_poison:
         narr "Il n'était bientôt plus de ce monde."
         $ fin_vote_4 = "leonhard_mort"
         $ leonhard["statut"] = "Mort"
+        $ get_achievement("meurtrier")
         jump suite_fight_vote4
 
 label fight_leonhard_poison_erwin:
@@ -4087,11 +4089,10 @@ label fight_leonhard_rate:
     narr "Je ne comprenais plus rien."
     narr "Un jet de sang pourpre sortait de mon corps."
     $ sauvegarder("continuer")
-    $ fin = -6
-    jump game_over
+    call game_over(-6) # renpy-graphviz: GAMEOVER
 
 #=================================
-
+# renpy-graphviz: BREAK
 label machination:
     if gibier == "Kurt":
         narr "Johann me poursuivait."
@@ -4133,7 +4134,6 @@ label machination:
         j "Mais je ne te fais plus confiance. Je ne sais pas à quoi tu joues, mais tu n'as certainement pas aidé dans cette histoire."
         narr "Je ne pouvais plus reculer."
         $ passif = True
-        $ countdown_time = 5.0
         menu:
             "Frapper":
                 $ passif = False
@@ -4141,7 +4141,7 @@ label machination:
             "Coup de couteau" if inventaire["knife"]["nb"] == 1:
                 jump fight_johann_couteau
                 #TODO : poison
-            "Attendre" ("default"):
+            "Attendre" ("default", 5.0):
                 jump fight_johann_rate
     else:
         j "J'ai un plan. Un putain de plan."
@@ -4263,9 +4263,9 @@ label fight_johann_rate:
     narr "..."
     narr "La fin..."
     $ sauvegarder("continuer")
-    $ fin = -8
-    jump game_over
+    call game_over(-8) # renpy-graphviz: GAMEOVER
 
+# renpy-graphviz: BREAK
 label fight_johann_couteau:
     narr "Johann enleva ses lunettes, et cassa la monture."
     narr "Une lame pointue brillait dans la paume de sa main."
@@ -4303,7 +4303,6 @@ label fight_erwin:
     erw "Je vais essayer de faire ça proprement."
     narr "Erwin approchait vers moi, confiant."
     $ passif = True
-    $ countdown_time = 15.0
     menu:
         "L'attaquer aux poings":
             $ passif = False
@@ -4314,7 +4313,7 @@ label fight_erwin:
             jump fight_erwin_poison
         "S'aider de Johann et lui faire boire le poison" if johann["confiance"] >= 18 and (inventaire["poison"]["nb"]  == 1) and not inventaire["poison"]["used"]:
             jump fight_erwin_poison_johann
-        "Rester immobile" ("default"):
+        "Rester immobile" ("default", 15.0):
             jump fight_erwin_rate
             
 label fight_erwin_poison:
@@ -4340,9 +4339,9 @@ label fight_erwin_poison:
     narr "La dernière chose que je vis, c'est un sourire de Leonhard."
     narr "Puis, une lumière blanche m'entoura..."
     $ sauvegarder("continuer")
-    $ fin = -7
-    jump game_over
+    call game_over(-7) # renpy-graphviz: GAMEOVER
 
+# renpy-graphviz: BREAK
 label fight_erwin_poison_johann:
     narr "Comment était-il possible de l'empoisonner ?"
     narr "Jeter le poison sur lui ? Trop risqué. Et le temps que le poison fasse effet... Il allait me tuer."
@@ -4476,13 +4475,13 @@ label fight_erwin_rate:
     erw "Ton cœur lui-même commence à faiblir."
     erw "C'est la fin pour toi."
     $ sauvegarder("continuer")
-    $ fin = -7
-    jump game_over
+    call game_over(-7) # renpy-graphviz: GAMEOVER
     
 
 #=============================================================================================================
 # Apres les évènements survenant juste à la suite du vote 4.
 # Contient : Voir Erwin / Johann / Leonhard selon les morts possibles. Si Erwin est mort, le jeu part dans une branche différente de celle-ci
+# renpy-graphviz: BREAK
 label suite_fight_vote4:
     #$ fin_vote_4 = "leonhard_mort" / "johann_vivant" / "johann_mort" / "johann_mort_cachée" / "erwin_mort"
     $ sauvegarder("continuer")
@@ -4510,12 +4509,12 @@ label suite_fight_vote4:
     show screen menu_background()
     show screen menu_title_coal()
     call screen in_game_menu(acte=acte)
+
 #================================================#
 #==============     Acte FINAL     ==============#
 #================================================#
-label acte6:
+label acte6 : # renpy-graphviz: title
     $ acte = 6
-    $ acte_romain = "VI"
     $ persistent.sauvegarde_info[partie_actuelle][0] = 6
     nvl clear
     play music "music/Theme_acte_6.ogg" fadeout 3.0 fadein 3.0
@@ -4536,7 +4535,6 @@ label acte6:
         narr "Leonhard tournait en rond dans la réserve de l'aile gauche."
     narr "Les chimistes manigançaient quelque chose dans le labo."
     narr "Vers qui aller ?"
-    $ countdown_time = 15.0
     menu:
         "Parler à Johann" if johann["statut"] == "Vivant":
             narr "Johann avait des choses à me dire."
@@ -4549,7 +4547,7 @@ label acte6:
         "Parler aux chimistes":
             narr "Les chimistes devaient m'en dire plus. Je ne savais pas encore ce qu'il se passe, mais ça doit être clarifié..."
             jump parler_chimistes
-        "Explorer la Grande salle." ("default"):
+        "Explorer la Grande salle." ("default", 15.0):
             jump explorer_grande_salle
 
 
@@ -4752,13 +4750,12 @@ label apres_discussions:
     narr "Mais j'avais le champs libre : il ne restait plus personne..."
     $ une_entrevue_johann = True
     $ une_entrevue_lise = True
-    jump map2_acte6
+    call map2_acte6 # renpy-graphviz: SKIPLINK
 
-label finCarteActe6:
+label finCarteActe6: # renpy-graphviz: IGNORE
     hide carte_complete with dissolve
     hide go_left with dissolve
     hide go_right with dissolve
-    hide quit_map with dissolve
     narr "Bientôt midi."
     #TODO on peut être allié avec Erwin et mal parler à l/j
     narr "J'étais déjà devant mon écran."
@@ -4782,7 +4779,7 @@ label finCarteActe6:
             j "Mais on peut les piéger."
             narr "Il me fit un clin d'oeil."
         j "Allez, on vote :"
-    jump vote
+    call vote(5)
 
 label suite_vote_5:
     $ quick_menu = True
@@ -4919,7 +4916,4 @@ label obsolescence:
             narr "Ce message me rappelait quelque chose, mais quoi ?"
             narr "Une sensation de déjà-vu m'envahissait."
 
-
-label end:
-    return
 
