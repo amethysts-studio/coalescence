@@ -78,13 +78,14 @@ screen bio_perso(perso, situation, acte=0):
     zorder 12
     style_prefix "coalbio"
 
-    image perso["image"] alpha 0.5 at smooth(1.0)
+    add perso["image"] alpha 0.5 at smooth(1.0)
 
     if perso["statut"][:4] == "Mort":
-        image "fondacte/frame_purple.png" alpha 0.6
         fixed:
             at smooth(1.0)
-            image "fondacte/frame_dead.png" alpha 0.6
+            add "right_eye" xpos perso['eyes']['right'][0] ypos perso['eyes']['right'][1] anchor (50, 50)
+            add "left_eye"  xpos perso['eyes']['left'][0]  ypos perso['eyes']['left'][1] anchor (50, 50)
+            add "fondacte/frame_dead.png" alpha 0.6
     window:
         at smooth_title(time = 1.0, transp = 1.0, dist_y = 60)
         xysize (600, 94) xalign 0.5 ypos 60
@@ -96,7 +97,6 @@ screen bio_perso(perso, situation, acte=0):
     window:
         at xslide(x_depart=720, x_final=360)
         xysize (600, 94) xalign 0.5 ypos 620
-        #image perso["image"] xoffset 33 yalign 0.5
         vbox:
             at truecenter
             if perso in persos_joueurs:

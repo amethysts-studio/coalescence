@@ -11,6 +11,10 @@ image rosalind_portrait = "persos/rosalind.jpg"
 image erwin_portrait = "persos/erwin.jpg"
 image lise_portrait = "persos/lise.jpg"
 
+# Eyes
+image left_eye = "persos/eye_left.png"
+image right_eye = "persos/eye_right.png"
+
 # Animation
 image moving = "fondacte/Moving.png"
 
