@@ -36,13 +36,13 @@ init python:
         name = "???" if unknown else qui["nom"]
         if unknown:
             nvl_clear()
-            renpy.show(qui["nom"].lower()+"_portrait", at_list=[smooth(time=1.0, alpha_max=0.5)])
+            renpy.show(qui["image"], at_list=[smooth(time=1.0, alpha_max=0.5)])
         if not renpy.is_skipping():
             renpy.show_screen(_screen_name= 'message_important', name = name, color = qui["color"], important_sentence = quoi, unknown = unknown)
         if unknown:
             renpy.pause(2.0, hard=True)
             renpy.pause(4.0)
-            renpy.hide(qui["nom"].lower()+"_portrait")
+            renpy.hide(qui["image"])
         else:
             renpy.say(qui["char"], quoi)
 

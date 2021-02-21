@@ -2847,7 +2847,7 @@ label acte4:
     nvl clear
     show carte_complete_penchee with dissolve
     $ quick_menu = False
-    $ carte_complete = True
+    $ is_carte_complete = True
     $ renpy.pause(2.0, hard=True)
     n ""
     hide carte_complete_penchee with dissolve

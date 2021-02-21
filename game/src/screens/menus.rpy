@@ -570,12 +570,16 @@ screen help_plz(acte=0, situation = "menu_principal"):
             vbox:
                 text _("Rejoignez la discussion : théories, secrets et résolution de problèmes sur {a=https://discord.gg/wmu2PWA}Discord{/a} !")
                 text "_" xalign 0.5
+                null height 20
                 text _("Le bouton {i}Passer{/i} en bas de l'écran permet de passer les dialogues déjà lus, jusqu'au prochain choix ou phrase encore non lue.")
                 text "_" xalign 0.5
+                null height 20
                 text _("Le bouton {i}Auto{/i} permet de faire défiler automatiquement les dialogues, à votre rythme : vous pouvez en modifier la vitesse dans le menu des options.")
                 text "_" xalign 0.5
+                null height 20
                 text _("Pour réussir à vaincre le Bourreau, connaître la vérité est nécessaire. Mais non suffisant.")
                 text "_" xalign 0.5
+                null height 20
                 text _("Les codes de triche sont à rentrer dans un menu secret. A vous de le trouver...")
 
     button:
@@ -631,10 +635,10 @@ screen carte(localisation_persos={2}, revelee=False, acte=0):
         background "#0000"
         at smooth_title(time = 1.0, transp = 1.0, dist_y = 0)
         xysize (720,1280)
-        if carte_complete:
-            image carte_complete_penchee
+        if is_carte_complete:
+            add "carte_complete_penchee"
         else:
-            image carte_incomplete
+            add "carte_incomplete"
     button:
         at fade_away()
         ypos 1120

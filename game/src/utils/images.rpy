@@ -1,50 +1,33 @@
 # Portraits
-image isaac_portrait:
-    "persos/perso isaac.jpg"
-image johann_portrait:
-    "persos/perso johann.jpg"
-image emmy_portrait:
-    "persos/perso emmy.jpg"
-image kurt_portrait:
-    "persos/perso kurt.png"
-image leonhard_portrait:
-    "persos/perso leonhard.jpg"
-image alan_portrait:
-    "persos/perso alan.png"
-image rosalind_portrait:
-    "persos/perso rosalind.jpg"
-image erwin_portrait:
-    "persos/perso erwin.jpg"
-image lise_portrait:
-    "persos/perso lise.png"
+image unknown_portrait = "persos/unknown.jpg"
 
+image isaac_portrait = "persos/isaac.jpg"
+image johann_portrait = "persos/johann.jpg"
+image emmy_portrait = "persos/emmy.jpg"
+image leonhard_portrait = "persos/leonhard.jpg"
+image alan_portrait = "persos/alan.jpg"
 
-image moving:
-    "fondacte/Moving.png"
+image rosalind_portrait = "persos/rosalind.jpg"
+image erwin_portrait = "persos/erwin.jpg"
+image lise_portrait = "persos/lise.jpg"
+
+# Animation
+image moving = "fondacte/Moving.png"
 
 # Documents
-image MessagePorteGauche:
-    "documents/message_gauche.jpg"
-image MessagePorteDroite:
-    "documents/message_droite.jpg"
+image MessagePorteGauche = "documents/message_gauche.jpg"
+image MessagePorteDroite = "documents/message_droite.jpg"
 
 # Maps
-image carte_complete:
-    "cartes/carte_complete.png"
-image carte_complete_penchee:
-    "cartes/carte_complete_penchee.png"
-image carte_incomplete:
-    "cartes/carte_incomplete.png"
+image carte_complete = "cartes/carte_complete.png"
+image carte_complete_penchee = "cartes/carte_complete_penchee.png"
+image carte_incomplete = "cartes/carte_incomplete.png"
 
 # Maps for acts
-image carte1explore0:
-    "cartes/carte1explore0.png"
-image carte1explore1:
-    "cartes/carte1explore1.png"
-image carte1explore23:
-    "cartes/carte1explore23.png"
-image carte1explore4:
-    "cartes/carte1explore4.png"
+image carte1explore0 = "cartes/carte1explore0.png"
+image carte1explore1 = "cartes/carte1explore1.png"
+image carte1explore23 = "cartes/carte1explore23.png"
+image carte1explore4 = "cartes/carte1explore4.png"
 image quit_map:
   "cartes/bouton_quitter.png"
   yalign 1.0
