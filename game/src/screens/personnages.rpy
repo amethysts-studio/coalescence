@@ -78,10 +78,8 @@ screen bio_perso(perso, situation, acte=0):
     zorder 12
     style_prefix "coalbio"
 
-    if perso["nom"] in ["Johann", "Leonhard", "Emmy", "Isaac"]:
-        image "persos/perso "+perso["nom"].lower()+".jpg" alpha 0.5 at smooth(1.0)
-    else:
-        image "persos/None.jpg" alpha 0.5 at smooth(1.0)
+    image perso["image"] alpha 0.5 at smooth(1.0)
+
     if perso["statut"][:4] == "Mort":
         image "fondacte/frame_purple.png" alpha 0.6
         fixed:
