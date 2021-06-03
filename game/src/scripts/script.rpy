@@ -215,7 +215,7 @@ label acte1: # renpy-graphviz: TITLE
             narr "L'inconnu se leva et mit la main sur la poignée."
             alaunk "La porte est bien fermée !"
             j "Très bien !"
-label suite_premier_choix: # renpy-graphviz: IGNORE
+label suite_premier_choix:
     j "Je résume. On est tous enfermés ici par quelqu'un qui a l'air de vouloir jouer les justiciers."
     $ modif_resume(101)
     j "Il nous a traînés ici et a mis les moyens, à en juger l'équipement."
@@ -468,7 +468,7 @@ label suite_premier_choix: # renpy-graphviz: IGNORE
     $ quick_menu = False
     show screen menu_background()
     show screen menu_title_coal()
-    call screen in_game_menu(acte=acte)
+    call screen in_game_menu(acte=acte) # renpy-graphviz: IGNORE
 
 #================================================#
 #================     Acte II     ===============#
@@ -633,7 +633,7 @@ label acte2: # renpy-graphviz: TITLE
     l "Bien. Nous allons pouvoir passer au vote..."
     call vote(1) 
 
-label suite_vote_1: # renpy-graphviz: IGNORE
+label suite_vote_1:
     $ quick_menu = True
     $ is_voting = False
     $ situation = "en_jeu"
@@ -968,7 +968,7 @@ label suite_vote_1: # renpy-graphviz: IGNORE
     pause 1.5
     call sec_map
         
-label suite_map_1: # renpy-graphviz: IGNORE
+label suite_map_1:
     $ get_achievement("decouvre_carte")
     nvl clear
     hide carte_incomplete at carte_fade
@@ -1521,7 +1521,7 @@ label suite_map_1: # renpy-graphviz: IGNORE
     hide haut_de_page at smooth_title
     show screen menu_background()
     show screen menu_title_coal()
-    call screen in_game_menu(acte=acte)
+    call screen in_game_menu(acte=acte) # renpy-graphviz: IGNORE
 
     
 #================================================#
@@ -1857,7 +1857,7 @@ label acte3: # renpy-graphviz: TITLE
     l "Très bien. Passons au vote."
     call vote(2)
 
-label suite_vote_2: # renpy-graphviz: IGNORE
+label suite_vote_2:
     play music "music/Theme_acte_3.ogg" fadein 3.0
     scene fondacte3 with fade
     show moving at defiler
@@ -2649,7 +2649,7 @@ label suite_explore_archives:
     hide haut_de_page at smooth_title
     show screen menu_background()
     show screen menu_title_coal()
-    call screen in_game_menu(acte=acte)
+    call screen in_game_menu(acte=acte) # renpy-graphviz: IGNORE
     
 
 #================================================#
@@ -2853,7 +2853,7 @@ label acte4: # renpy-graphviz: TITLE
     hide carte_complete_penchee with dissolve
     $ quick_menu = True
     nvl clear
-label fincartetotale: # renpy-graphviz: IGNORE
+label fincartetotale:
     nvl clear
     narr "Il restait environ une demi-heure avant le début du vote."
     narr "J'avais juste le temps de parler à deux personnes."
@@ -3279,7 +3279,7 @@ label nuit_rosalind:
                     $ nie = False
             r "Je dois te parler."
             r "Tu... as eu un comportement inacceptable."
-            label fight_rosalind: # renpy-graphviz: IGNORE
+            label fight_rosalind:
                 r "Je dois..."
                 r "{b}TE PUNIR{/b}" with sshake
                 narr "Rosalind colla sa main contre moi."
@@ -3487,7 +3487,7 @@ label nuit_rosalind:
     hide haut_de_page at smooth_title
     show screen menu_background()
     show screen menu_title_coal()
-    call screen in_game_menu(acte=acte)
+    call screen in_game_menu(acte=acte) # renpy-graphviz: IGNORE
 
     jump acte5
 #================================================#
@@ -3611,7 +3611,7 @@ label acte5: # renpy-graphviz: TITLE
     nvl clear
     call vote(4)
     # =============== VOTE 4 =================================================================================
-label suite_vote_4: # renpy-graphviz: IGNORE
+label suite_vote_4: 
     $ quick_menu = True
     $ is_voting = False
     $ situation = "en_jeu"
@@ -4508,7 +4508,7 @@ label suite_fight_vote4:
     hide haut_de_page at smooth_title
     show screen menu_background()
     show screen menu_title_coal()
-    call screen in_game_menu(acte=acte)
+    call screen in_game_menu(acte=acte) # renpy-graphviz: IGNORE
 
 #================================================#
 #==============     Acte FINAL     ==============#
