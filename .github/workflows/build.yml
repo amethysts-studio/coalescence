@@ -39,7 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download Renpy artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: renpy
       - name: Extract renpy files
@@ -63,7 +63,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download Renpy artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: renpy
       - name: Extract renpy files
@@ -86,11 +86,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download report
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: report
       - name: Download distributions
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: distributions
 
